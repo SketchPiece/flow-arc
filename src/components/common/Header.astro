@@ -1,0 +1,41 @@
+---
+import logoIcon from "../../assets/logo.svg";
+
+const navigation = [
+  { name: "About Us", href: "#" },
+  { name: "Services", href: "#" },
+  { name: "Case Studies", href: "#" },
+  { name: "Blog", href: "#" },
+];
+---
+
+<header class="pt-10 font-serif">
+  <nav
+    aria-label="Global"
+    class="mx-auto flex container items-center justify-between"
+  >
+    <a href="/">
+      <span class="sr-only">Flow Arc</span>
+      <img alt="Flow Arc Logo" src={logoIcon.src} class="h-12" />
+    </a>
+    <!-- <div class="flex lg:hidden">
+      <button
+        type="button"
+        onClick={() => setMobileMenuOpen(true)}
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
+        <span class="sr-only">Open main menu</span>
+        <Bars3Icon aria-hidden="true" class="size-6" />
+      </button>
+    </div> -->
+    <div class="hidden lg:flex lg:gap-x-12">
+      {
+        navigation.map((item) => (
+          <a href={item.href} class="text-lg hover:text-primary-darker">
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
