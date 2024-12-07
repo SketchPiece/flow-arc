@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import placeholder from "../../assets/images/placeholder-large.png"
+import posts from '../../data/posts.json';
+
+
+export async function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { id: String(post?.id) }, 
+  }));
+}
+
+const { id } = Astro.params;
+const post = posts?.find((p) => p.id === id);
+
+if (!post) {
+  throw new Error(`No post by id "${id}"`);
+}
+---
+
+<Layout>
+    <section id="post-title" class="container mx-auto pt-20 pb-36">
+        <h1 class="text-4xl md:text-6xl font-medium mb-8">
+        {post.title}
+        </h1>
+
+        <img src={post?.image?.full || placeholder.src} alt={`${post.id}-post-image`} class="w-full h-[330px] mb-16 object-cover rounded-smooth-large"/>
+        
+        <div class="md:px-20 lg:px-60 flex flex-col gap-5">
+            {post?.post_description_paragraphs?.map((p) => <p class="text-lg">{p}</p>)}
+        </div>
+    </section>
+</Layout>

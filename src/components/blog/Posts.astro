@@ -1,0 +1,26 @@
+---
+import PostCard from "./PostCard.astro";
+import Button from "../react/Button";
+import posts from "../../data/posts.json"
+
+interface Post {
+    id: string,
+	image: {
+		full: string | null,
+		thumb: string | null
+	},
+	title: string,
+	short_description: string,
+	post_description_paragraphs: string[]
+}
+---
+
+<section id="blog-posts" class="container mx-auto pt-14 pb-28">
+    <div class="grid md:grid-cols-2 gap-10 xs:grid-cols-1 sm:grid-cols-1">
+        {(posts as Post[])?.map((post) => <PostCard {...post}/>)}
+    </div>
+    <div class="flex mt-20 justify-between">
+        <Button>Previous</Button>
+        <Button>Next</Button>
+    </div>
+</section>

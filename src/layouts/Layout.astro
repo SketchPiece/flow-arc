@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/space-grotesk";
 import Header from "../components/common/Header.astro";
+import Footer from "../components/common/Footer.astro"
 ---
 
 <!doctype html>
@@ -12,11 +13,12 @@ import Header from "../components/common/Header.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Flow Arc</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <!-- <Header client:load /> -->
     <Header />
     <main class="font-serif">
       <slot />
     </main>
+    <Footer/>
   </body>
 </html>
