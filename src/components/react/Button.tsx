@@ -1,16 +1,16 @@
-import type { ComponentProps } from 'react'
-import { cn } from '../../lib/utils'
+import type { ComponentProps } from "react";
+import { cn } from "../../lib/utils";
 
-type ButtonProps = ComponentProps<'button'>
+type ButtonProps = ComponentProps<"button">;
 
 export default function Button({ className, ...props }: ButtonProps) {
-	return (
-		<button
-			className={cn(
-				'rounded-xl bg-blue-obsidian px-9 py-5 text-lg text-white',
-				className
-			)}
-			{...props}
-		/>
-	)
+  return (
+    <button
+      className={cn(
+        "rounded-xl bg-blue-obsidian px-9 py-5 text-lg text-white",
+        className,
+      )}
+      {...props}
+    />
+  );
 }

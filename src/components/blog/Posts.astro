@@ -4,12 +4,12 @@ import Button from "../react/Button";
 import { getBlogPosts } from "../../lib/helpers";
 ---
 
-<section id="blog-posts" class="container mx-auto pt-14 pb-28">
-    <div class="grid md:grid-cols-2 gap-10 xs:grid-cols-1 sm:grid-cols-1">
-        {getBlogPosts().map((post) => <PostCard {...post}/>)}
-    </div>
-    <div class="flex mt-20 justify-between">
-        <Button>Previous</Button>
-        <Button>Next</Button>
-    </div>
+<section id="blog-posts" class="container mx-auto pb-28 pt-14">
+  <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2 xs:grid-cols-1">
+    {getBlogPosts().map((post) => <PostCard {...post} />)}
+  </div>
+  <div class="mt-20 flex justify-between">
+    <Button>Previous</Button>
+    <Button>Next</Button>
+  </div>
 </section>
