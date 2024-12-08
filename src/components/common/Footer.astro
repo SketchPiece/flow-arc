@@ -3,19 +3,15 @@ import logoIcon from "../../assets/icons/logo_light.svg";
 import linkedinIcon from "../../assets/icons/social_linkedin.svg";
 import xtwitterIcon from "../../assets/icons/social_xtwitter.svg";
 
-import Button from "../react/Button";
-
 const navigation = [
   { name: "About Us", href: "#" },
   { name: "Services", href: "#" },
   { name: "Case Studies", href: "#" },
   { name: "Blog", href: "/blog" },
 ];
-
-
 ---
 
-<footer class="md:container md:mx-auto xs:mx-0 sm:mx-0 mt-auto bg-primary-obsidian px-14 py-16 rounded-t-smooth-large">
+<footer class="md:container md:mx-auto xs:mx-0 sm:mx-0 mt-auto bg-blue-obsidian px-14 py-16 rounded-t-smooth-large">
      <nav
     aria-label="Global"
     class="mx-auto flex container items-center justify-between"
@@ -35,12 +31,12 @@ const navigation = [
       }
     </div>
     <div class="flex justify-end gap-5">
-        <Button className="w-fit p-0">
+        <a href="/">
             <img alt="flow-arc-logo-footer" src={linkedinIcon.src} />
-        </Button>
-         <Button className="w-fit p-0"> 
+        </a>
+        <a href="/">
             <img alt="flow-arc-logo-footer" src={xtwitterIcon.src}  />
-         </Button>
+        </a>
     </div>
   </nav>
   <div class="flex flex-col gap-5 text-white mt-16 mb-12 text-lg font-serif font-thin">
@@ -53,6 +49,6 @@ const navigation = [
   </div>
   <div class="font-serif text-lg font-thin pt-12 border-t">
     <span class="mr-10 text-white">© 2023 Positivus. All Rights Reserved.</span>
-    <Button className="p-0 underline">Privacy Policy</Button>
+    <a href="/" class="p-0 underline">Privacy Policy</a>
   </div>
 </footer>

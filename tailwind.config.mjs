@@ -21,6 +21,8 @@ export default {
 				primary: {
 					DEFAULT: '#ACD0F4',
 					darker: '#1B73CB',
+				},
+				blue: {
 					obsidian: '#191A23',
 				},
 			},

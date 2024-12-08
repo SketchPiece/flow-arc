@@ -1,21 +1,27 @@
 ---
-import placeholder from '../../assets/images/placeholder-small.png'
 import arrowIcon from '../../assets/icons/arrow.svg'
-import { cn } from '../../lib/utils';
-const { id, title, short_description, image, className } = Astro.props;
+import { Image } from 'astro:assets';
+import type { Post } from '../../lib/helpers';
+
+interface Props extends Post {
+    className?: string
+}
+
+const { id, title, shortDescription, image } = Astro.props;
 ---
-<article id={id} class={cn("relative w-full h-fit",className)}>
-    <div class="flex xs:flex-col-reverse md:flex-row overflow-hidden h-full rounded-smooth-large bg-primary  border border-black">
-        <div class="font-serif py-8 px-10 flex flex-col gap-2.5 w-2/3 xs:h-2/3 xs:w-full">
-            <h3 class="font-medium text-2xl">{title ?? ""}</h3>
-            <p class="text-sm">{short_description ?? ""}</p>
+
+<article id={id} class="relative w-full h-fit">
+    <div class="flex xs:flex-col-reverse sm:flex-col-reverse md:flex-row overflow-hidden h-full rounded-smooth-large bg-primary border border-black">
+        <div class="font-serif py-8 px-10 flex flex-col gap-2.5 w-2/3 xs:h-2/3 xs:w-full sm:w-full">
+            <h3 class="font-medium text-2xl">{title}</h3>
+            <p class="text-sm">{shortDescription}</p>
                 <a href={`/blog/${id}`} class='text-black bg-transparent flex items-center p-0 md:mt-5'>
                     <img alt="Flow Arc Logo" src={arrowIcon.src} class="mr-3.5 w-10 h-10" />
                     Read more
                 </a>
         </div>
-       <div class="bg-black w-1/3 xs:w-full xs:h-[150px] sm:aspect-[16/9]">
-            <img src={(image?.thumb ?? placeholder).src} alt={`image-blog-card-${id}`} class="object-cover rounded-r-smooth-large w-full h-full"/>
+       <div class="bg-black w-1/3 xs:w-full sm:w-full xs:h-[150px] sm:aspect-[16/9]">
+            <Image src={image} alt={`image-blog-card-${id}`} class="object-cover rounded-r-smooth-large w-full h-full" width="120" height="200" />
         </div>
    </div>   
     <div class="absolute inset-x-0 -bottom-1.5 h-20 rounded-b-smooth-large bg-black -z-10"/>
