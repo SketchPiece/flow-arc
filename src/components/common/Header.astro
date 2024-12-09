@@ -1,12 +1,6 @@
 ---
 import logoIcon from "../../assets/icons/logo.svg";
-
-const navigation = [
-  { name: "About Us", href: "#" },
-  { name: "Services", href: "#" },
-  { name: "Case Studies", href: "#" },
-  { name: "Blog", href: "/blog" },
-];
+import { navigationLinks } from "../../lib/constants";
 ---
 
 <header class="pt-10 font-serif">
@@ -30,7 +24,7 @@ const navigation = [
     </div> -->
     <div class="hidden lg:flex lg:gap-x-12">
       {
-        navigation.map((item) => (
+        navigationLinks.map((item) => (
           <a href={item.href} class="text-lg hover:text-primary-darker">
             {item.name}
           </a>

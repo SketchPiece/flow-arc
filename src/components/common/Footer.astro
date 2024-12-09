@@ -2,17 +2,11 @@
 import logoIcon from "../../assets/icons/logo_light.svg";
 import linkedinIcon from "../../assets/icons/social_linkedin.svg";
 import xtwitterIcon from "../../assets/icons/social_xtwitter.svg";
-
-const navigation = [
-  { name: "About Us", href: "#" },
-  { name: "Services", href: "#" },
-  { name: "Case Studies", href: "#" },
-  { name: "Blog", href: "/blog" },
-];
+import { navigationLinks } from "../../lib/constants";
 ---
 
 <footer
-  class="mt-auto rounded-t-smooth-large bg-blue-obsidian px-14 py-16 md:container sm:mx-0 md:mx-auto xs:mx-0"
+  class="mt-auto rounded-t-smooth-large bg-gray-obsidian px-14 py-16 md:container sm:mx-0 md:mx-auto xs:mx-0"
 >
   <nav
     aria-label="Global"
@@ -25,7 +19,7 @@ const navigation = [
 
     <div class="hidden lg:flex lg:gap-x-10">
       {
-        navigation.map((item) => (
+        navigationLinks.map((item) => (
           <a
             href={item.href}
             class="font-serif text-lg font-thin text-white underline hover:text-primary"

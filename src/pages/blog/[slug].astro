@@ -1,20 +1,20 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { getBlogPosts } from "../../lib/helpers";
+import { getBlogPostBySlug, getBlogPosts } from "../../api/posts";
 
 export function getStaticPaths() {
   return getBlogPosts().map((post) => ({
-    params: { id: String(post?.id) },
+    params: { slug: String(post?.id) },
   }));
 }
 
-const { id } = Astro.params;
+const { slug } = Astro.params;
 
-const post = getBlogPosts()?.find((p) => p.id === id);
+const post = getBlogPostBySlug(slug);
 
 if (!post) {
-  throw new Error(`No post by id "${id}"`);
+  throw new Error(`No post by id "${slug}"`);
 }
 ---
 
@@ -26,12 +26,13 @@ if (!post) {
     <Image
       src={post.image}
       alt={`${post.id}-post-image`}
-      class="mb-16 h-[330px] w-full rounded-smooth-large object-cover"
+      class="shadow-straight mb-16 h-[330px] w-full rounded-smooth-large object-cover"
       width="120"
       height="330"
     />
-    <div class="flex flex-col gap-5 md:px-20 lg:px-60">
-      {post?.descriptionParagraphs?.map((p) => <p class="text-lg">{p}</p>)}
+    <div class="flex flex-col gap-4 md:px-20 lg:px-60">
+      <p class="text- text-lg font-medium">{post.readingTime}</p>
+      {post?.paragraphs?.map((p) => <p class="text-lg">{p}</p>)}
     </div>
   </section>
 </Layout>

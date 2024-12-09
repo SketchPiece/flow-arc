@@ -1,19 +1,14 @@
-import posts from "../data/posts.json";
+export function truncate(str: string, maxLength: number) {
+  if (str.length <= maxLength) {
+    return str;
+  }
 
-export interface Post {
-  id: string;
-  image: string;
-  title: string;
-  shortDescription: string;
-  descriptionParagraphs: string[];
+  let truncated = str.slice(0, maxLength);
+  const lastSpaceIndex = truncated.lastIndexOf(" ");
+
+  if (lastSpaceIndex !== -1) {
+    truncated = truncated.slice(0, lastSpaceIndex);
+  }
+
+  return truncated + "...";
 }
-
-export const getBlogPosts = (): Post[] => {
-  return posts?.map(
-    ({ short_description, post_description_paragraphs, ...post }) => ({
-      ...post,
-      shortDescription: short_description,
-      descriptionParagraphs: post_description_paragraphs,
-    }),
-  );
-};

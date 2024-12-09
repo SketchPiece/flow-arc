@@ -1,10 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/blog/Hero.astro";
+import Heading from "../../components/blog/Heading.astro";
 import Posts from "../../components/blog/Posts.astro";
+import { getBlogPosts } from "../../api/posts";
+
+const posts = getBlogPosts();
 ---
 
 <Layout>
-  <Hero />
-  <Posts />
+  <Heading />
+  <Posts posts={posts} />
 </Layout>

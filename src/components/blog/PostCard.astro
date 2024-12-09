@@ -1,16 +1,19 @@
 ---
 import arrowIcon from "../../assets/icons/arrow.svg";
 import { Image } from "astro:assets";
-import type { Post } from "../../lib/helpers";
 
-interface Props extends Post {
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
   className?: string;
 }
 
-const { id, title, shortDescription, image } = Astro.props;
+const { id, title, description, image } = Astro.props;
 ---
 
-<article id={id} class="relative h-fit w-full">
+<article id={id} class="shadow-straight h-fit w-full">
   <div
     class="flex h-full overflow-hidden rounded-smooth-large border border-black bg-primary sm:flex-col-reverse md:flex-row xs:flex-col-reverse"
   >
@@ -18,7 +21,9 @@ const { id, title, shortDescription, image } = Astro.props;
       class="flex w-2/3 flex-col gap-2.5 px-10 py-8 font-serif sm:w-full xs:h-2/3 xs:w-full"
     >
       <h3 class="text-2xl font-medium">{title}</h3>
-      <p class="text-sm">{shortDescription}</p>
+      <p class="text-sm">
+        {description}
+      </p>
       <a
         href={`/blog/${id}`}
         class="flex items-center bg-transparent p-0 text-black md:mt-5"
@@ -38,9 +43,5 @@ const { id, title, shortDescription, image } = Astro.props;
         height="200"
       />
     </div>
-  </div>
-  <div
-    class="absolute inset-x-0 -bottom-1.5 -z-10 h-20 rounded-b-smooth-large bg-black"
-  >
   </div>
 </article>
