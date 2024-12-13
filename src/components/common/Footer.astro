@@ -1,0 +1,60 @@
+---
+import logoIcon from "../../assets/icons/logo_light.svg";
+import linkedinIcon from "../../assets/icons/social_linkedin.svg";
+import xtwitterIcon from "../../assets/icons/social_xtwitter.svg";
+import { navigationLinks } from "../../lib/constants";
+---
+
+<footer
+  class="mt-auto rounded-t-smooth-large bg-gray-obsidian px-14 py-16 md:container sm:mx-0 md:mx-auto xs:mx-0"
+>
+  <nav
+    aria-label="Global"
+    class="container mx-auto flex items-center justify-between"
+  >
+    <a href="/">
+      <span class="sr-only">Flow Arc</span>
+      <img alt="flow-arc-logo-footer" src={logoIcon.src} class="h-12" />
+    </a>
+
+    <div class="hidden lg:flex lg:gap-x-10">
+      {
+        navigationLinks.map((item) => (
+          <a
+            href={item.href}
+            class="font-serif text-lg font-thin text-white underline hover:text-primary"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class="flex justify-end gap-5">
+      <a href="/">
+        <img alt="flow-arc-logo-footer" src={linkedinIcon.src} />
+      </a>
+      <a href="/">
+        <img alt="flow-arc-logo-footer" src={xtwitterIcon.src} />
+      </a>
+    </div>
+  </nav>
+  <div
+    class="mb-12 mt-16 flex flex-col gap-5 font-serif text-lg font-thin text-white"
+  >
+    <h4
+      class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 font-medium text-black"
+    >
+      Contact us:
+    </h4>
+    <p>Email: info@positivus.com</p>
+    <p>
+      Address: 1234 Main St<br />
+      Moonstone City, Stardust State 12345
+    </p>
+  </div>
+  <div class="border-t pt-12 font-serif text-lg font-thin">
+    <span class="mr-10 text-white">© 2023 Positivus. All Rights Reserved.</span
+    >
+    <a href="/" class="p-0 underline">Privacy Policy</a>
+  </div>
+</footer>

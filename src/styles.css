@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .shadow-straight {
+    @apply rounded-smooth-large shadow-[0_10px_0px_0px_rgba(0,0,0,1)];
+  }
+}
