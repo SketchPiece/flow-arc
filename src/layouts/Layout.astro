@@ -1,6 +1,8 @@
 ---
 import "@fontsource-variable/space-grotesk";
+import "../styles.css";
 import Header from "../components/common/Header.astro";
+import Footer from "../components/common/Footer.astro";
 ---
 
 <!doctype html>
@@ -18,5 +20,6 @@ import Header from "../components/common/Header.astro";
     <main class="font-serif">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
