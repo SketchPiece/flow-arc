@@ -7,7 +7,7 @@ export default function Button({ className, ...props }: ButtonProps) {
   return (
     <button
       className={cn(
-        "rounded-xl bg-gray-obsidian px-9 py-5 text-lg text-white",
+        "bg-grey-darker text-grey-light rounded-xl px-9 py-5 text-lg",
         className,
       )}
       {...props}

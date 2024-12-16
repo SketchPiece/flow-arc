@@ -15,7 +15,7 @@ const { id, title, description, image } = Astro.props;
 
 <article id={id} class="shadow-straight h-fit w-full">
   <div
-    class="flex h-full overflow-hidden rounded-smooth-large border border-black bg-primary sm:flex-col-reverse md:flex-row xs:flex-col-reverse"
+    class="flex h-full overflow-hidden rounded-smooth-large border border-grey-darkest bg-primary sm:flex-col-reverse md:flex-row xs:flex-col-reverse"
   >
     <div
       class="flex w-2/3 flex-col gap-2.5 px-10 py-8 font-serif sm:w-full xs:h-2/3 xs:w-full"
@@ -26,14 +26,14 @@ const { id, title, description, image } = Astro.props;
       </p>
       <a
         href={`/blog/${id}`}
-        class="flex items-center bg-transparent p-0 text-black md:mt-5"
+        class="flex items-center bg-transparent p-0 text-grey-darkest md:mt-5"
       >
         <img alt="Flow Arc Logo" src={arrowIcon.src} class="mr-3.5 h-10 w-10" />
         Read more
       </a>
     </div>
     <div
-      class="w-1/3 bg-black sm:aspect-[16/9] sm:w-full xs:h-[150px] xs:w-full"
+      class="w-1/3 bg-grey-darkest sm:aspect-[16/9] sm:w-full xs:h-[150px] xs:w-full"
     >
       <Image
         src={image}
