@@ -6,7 +6,7 @@ import { navigationLinks } from "../../lib/constants";
 ---
 
 <footer
-  class="mt-auto rounded-t-smooth-large bg-gray-obsidian px-14 py-16 md:container sm:mx-0 md:mx-auto xs:mx-0"
+  class="mt-auto rounded-t-smooth-large bg-grey-darker px-14 py-16 text-grey-lighter md:container sm:mx-0 md:mx-auto xs:mx-0"
 >
   <nav
     aria-label="Global"
@@ -22,7 +22,7 @@ import { navigationLinks } from "../../lib/constants";
         navigationLinks.map((item) => (
           <a
             href={item.href}
-            class="font-serif text-lg font-thin text-white underline hover:text-primary"
+            class="font-serif text-lg font-thin underline hover:text-primary"
           >
             {item.name}
           </a>
@@ -38,11 +38,9 @@ import { navigationLinks } from "../../lib/constants";
       </a>
     </div>
   </nav>
-  <div
-    class="mb-12 mt-16 flex flex-col gap-5 font-serif text-lg font-thin text-white"
-  >
+  <div class="mb-12 mt-16 flex flex-col gap-5 font-serif text-lg font-thin">
     <h4
-      class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 font-medium text-black"
+      class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 font-medium text-grey-darkest"
     >
       Contact us:
     </h4>
@@ -53,8 +51,7 @@ import { navigationLinks } from "../../lib/constants";
     </p>
   </div>
   <div class="border-t pt-12 font-serif text-lg font-thin">
-    <span class="mr-10 text-white">© 2023 Positivus. All Rights Reserved.</span
-    >
+    <span class="mr-10">© 2023 Positivus. All Rights Reserved.</span>
     <a href="/" class="p-0 underline">Privacy Policy</a>
   </div>
 </footer>
