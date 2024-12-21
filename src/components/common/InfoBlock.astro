@@ -1,0 +1,26 @@
+---
+import { cn } from "../../lib/utils";
+
+interface Props {
+  title: string;
+  subTitle: string;
+  className?: string;
+}
+
+const { title, subTitle, className } = Astro.props;
+---
+
+<section
+  id="default-heading"
+  class={cn(
+    "container mx-auto flex flex-col items-center justify-center rounded-smooth-large bg-grey-darkest px-12 py-10 border border-grey-darkest shadow-straight",
+    className,
+  )}
+>
+  <h3
+    class="mb-5 rounded bg-grey-light px-2 text-3xl font-medium text-grey-darkest"
+  >
+    {title}
+  </h3>
+  <p class="mx-25 mt-1 text-center text-xl text-grey-light">{subTitle}</p>
+</section>

@@ -1,0 +1,65 @@
+---
+import Heading from "../components/common/Heading.astro";
+import Layout from "../layouts/Layout.astro";
+import InfoBlock from "../components/common/InfoBlock.astro";
+import CardsFlowList from "../components/common/CardsFlowList.astro";
+
+import CreatorsImage from "../assets/images/serivces/creators.png";
+import CardMgGlassImage from "../assets/images/serivces/cards-mg-glass.png";
+import CardHeartImage from "../assets/images/serivces/cards-heart-pulse.png";
+import CardDiagramImage from "../assets/images/serivces/cards-gypsy-diagram.png";
+import CardDialogsImage from "../assets/images/serivces/cards-dialogs.png";
+import SectionTitleBlock from "../components/common/SectionTitleBlock.astro";
+---
+
+<Layout>
+  <Heading
+    title="Automation Support & Maintenance"
+    subTitle="Keep your automation running at peak performance"
+    image={CreatorsImage}
+    items={[
+      "24/7 Expert Support",
+      "Proactive Monitoring",
+      "Continuous Optimization",
+    ]}
+  />
+  <InfoBlock
+    title="Keep Your Business Running Smoothly"
+    subTitle="We safeguard your business operations through continuous monitoring and maintenance, ensuring your automations remain efficient and reliable."
+    className="my-25"
+  />
+
+  <SectionTitleBlock
+    title="Our Support Process"
+    subTitle="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
+    className="mb-20"
+  />
+
+  <CardsFlowList
+    direction="right"
+    cards={[
+      {
+        title: "Monitor",
+        subTitle: "Real-time tracking and alerts",
+        image: CardMgGlassImage,
+      },
+      {
+        title: "Maintain",
+        subTitle: "Regular updates and security",
+        image: CardHeartImage,
+        focused: true,
+      },
+      {
+        title: "Optimize",
+        subTitle: "Performance enhancements",
+        image: CardDiagramImage,
+      },
+      {
+        title: "Support",
+        subTitle: "Rapid issue resolution",
+        image: CardDialogsImage,
+      },
+    ]}
+    className="mb-36"
+  />
+</Layout>

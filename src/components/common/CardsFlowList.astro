@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import { cn } from "../../lib/utils";
+import arrowInRight from "../../assets/images/arrow-in-right.png";
+import arrowInLeft from "../../assets/images/arrow-in-left.png";
+
+interface Props {
+  direction: "right" | "left";
+  cards: {
+    title: string;
+    subTitle: string;
+    image: ImageMetadata;
+    focused?: boolean;
+  }[];
+  className?: string;
+}
+
+const { cards, direction, className } = Astro.props;
+---
+
+<section id="cards-flow-list" class={cn("container mx-auto", className)}>
+  <div class="flex w-full flex-col">
+    {
+      cards?.map(({ title, subTitle, image }, index) => {
+        const isLeftCard =
+          !index || index % 2 === 0
+            ? direction === "right"
+            : direction === "left";
+        const isFirst = !index;
+        const isLast = index === cards?.length - 1;
+
+        return (
+          <div
+            class={cn(
+              "shadow-straight-small relative flex w-fit justify-between gap-10 rounded-smooth-large border border-grey-darkest px-14 py-12 lg:w-[768px]",
+              isLast
+                ? "mt-12 bg-grey-darkest text-grey-light"
+                : "mt-20 bg-primary text-grey-darkest",
+              isLeftCard ? "ml-20 mr-auto" : "ml-auto mr-20",
+            )}
+          >
+            <div class="flex flex-col gap-10">
+              <h2
+                class={cn(
+                  "text-5xl font-medium text-grey-darkest",
+                  isLast && "w-fit rounded bg-grey-light px-2",
+                )}
+              >
+                {title}
+              </h2>
+              <h3 class="text-inheritd text-3xl font-medium">{subTitle}</h3>
+            </div>
+            <Image src={image} alt={`card ${title} image`} />
+            {!isFirst && (
+              <div
+                class={cn(
+                  "absolute -top-[45%] -z-10",
+                  isLeftCard ? "-right-[45%]" : "-left-[40%]",
+                )}
+              >
+                <Image
+                  src={isLeftCard ? arrowInLeft : arrowInRight}
+                  alt="arrow"
+                />
+              </div>
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

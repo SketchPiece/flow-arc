@@ -5,6 +5,12 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      fontSize: {
+        "5xl": "40px",
+      },
+      margin: {
+        25: "100px",
+      },
       borderRadius: {
         "smooth-large": "45px",
       },
