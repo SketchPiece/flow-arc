@@ -1,0 +1,40 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import checkmark from "../../assets/icons/checkmark-blue-dark.svg";
+import { cn } from "../../lib/utils";
+
+interface Props {
+  title: string;
+  subTitle: string;
+  image: ImageMetadata;
+  items: string[];
+  className?: string;
+}
+
+const { title, subTitle, image, items, className } = Astro.props;
+---
+
+<section
+  id="default-heading"
+  class={cn(
+    "container mx-auto flex items-center gap-36 px-25 py-12",
+    className,
+  )}
+>
+  <div class="flex flex-col">
+    <h2 class="text-5xl font-medium text-black">{title}</h2>
+    <p class="mt-1 text-xl text-grey-dark">{subTitle}</p>
+    <ul class="mt-8 flex flex-col gap-4">
+      {
+        items?.map?.((item) => (
+          <li class="flex items-center gap-4 text-xl font-medium text-black">
+            <img alt="Flow Arc Logo" src={checkmark.src} />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <Image src={image} alt="heading image" />
+</section>
