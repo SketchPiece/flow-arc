@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import { cn } from "../../lib/utils";
 import arrowInRight from "../../assets/images/arrow-in-right.png";
@@ -32,11 +33,11 @@ const { cards, direction, className } = Astro.props;
         return (
           <div
             class={cn(
-              "shadow-straight-small relative flex w-fit justify-between gap-10 rounded-smooth-large border border-grey-darkest px-14 py-12 lg:w-[768px]",
+              "shadow-straight-small relative flex w-full flex-col justify-between gap-10 overflow-x-hidden rounded-smooth-large border border-grey-darkest px-14 py-12 sm:flex-col-reverse md:flex-row lg:flex-row xl:w-[768px] xl:overflow-x-visible",
               isLast
                 ? "mt-12 bg-grey-darkest text-grey-light"
                 : "mt-20 bg-primary text-grey-darkest",
-              isLeftCard ? "ml-20 mr-auto" : "ml-auto mr-20",
+              isLeftCard ? "xl:ml-20 xl:mr-auto" : "xl:ml-auto xl:mr-20",
             )}
           >
             <div class="flex flex-col gap-10">
@@ -48,21 +49,18 @@ const { cards, direction, className } = Astro.props;
               >
                 {title}
               </h2>
-              <h3 class="text-inheritd text-3xl font-medium">{subTitle}</h3>
+              <h3 class="text-3xl font-medium text-inherit">{subTitle}</h3>
             </div>
             <Image src={image} alt={`card ${title} image`} />
             {!isFirst && (
-              <div
+              <Image
                 class={cn(
-                  "absolute -top-[45%] -z-10",
+                  "absolute -top-[45%] -z-10 sm:opacity-0 xl:opacity-100",
                   isLeftCard ? "-right-[45%]" : "-left-[40%]",
                 )}
-              >
-                <Image
-                  src={isLeftCard ? arrowInLeft : arrowInRight}
-                  alt="arrow"
-                />
-              </div>
+                src={isLeftCard ? arrowInLeft : arrowInRight}
+                alt="arrow"
+              />
             )}
           </div>
         );
