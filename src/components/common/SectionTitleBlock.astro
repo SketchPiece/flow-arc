@@ -10,7 +10,7 @@ interface Props {
 const { title, subTitle, className } = Astro.props;
 ---
 
-<div class={cn("container mx-auto flex items-center gap-10", className)}>
+<div class={cn("flex items-center gap-10 sm:flex-col lg:flex-row", className)}>
   <h2
     class="w-fit text-nowrap rounded bg-primary px-2 text-5xl font-medium text-black"
   >

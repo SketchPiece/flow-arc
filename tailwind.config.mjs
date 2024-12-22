@@ -11,14 +11,18 @@ export default {
       margin: {
         25: "100px",
       },
+      padding: {
+        13: "52px",
+      },
       borderRadius: {
         "smooth-large": "45px",
       },
       screens: {
         xs: { max: "374px" },
         sm: "375px",
-        md: "768px",
+        md: { min: "768px", max: "1023px" },
         lg: "1024px",
+        xl: "1536px",
       },
       fontFamily: {
         serif: ["Space Grotesk Variable", ...defaultTheme.fontFamily.serif],
