@@ -1,5 +1,5 @@
 ---
-import arrowIcon from "../../assets/icons/arrow.svg";
+import linkArrowFill from "../../assets/icons/link-arrow-fill.svg";
 import { Image } from "astro:assets";
 
 interface Props {
@@ -28,7 +28,7 @@ const { id, title, description, image } = Astro.props;
         href={`/blog/${id}`}
         class="flex items-center bg-transparent p-0 text-grey-darkest md:mt-5"
       >
-        <img alt="Flow Arc Logo" src={arrowIcon.src} class="mr-3.5 h-10 w-10" />
+        <img alt="Link icon" src={linkArrowFill.src} class="mr-3.5 h-10 w-10" />
         Read more
       </a>
     </div>
