@@ -1,13 +1,19 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../react/Button";
+import RiveAnimation from "../react/RiveAnimation";
+import heroRobotPreview from "../../assets/images/hero-robot.png";
 ---
 
-<section id="hero" class="container mx-auto py-20">
+<section
+  id="hero"
+  class="container mx-auto flex flex-col-reverse items-center justify-between py-10 md:py-20 lg:flex-row"
+>
   <div>
-    <p class="text-4xl font-medium text-grey-dark">
+    <p class="text-3xl font-medium text-grey-dark xl:text-4xl">
       Simplify, Automate, and Grow:
     </p>
-    <h1 class="text-6xl font-medium">
+    <h1 class="text-5xl font-medium xl:text-6xl">
       Custom Solutions
       <br /> for Your Business
     </h1>
@@ -16,5 +22,20 @@ import Button from "../react/Button";
       and drive efficiency.
     </p>
     <Button className="mt-9">Book a consultation</Button>
+  </div>
+  <div>
+    <RiveAnimation
+      client:load
+      src="/animations/hero-robot.riv"
+      width={500}
+      height={500}
+    >
+      <Image
+        src={heroRobotPreview}
+        alt="Hero Robot Preview"
+        width={500}
+        height={500}
+      />
+    </RiveAnimation>
   </div>
 </section>

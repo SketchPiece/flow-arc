@@ -5,6 +5,12 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      container: {
+        screens: {
+          "2xl": "1360px",
+        },
+        padding: "2.5rem",
+      },
       borderRadius: {
         "smooth-large": "45px",
       },

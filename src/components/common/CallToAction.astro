@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import Button from "../react/Button";
+import chess from "../../assets/icons/chess.svg";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="container mx-auto pb-20">
+  <div
+    class="flex justify-between gap-8 rounded-smooth-large bg-primary px-14 py-11"
+  >
+    <div class="space-y-6">
+      <h3 class="text-3xl font-medium">
+        {title}
+      </h3>
+      <slot name="description" />
+      <Button>Book a consultation</Button>
+    </div>
+
+    <Image
+      src={chess}
+      alt="Chess Illustration"
+      height={250}
+      class="hidden lg:block"
+    />
+  </div>
+</section>

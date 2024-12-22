@@ -1,6 +1,7 @@
 ---
 import logoIcon from "../../assets/icons/logo.svg";
 import { navigationLinks } from "../../lib/constants";
+import MobileMenu from "../react/MobileMenu";
 ---
 
 <header class="pt-10 font-serif">
@@ -22,6 +23,7 @@ import { navigationLinks } from "../../lib/constants";
         <Bars3Icon aria-hidden="true" class="size-6" />
       </button>
     </div> -->
+    <MobileMenu navigation={navigationLinks} client:load />
     <div class="hidden lg:flex lg:gap-x-12">
       {
         navigationLinks.map((item) => (
