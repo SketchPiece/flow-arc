@@ -33,7 +33,7 @@ const { cards, direction, className } = Astro.props;
         return (
           <div
             class={cn(
-              "shadow-straight-small relative flex w-full flex-col justify-between gap-10 overflow-x-hidden rounded-smooth-large border border-grey-darkest px-14 py-12 sm:flex-col-reverse md:flex-row lg:flex-row xl:w-[768px] xl:overflow-x-visible",
+              "shadow-straight-small relative flex w-full flex-col justify-between gap-10 overflow-x-hidden rounded-smooth-large border border-grey-darkest px-14 py-12 sm:flex-col-reverse sm:overflow-y-hidden md:flex-row lg:flex-row lg:overflow-y-visible xl:w-[768px] xl:overflow-x-visible",
               isLast
                 ? "mt-12 bg-grey-darkest text-grey-light"
                 : "mt-20 bg-primary text-grey-darkest",
