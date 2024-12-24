@@ -1,9 +1,19 @@
 ---
+import Image from "astro/components/Image.astro";
 import Section from "../common/Section.astro";
+import contactIllustration from "@/assets/icons/contact.svg";
+import ContactForm from "../react/ContactForm";
 ---
 
 <Section title="Contact Us" sectionId="contact-us">
   <p slot="description" class="md:max-w-md">
     Let's Discuss Your Digital Automation Needs
   </p>
+  <div class="rounded-smooth-large bg-primary px-24 py-14">
+    <p class="mb-10">Have question? Drop us a message!</p>
+    <div class="flex gap-2">
+      <ContactForm />
+      <Image src={contactIllustration} alt="Contact Illustration" />
+    </div>
+  </div>
 </Section>

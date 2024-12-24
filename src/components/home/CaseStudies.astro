@@ -1,9 +1,47 @@
 ---
 import Section from "../common/Section.astro";
+import LinkArrow from "../icons/LinkArrow.astro";
+
+const cases = [
+  {
+    title:
+      "For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.",
+    href: "#restaurant-case",
+  },
+  {
+    title:
+      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
+    href: "#b2b-case",
+  },
+  {
+    title:
+      "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
+    href: "#retail-case",
+  },
+];
 ---
 
 <Section title="Case Studies" sectionId="case-studies">
   <p slot="description" class="md:max-w-md">
     See how businesses like yours have transformed with our automation solutions
   </p>
+
+  <div
+    class="grid grid-cols-1 gap-8 divide-y divide-grey-light rounded-smooth-large bg-grey-darker px-14 py-16 text-grey-light md:grid-cols-3 md:divide-x md:divide-y-0"
+  >
+    {
+      cases.map((item, index) => (
+        <div class:list={[index !== 0 && "pt-8 md:pl-8 md:pt-0"]}>
+          <p class="mb-6 text-grey-light">{item.title}</p>
+          <a
+            href={item.href}
+            class="inline-flex items-center text-primary transition-colors hover:text-primary-darker"
+          >
+            Learn more
+            <LinkArrow variant="transparent" />
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </Section>

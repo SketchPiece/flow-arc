@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { getBlogPostBySlug, getBlogPosts } from "../../api/posts";
+import { getBlogPostBySlug, getBlogPosts } from "@/api/posts";
 
 export function getStaticPaths() {
   return getBlogPosts().map((post) => ({

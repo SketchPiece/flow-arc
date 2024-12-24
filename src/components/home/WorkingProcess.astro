@@ -1,9 +1,48 @@
 ---
 import Section from "../common/Section.astro";
+import { WorkingAccordion } from "../react/WorkingAccordion";
 ---
 
 <Section title="Working Process" sectionId="working-process">
   <p slot="description" class="md:max-w-72">
     Step-by-Step Guide to Achieving Your Automation Goals
   </p>
+  <div class="grid gap-7">
+    <WorkingAccordion
+      client:load
+      questionNumber="01"
+      title="Consultation"
+      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+    />
+    <WorkingAccordion
+      client:load
+      questionNumber="02"
+      title="Analysis and Solution Design"
+      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+    />
+    <WorkingAccordion
+      client:load
+      questionNumber="03"
+      title="Implementation"
+      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+    />
+    <WorkingAccordion
+      client:load
+      questionNumber="04"
+      title="Testing and Refinement"
+      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+    />
+    <WorkingAccordion
+      client:load
+      questionNumber="05"
+      title="Training and Handover"
+      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+    />
+    <WorkingAccordion
+      client:load
+      questionNumber="06"
+      title="Ongoing Support and Optimization"
+      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+    />
+  </div>
 </Section>
