@@ -13,20 +13,20 @@ function BurgerIcon() {
       <path
         d="M1 1.80667H25"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M1 9.80667H25"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M1 17.8067H25"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -44,14 +44,14 @@ function CrossIcon() {
       <path
         d="M1.51465 18.4853L18.4852 1.51471"
         stroke="black"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <path
         d="M1.51465 1.51472L18.4852 18.4853"
         stroke="black"
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
     </svg>
   );

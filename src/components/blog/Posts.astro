@@ -1,8 +1,8 @@
 ---
 import PostCard from "./PostCard.astro";
-import Button from "../react/Button";
-import type { Post } from "../../api/posts";
-import { truncate } from "../../lib/helpers";
+import Button from "../react/ui/Button";
+import type { Post } from "@/api/posts";
+import { truncate } from "@/lib/helpers";
 
 interface Props {
   posts: Post[];
