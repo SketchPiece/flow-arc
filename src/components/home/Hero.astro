@@ -3,6 +3,10 @@ import { Image } from "astro:assets";
 import Button from "../react/ui/Button";
 import RiveAnimation from "../react/RiveAnimation";
 import heroRobotPreview from "@/assets/images/hero-robot.png";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -11,17 +15,15 @@ import heroRobotPreview from "@/assets/images/hero-robot.png";
 >
   <div>
     <p class="text-3xl font-medium text-grey-dark xl:text-4xl">
-      Simplify, Automate, and Grow:
+      {t("hero.subheadline")}
     </p>
     <h1 class="text-5xl font-medium xl:text-6xl">
-      Custom Solutions
-      <br /> for Your Business
+      {t("hero.headline")}
     </h1>
     <p class="mt-6 max-w-lg text-lg">
-      We design tailored automation solutions that save you time, reduce costs,
-      and drive efficiency.
+      {t("hero.description")}
     </p>
-    <Button className="mt-9">Book a consultation</Button>
+    <Button className="mt-9">{t("common.cta")}</Button>
   </div>
   <div>
     <RiveAnimation

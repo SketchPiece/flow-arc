@@ -2,7 +2,17 @@
 import logoIcon from "@/assets/icons/logo_light.svg";
 import linkedinIcon from "@/assets/icons/social_linkedin.svg";
 import xtwitterIcon from "@/assets/icons/social_xtwitter.svg";
-import { navigationLinks } from "@/lib/constants";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navigationLinks = [
+  { name: t("nav.about"), href: "#" },
+  { name: t("nav.services"), href: "#" },
+  { name: t("nav.case-studies"), href: "#" },
+  { name: t("nav.blog"), href: "#" },
+];
 ---
 
 <footer

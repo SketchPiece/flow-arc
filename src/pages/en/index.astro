@@ -1,0 +1,27 @@
+---
+import CallToAction from "@/components/common/CallToAction.astro";
+import CaseStudies from "@/components/home/CaseStudies.astro";
+import ContactUs from "@/components/home/ContactUs.astro";
+import Hero from "@/components/home/Hero.astro";
+import Services from "@/components/home/Services.astro";
+import WorkingProcess from "@/components/home/WorkingProcess.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <Hero />
+  <Services />
+  <CallToAction title="Let’s make things happen">
+    <p slot="description" class="max-w-lg">
+      Ready to transform your business? <b>Contact us today</b> to discover how our
+      custom automation solutions can save you time, reduce costs, and accelerate
+      your growth.
+      <br />
+      <br />
+      Let us help you work smarter—not harder.
+    </p>
+  </CallToAction>
+  <CaseStudies />
+  <WorkingProcess />
+  <ContactUs />
+</Layout>
