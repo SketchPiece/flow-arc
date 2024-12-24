@@ -7,12 +7,15 @@ import arrowRight from "@/assets/icons/arrow-right.svg";
 import automation from "@/assets/icons/automation.svg";
 import support from "@/assets/icons/support.svg";
 import webDev from "@/assets/icons/web-dev.svg";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Section title="Services" sectionId="services">
-  <p slot="description" class="md:max-w-lg">
-    Tailored solutions to help businesses streamline operations, save time, and
-    boost efficiency. Here’s how we can help:
+<Section title={t("services.title")} sectionId="services">
+  <p slot="description" class="md:max-w-2xl">
+    {t("services.description")}
   </p>
   <a href="#" class="relative block w-full md:ml-auto md:w-fit">
     <div
@@ -20,12 +23,12 @@ import webDev from "@/assets/icons/web-dev.svg";
     >
       <div class="flex flex-col justify-between">
         <h3 class="text-2xl font-medium md:text-3xl">
-          <span class="block">Automation Discovery</span>
-          <span class="block">Implementation & Optimization</span>
+          <span class="block">{t("services.automation.title.1")}</span>
+          <span class="block">{t("services.automation.title.2")}</span>
         </h3>
         <div class="flex items-center gap-3 text-xl">
           <LinkArrow />
-          Learn more
+          {t("common.learn-more")}
         </div>
       </div>
       <Image
@@ -48,10 +51,10 @@ import webDev from "@/assets/icons/web-dev.svg";
       <div class="flex flex-col justify-between">
         <h3 class="hidden text-3xl font-medium md:inline">
           <span class="block rounded-md bg-grey-light px-2"
-            >Automation Support</span
+            >{t("services.support.title.1")}</span
           >
           <span class="inline-block rounded-md bg-grey-light px-2"
-            >& Maintenance</span
+            >{t("services.support.title.2")}</span
           >
         </h3>
         <h3 class="text-2xl font-medium md:hidden">
@@ -68,7 +71,7 @@ import webDev from "@/assets/icons/web-dev.svg";
         </h3>
         <div class="flex items-center gap-3 text-xl">
           <LinkArrow />
-          Learn more
+          {t("common.learn-more")}
         </div>
       </div>
       <Image
@@ -91,7 +94,7 @@ import webDev from "@/assets/icons/web-dev.svg";
       <div class="flex flex-col justify-between">
         <h3 class="hidden text-3xl font-medium md:inline">
           <span class="block rounded-md bg-grey-light px-2"
-            >Custom Web Development</span
+            >{t("services.web-development.title")}</span
           >
         </h3>
         <h3 class="text-2xl font-medium md:hidden">
@@ -102,7 +105,7 @@ import webDev from "@/assets/icons/web-dev.svg";
         </h3>
         <div class="flex items-center gap-3 text-xl text-grey-light">
           <LinkArrow variant="light" />
-          Learn more
+          {t("common.learn-more")}
         </div>
       </div>
       <Image

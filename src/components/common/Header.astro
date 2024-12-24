@@ -1,7 +1,17 @@
 ---
 import logoIcon from "@/assets/icons/logo.svg";
-import { navigationLinks } from "@/lib/constants";
 import MobileMenu from "../react/MobileMenu";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navigationLinks = [
+  { name: t("nav.about"), href: "#" },
+  { name: t("nav.services"), href: "#" },
+  { name: t("nav.case-studies"), href: "#" },
+  { name: t("nav.blog"), href: "#" },
+];
 ---
 
 <header class="pt-10 font-serif">
