@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { mapNotionPost } from "@/lib/helpers";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: {
+      slug: post.data.properties.Slug?.rich_text[0]?.plain_text || post.id,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const postData = mapNotionPost(post);
+
+const title = postData.title;
+const readingTime = postData.readingTime;
+const { Content } = await render(post);
+---
+
+<Layout>
+  <section id="post-title" class="container mx-auto pb-36 pt-20">
+    <h1 class="mb-8 text-4xl font-medium md:text-6xl">
+      {title}
+    </h1>
+    <Image
+      src={postData.image ?? "https://placehold.co/600x400/png"}
+      alt={`${post.id}-post-image`}
+      class="shadow-straight mb-16 h-[330px] w-full rounded-smooth-large object-cover"
+      width="120"
+      height="330"
+    />
+    <div class="flex flex-col gap-4 md:px-20 lg:px-60">
+      {
+        readingTime && (
+          <p class="font-medium text-grey-dark">{readingTime} min read</p>
+        )
+      }
+      <!-- {post?.paragraphs?.map((p) => <p class="text-lg">{p}</p>)} -->
+      <div class="prose text-grey-darkest">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import Section from "../common/Section.astro";
-import LinkArrow from "../icons/LinkArrow.astro";
 import arrowLeft from "@/assets/icons/arrow-left.svg";
 import arrowRight from "@/assets/icons/arrow-right.svg";
 import automation from "@/assets/icons/automation.svg";
 import support from "@/assets/icons/support.svg";
 import webDev from "@/assets/icons/web-dev.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import ServiceCard from "./ServiceCard.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,103 +17,76 @@ const t = useTranslations(lang);
   <p slot="description" class="md:max-w-2xl">
     {t("services.description")}
   </p>
-  <a href="#" class="relative block w-full md:ml-auto md:w-fit">
-    <div
-      class="relative z-20 flex w-full justify-between gap-10 rounded-smooth-large border border-grey-darker bg-primary p-12 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)]"
-    >
-      <div class="flex flex-col justify-between">
-        <h3 class="text-2xl font-medium md:text-3xl">
-          <span class="block">{t("services.automation.title.1")}</span>
-          <span class="block">{t("services.automation.title.2")}</span>
-        </h3>
-        <div class="flex items-center gap-3 text-xl">
-          <LinkArrow />
-          {t("common.learn-more")}
-        </div>
-      </div>
+
+  <ServiceCard class="md:ml-auto" containerClass="z-20">
+    <Fragment slot="title">
+      <span class="block">{t("services.automation.title.1")}</span>
+      <span class="block">{t("services.automation.title.2")}</span>
+    </Fragment>
+    <Fragment slot="illustration">
       <Image
         src={automation}
         alt="Automatization Illustration"
         width="192"
         height="192"
       />
-    </div>
-    <Image
-      src={arrowLeft}
-      alt="Arrow Left"
-      class="absolute right-[99%] top-1/2 z-10 hidden xl:block"
-    />
-  </a>
-  <a href="#" class="relative mt-[75px] block md:w-fit">
-    <div
-      class="relative flex w-full justify-between gap-10 rounded-smooth-large border border-grey-darker bg-primary p-12 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)]"
-    >
-      <div class="flex flex-col justify-between">
-        <h3 class="hidden text-3xl font-medium md:inline">
-          <span class="block rounded-md bg-grey-light px-2"
-            >{t("services.support.title.1")}</span
-          >
-          <span class="inline-block rounded-md bg-grey-light px-2"
-            >{t("services.support.title.2")}</span
-          >
-        </h3>
-        <h3 class="text-2xl font-medium md:hidden">
-          <span class="inline-block rounded-md bg-grey-light px-2"
-            >Automation</span
-          >
-          <br />
-          <span class="inline-block rounded-md bg-grey-light px-2">Support</span
-          >
-          <br />
-          <span class="inline-block rounded-md bg-grey-light px-2"
-            >& Maintenance</span
-          >
-        </h3>
-        <div class="flex items-center gap-3 text-xl">
-          <LinkArrow />
-          {t("common.learn-more")}
-        </div>
-      </div>
+    </Fragment>
+    <Fragment slot="arrow">
+      <Image
+        src={arrowLeft}
+        alt="Arrow Left"
+        class="absolute right-[99%] top-1/2 z-10 hidden xl:block"
+      />
+    </Fragment>
+  </ServiceCard>
+  <ServiceCard class="mt-[75px]">
+    <Fragment slot="title">
+      <span class="block w-fit rounded-md bg-grey-light px-2"
+        >{t("services.support.title.1")}</span
+      >
+      <span class="inline-block rounded-md bg-grey-light px-2"
+        >{t("services.support.title.2")}</span
+      >
+    </Fragment>
+    <Fragment slot="illustration">
       <Image
         src={support}
-        alt="Automatization Illustration"
-        width="192"
-        height="192"
+        alt="Support Illustration"
+        width="200"
+        height="200"
       />
-    </div>
-    <Image
-      src={arrowRight}
-      alt="Arrow Left"
-      class="absolute left-[99%] top-1/2 -z-10 hidden xl:block"
-    />
-  </a>
-  <a href="#" class="relative ml-auto mt-[75px] block md:w-fit">
-    <div
-      class="relative flex justify-between gap-10 rounded-smooth-large border border-grey-darker bg-grey-darker p-12 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)] md:w-fit"
-    >
-      <div class="flex flex-col justify-between">
-        <h3 class="hidden text-3xl font-medium md:inline">
-          <span class="block rounded-md bg-grey-light px-2"
-            >{t("services.web-development.title")}</span
+    </Fragment>
+    <Fragment slot="arrow">
+      <Image
+        src={arrowRight}
+        alt="Arrow Left"
+        class="absolute left-[99%] top-1/2 -z-10 hidden xl:block"
+      />
+    </Fragment>
+  </ServiceCard>
+  <ServiceCard variant="dark" class="ml-auto mt-[75px]">
+    <Fragment slot="title">
+      <slot name="web-dev-title">
+        <span class="md:hidden">
+          <span class="block w-fit rounded-md bg-grey-light px-2">Custom</span>
+          <span class="block w-fit rounded-md bg-grey-light px-2"
+            >Web Development</span
           >
-        </h3>
-        <h3 class="text-2xl font-medium md:hidden">
-          <span class="inline-block rounded-md bg-grey-light px-2"
-            >Custom Web</span
-          >
-          <span class="block rounded-md bg-grey-light px-2">Development</span>
-        </h3>
-        <div class="flex items-center gap-3 text-xl text-grey-light">
-          <LinkArrow variant="light" />
-          {t("common.learn-more")}
-        </div>
-      </div>
+        </span>
+        <span
+          class="hidden w-fit whitespace-nowrap rounded-md bg-grey-light px-2 md:block"
+          >Custom Web Development</span
+        >
+      </slot>
+    </Fragment>
+    <Fragment slot="illustration">
       <Image
         src={webDev}
-        alt="Automatization Illustration"
+        alt="Web Development Illustration"
         width="192"
         height="192"
       />
-    </div>
-  </a>
+    </Fragment>
+    <Fragment slot="arrow"> </Fragment>
+  </ServiceCard>
 </Section>

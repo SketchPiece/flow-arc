@@ -4,6 +4,7 @@ import Button from "../react/ui/Button";
 import RiveAnimation from "../react/RiveAnimation";
 import heroRobotPreview from "@/assets/images/hero-robot.png";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { cn } from "@/lib/helpers";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,11 +14,16 @@ const t = useTranslations(lang);
   id="hero"
   class="container mx-auto flex flex-col-reverse items-center justify-between py-10 md:py-20 lg:flex-row"
 >
-  <div>
-    <p class="text-3xl font-medium text-grey-dark xl:text-4xl">
+  <div class="sr-only sm:not-sr-only">
+    <p class="text-3xl font-medium text-grey-dark">
       {t("hero.subheadline")}
     </p>
-    <h1 class="text-5xl font-medium xl:text-6xl">
+    <h1
+      class={cn(
+        "text-5xl font-medium xl:text-6xl",
+        lang === "uk" ? "max-w-xl xl:max-w-2xl" : "max-w-xl"
+      )}
+    >
       {t("hero.headline")}
     </h1>
     <p class="mt-6 max-w-lg text-lg">
@@ -39,5 +45,23 @@ const t = useTranslations(lang);
         height={500}
       />
     </RiveAnimation>
+  </div>
+  <div class="sm:hidden">
+    <p class="text-xl font-medium text-grey-dark xl:text-4xl">
+      {t("hero.subheadline")}
+    </p>
+    <h1 class="text-4xl font-medium xl:text-6xl">
+      {t("hero.headline")}
+    </h1>
+    <Image
+      src={heroRobotPreview}
+      alt="Hero Robot Preview"
+      width={500}
+      height={500}
+    />
+    <p class="mt-6 max-w-lg text-lg">
+      {t("hero.description")}
+    </p>
+    <Button className="mt-9 w-full">{t("common.cta")}</Button>
   </div>
 </section>

@@ -8,60 +8,57 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navigationLinks = [
-  { name: t("nav.about"), href: "#" },
-  { name: t("nav.services"), href: "#" },
-  { name: t("nav.case-studies"), href: "#" },
-  { name: t("nav.blog"), href: "#" },
+  { name: t("nav.about"), href: `/${lang}/about` },
+  { name: t("nav.services"), href: `/${lang}/services` },
+  { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
+  { name: t("nav.blog"), href: `/${lang}/blog` },
 ];
 ---
 
-<footer
-  class="mt-auto rounded-t-smooth-large bg-grey-darker px-14 py-16 text-grey-lighter md:container sm:mx-0 md:mx-auto xs:mx-0"
->
-  <nav
-    aria-label="Global"
-    class="container mx-auto flex items-center justify-between"
+<div class="mx-auto md:container">
+  <footer
+    class="rounded-t-smooth-large bg-grey-darker px-14 py-16 text-grey-lighter"
   >
-    <a href="/">
-      <span class="sr-only">Flow Arc</span>
-      <img alt="flow-arc-logo-footer" src={logoIcon.src} class="h-12" />
-    </a>
+    <nav aria-label="Global" class="flex items-center justify-between">
+      <a href="/">
+        <span class="sr-only">Flow Arc</span>
+        <img alt="flow-arc-logo-footer" src={logoIcon.src} class="h-12" />
+      </a>
 
-    <div class="hidden lg:flex lg:gap-x-10">
-      {
-        navigationLinks.map((item) => (
-          <a
-            href={item.href}
-            class="font-serif text-lg font-thin underline hover:text-primary"
-          >
-            {item.name}
-          </a>
-        ))
-      }
+      <div class="hidden lg:flex lg:gap-x-10">
+        {
+          navigationLinks.map((item) => (
+            <a
+              href={item.href}
+              class="font-serif text-lg font-thin underline hover:text-primary"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+      <div class="flex justify-end gap-5">
+        <a href="/">
+          <img alt="flow-arc-logo-footer" src={linkedinIcon.src} />
+        </a>
+        <a href="/">
+          <img alt="flow-arc-logo-footer" src={xtwitterIcon.src} />
+        </a>
+      </div>
+    </nav>
+    <div class="mb-12 mt-16 flex flex-col gap-5 font-serif text-lg font-thin">
+      <h4
+        class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 font-medium text-grey-darkest"
+      >
+        {t("contact-us.title")}
+      </h4>
+      <p>Email: info@flowarc.dev</p>
+
+      <p>Telegram: @flowarc</p>
     </div>
-    <div class="flex justify-end gap-5">
-      <a href="/">
-        <img alt="flow-arc-logo-footer" src={linkedinIcon.src} />
-      </a>
-      <a href="/">
-        <img alt="flow-arc-logo-footer" src={xtwitterIcon.src} />
-      </a>
+    <div class="border-t pt-12 font-serif text-lg font-thin">
+      <span class="mr-10">© 2025 FlowArc. All Rights Reserved.</span>
+      <a href="/" class="p-0 underline">Privacy Policy</a>
     </div>
-  </nav>
-  <div class="mb-12 mt-16 flex flex-col gap-5 font-serif text-lg font-thin">
-    <h4
-      class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 font-medium text-grey-darkest"
-    >
-      Contact us:
-    </h4>
-    <p>Email: info@positivus.com</p>
-    <p>
-      Address: 1234 Main St<br />
-      Moonstone City, Stardust State 12345
-    </p>
-  </div>
-  <div class="border-t pt-12 font-serif text-lg font-thin">
-    <span class="mr-10">© 2023 Positivus. All Rights Reserved.</span>
-    <a href="/" class="p-0 underline">Privacy Policy</a>
-  </div>
-</footer>
+  </footer>
+</div>

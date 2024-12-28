@@ -1,16 +1,19 @@
 ---
 import logoIcon from "@/assets/icons/logo.svg";
+import ukFlag from "@/assets/icons/uk.svg";
+import gbFlag from "@/assets/icons/gb.svg";
 import MobileMenu from "../react/MobileMenu";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { Image } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navigationLinks = [
-  { name: t("nav.about"), href: "#" },
-  { name: t("nav.services"), href: "#" },
-  { name: t("nav.case-studies"), href: "#" },
-  { name: t("nav.blog"), href: "#" },
+  { name: t("nav.about"), href: `/${lang}/about` },
+  { name: t("nav.services"), href: `/${lang}/services` },
+  { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
+  { name: t("nav.blog"), href: `/${lang}/blog` },
 ];
 ---
 
@@ -23,16 +26,6 @@ const navigationLinks = [
       <span class="sr-only">Flow Arc</span>
       <img alt="Flow Arc Logo" src={logoIcon.src} class="h-12" />
     </a>
-    <!-- <div class="flex lg:hidden">
-      <button
-        type="button"
-        onClick={() => setMobileMenuOpen(true)}
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-      >
-        <span class="sr-only">Open main menu</span>
-        <Bars3Icon aria-hidden="true" class="size-6" />
-      </button>
-    </div> -->
     <MobileMenu navigation={navigationLinks} client:load />
     <div class="hidden lg:flex lg:gap-x-12">
       {
@@ -42,6 +35,17 @@ const navigationLinks = [
           </a>
         ))
       }
+      <a
+        href={lang === "uk" ? "/en" : "/uk"}
+        class="text-lg hover:text-primary-darker"
+      >
+        <Image
+          src={lang === "uk" ? ukFlag : gbFlag}
+          alt="Language Flag"
+          width="28"
+          height="28"
+        />
+      </a>
     </div>
   </nav>
 </header>
