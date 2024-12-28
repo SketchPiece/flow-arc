@@ -5,13 +5,14 @@ import gbFlag from "@/assets/icons/gb.svg";
 import MobileMenu from "../react/MobileMenu";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import { Image } from "astro:assets";
+import PopoverMenu from "../react/PopoverMenu";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navigationLinks = [
   { name: t("nav.about"), href: `/${lang}/about` },
-  { name: t("nav.services"), href: `/${lang}/services` },
+  // { name: t("nav.services"), href: `/${lang}/services` },
   { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
   { name: t("nav.blog"), href: `/${lang}/blog` },
 ];
@@ -28,13 +29,24 @@ const navigationLinks = [
     </a>
     <MobileMenu navigation={navigationLinks} client:load />
     <div class="hidden lg:flex lg:gap-x-12">
-      {
-        navigationLinks.map((item) => (
-          <a href={item.href} class="text-lg hover:text-primary-darker">
-            {item.name}
-          </a>
-        ))
-      }
+      <a href={`/${lang}/about`} class="text-lg hover:text-primary-darker">
+        {t("nav.about")}
+      </a>
+      <!-- <a href={`/${lang}/services`} class="text-lg hover:text-primary-darker">
+        {t("nav.services")}
+      </a> -->
+      <PopoverMenu client:load className="text-lg hover:text-primary-darker"
+        >{t("nav.services")}</PopoverMenu
+      >
+      <a
+        href={`/${lang}/case-studies`}
+        class="text-lg hover:text-primary-darker"
+      >
+        {t("nav.case-studies")}
+      </a>
+      <a href={`/${lang}/blog`} class="text-lg hover:text-primary-darker">
+        {t("nav.blog")}
+      </a>
       <a
         href={lang === "uk" ? "/en" : "/uk"}
         class="text-lg hover:text-primary-darker"

@@ -8,6 +8,16 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      // TODO: remove this
+      fontSize: {
+        "5xl": "40px",
+      },
+      margin: {
+        25: "100px",
+      },
+      padding: {
+        13: "52px",
+      },
       container: {
         screens: {
           "2xl": "1360px",

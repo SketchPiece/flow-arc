@@ -1,0 +1,39 @@
+---
+import type { ImageMetadata } from "astro";
+import { cn } from "@/lib/helpers";
+import Button from "../react/ui/Button";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  buttonLabel: string;
+  onAction: () => void;
+  className?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  buttonLabel = "Click",
+  className,
+} = Astro.props;
+---
+
+<section
+  class={cn(
+    "flex  items-center xs:flex-col-reverse sm:flex-col-reverse md:flex-col-reverse lg:flex-row justify-between rounded-smooth-large bg-primary px-16 py-5 border border-grey-darkest shadow-straight",
+    className
+  )}
+>
+  <div class="flex w-full flex-col gap-7 py-8 lg:max-w-[500px]">
+    <h3 class="rounded text-3xl font-medium text-grey-darkest">
+      {title}
+    </h3>
+    <p class="text-xl text-grey-darkest">{description}</p>
+    <Button className="w-44">{buttonLabel}</Button>
+  </div>
+  <Image src={image} alt={`${title} block image`} />
+</section>
