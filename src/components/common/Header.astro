@@ -16,6 +16,27 @@ const navigationLinks = [
   { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
   { name: t("nav.blog"), href: `/${lang}/blog` },
 ];
+
+const services = [
+  {
+    name: "Implementation & Optimization",
+    href: `/${lang}/automation-support`,
+    description:
+      "Learn how our automation solutions can help you optimize your business",
+  },
+  {
+    name: "Automation Support",
+    href: `/${lang}/automation-support`,
+    description:
+      "Support your automation solutions with our expert maintenance, continuous monitoring, and performance updates",
+  },
+  {
+    name: "Custom Web Development",
+    href: `/${lang}/automation-support`,
+    description:
+      "Get started with our custom web development services to help you build your business",
+  },
+];
 ---
 
 <header class="pt-10 font-serif">
@@ -35,9 +56,13 @@ const navigationLinks = [
       <!-- <a href={`/${lang}/services`} class="text-lg hover:text-primary-darker">
         {t("nav.services")}
       </a> -->
-      <PopoverMenu client:load className="text-lg hover:text-primary-darker"
-        >{t("nav.services")}</PopoverMenu
+      <PopoverMenu
+        client:load
+        className="text-lg hover:text-primary-darker"
+        items={services}
       >
+        {t("nav.services")}
+      </PopoverMenu>
       <a
         href={`/${lang}/case-studies`}
         class="text-lg hover:text-primary-darker"

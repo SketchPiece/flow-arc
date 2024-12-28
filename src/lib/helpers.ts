@@ -32,7 +32,7 @@ export function mapNotionPost(post: any): Post {
   return {
     slug: post.data.properties.Slug?.rich_text[0]?.plain_text || post.id,
     title: post.data.properties.Name.title[0]?.plain_text || "Undefined",
-    image: post.data.properties.Image?.files[0]?.file.url,
+    image: post.data.properties.Image?.files[0]?.external?.url,
     description: post.data.properties.PreviewText?.rich_text[0]?.plain_text,
     readingTime: post.data.properties.ReadTime?.number,
   };
