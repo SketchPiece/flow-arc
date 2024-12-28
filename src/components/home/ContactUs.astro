@@ -3,17 +3,34 @@ import Image from "astro/components/Image.astro";
 import Section from "../common/Section.astro";
 import contactIllustration from "@/assets/icons/contact.svg";
 import ContactForm from "../react/ContactForm";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Section title="Contact Us" sectionId="contact-us">
+<Section title={t("contact-us.title")} sectionId="contact-us">
   <p slot="description" class="md:max-w-md">
-    Let's Discuss Your Digital Automation Needs
+    {t("contact-us.description")}
   </p>
-  <div class="rounded-smooth-large bg-primary px-24 py-14">
-    <p class="mb-10">Have question? Drop us a message!</p>
+  <div class="rounded-smooth-large bg-primary px-9 py-14 md:px-24">
+    <p class="mb-10">{t("contact-us.form.heading")}</p>
     <div class="flex gap-2">
-      <ContactForm />
-      <Image src={contactIllustration} alt="Contact Illustration" />
+      <ContactForm
+        nameLabel={t("contact-us.form.name")}
+        emailLabel={t("contact-us.form.email")}
+        messageLabel={t("contact-us.form.message")}
+        namePlaceholder={t("contact-us.form.name.placeholder")}
+        emailPlaceholder={t("contact-us.form.email.placeholder")}
+        messagePlaceholder={t("contact-us.form.message.placeholder")}
+        buttonLabel={t("contact-us.form.send")}
+      />
+      <Image
+        src={contactIllustration}
+        alt="Contact Illustration"
+        class="hidden lg:block"
+      />
     </div>
   </div>
 </Section>

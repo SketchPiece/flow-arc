@@ -1,0 +1,17 @@
+---
+import Button from "../react/ui/Button";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="blog-posts" class="container mx-auto pb-28 pt-14">
+  <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <slot />
+  </div>
+  <div class="mt-20 flex justify-between">
+    <Button>{t("blog.previous")}</Button>
+    <Button>{t("blog.next")}</Button>
+  </div>
+</section>

@@ -1,48 +1,53 @@
 ---
 import Section from "../common/Section.astro";
 import { WorkingAccordion } from "../react/WorkingAccordion";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Section title="Working Process" sectionId="working-process">
+<Section title={t("working-process.title")} sectionId="working-process">
   <p slot="description" class="md:max-w-72">
-    Step-by-Step Guide to Achieving Your Automation Goals
+    {t("working-process.description")}
   </p>
   <div class="grid gap-7">
     <WorkingAccordion
       client:load
       questionNumber="01"
-      title="Consultation"
-      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+      title={t("working-process.step.1.title")}
+      content={t("working-process.step.1.description")}
     />
     <WorkingAccordion
       client:load
       questionNumber="02"
-      title="Analysis and Solution Design"
-      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+      title={t("working-process.step.2.title")}
+      content={t("working-process.step.2.description")}
     />
     <WorkingAccordion
       client:load
       questionNumber="03"
-      title="Implementation"
-      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+      title={t("working-process.step.3.title")}
+      content={t("working-process.step.3.description")}
     />
     <WorkingAccordion
       client:load
       questionNumber="04"
-      title="Testing and Refinement"
-      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+      title={t("working-process.step.4.title")}
+      content={t("working-process.step.4.description")}
     />
     <WorkingAccordion
       client:load
       questionNumber="05"
-      title="Training and Handover"
-      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+      title={t("working-process.step.5.title")}
+      content={t("working-process.step.5.description")}
     />
     <WorkingAccordion
       client:load
       questionNumber="06"
-      title="Ongoing Support and Optimization"
-      content="We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs."
+      title={t("working-process.step.6.title")}
+      content={t("working-process.step.6.description")}
     />
   </div>
 </Section>

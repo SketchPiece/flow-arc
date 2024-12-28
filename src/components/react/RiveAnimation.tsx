@@ -24,7 +24,10 @@ export default function RiveAnimation({
   }, []);
 
   return (
-    <div className="relative" style={{ width: width, height: height }}>
+    <div
+      className="relative hidden sm:block"
+      style={{ width: width, height: height }}
+    >
       <RiveComponent />
       {!isMounted && <div className="absolute inset-0">{children}</div>}
     </div>

@@ -1,33 +1,39 @@
 ---
+import { cn } from "@/lib/helpers";
 import Section from "../common/Section.astro";
 import LinkArrow from "../icons/LinkArrow.astro";
 
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const cases = [
   {
-    title:
-      "For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.",
+    title: t("case-studies.case.1"),
     href: "#restaurant-case",
   },
   {
-    title:
-      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
+    title: t("case-studies.case.2"),
     href: "#b2b-case",
   },
   {
-    title:
-      "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
+    title: t("case-studies.case.3"),
     href: "#retail-case",
   },
 ];
 ---
 
-<Section title="Case Studies" sectionId="case-studies">
-  <p slot="description" class="md:max-w-md">
-    See how businesses like yours have transformed with our automation solutions
+<Section title={t("case-studies.title")} sectionId="case-studies">
+  <p
+    slot="description"
+    class={cn(lang === "uk" ? "md:max-w-2xl" : "md:max-w-md")}
+  >
+    {t("case-studies.description")}
   </p>
 
   <div
-    class="grid grid-cols-1 gap-8 divide-y divide-grey-light rounded-smooth-large bg-grey-darker px-14 py-16 text-grey-light md:grid-cols-3 md:divide-x md:divide-y-0"
+    class="grid grid-cols-1 gap-8 divide-y divide-grey-light rounded-smooth-large bg-grey-darker px-9 py-16 text-grey-light sm:px-14 md:grid-cols-3 md:divide-x md:divide-y-0"
   >
     {
       cases.map((item, index) => (
@@ -37,7 +43,7 @@ const cases = [
             href={item.href}
             class="inline-flex items-center text-primary transition-colors hover:text-primary-darker"
           >
-            Learn more
+            {t("common.learn-more")}
             <LinkArrow variant="transparent" />
           </a>
         </div>

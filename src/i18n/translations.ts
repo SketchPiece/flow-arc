@@ -28,6 +28,52 @@ export const translations = {
     "services.cta.title": "Let’s make things happen",
     "services.cta.description":
       "Ready to transform your business? Contact us today to discover how our custom automation solutions can save you time, reduce costs, and accelerate your growth. Let us help you work smarter—not harder.",
+    "case-studies.title": "Case Studies",
+    "case-studies.description":
+      "See how businesses like yours have transformed with our automation solutions",
+    "case-studies.case.1":
+      "For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.",
+    "case-studies.case.2":
+      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
+    "case-studies.case.3":
+      "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
+    "working-process.title": "Working Process",
+    "working-process.description":
+      "Step-by-Step Guide to Achieving Your Automation Goals",
+    "working-process.step.1.title": "Consultation",
+    "working-process.step.1.description":
+      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+    "working-process.step.2.title": "Analysis and Solution Design",
+    "working-process.step.2.description":
+      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+    "working-process.step.3.title": "Implementation",
+    "working-process.step.3.description":
+      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+    "working-process.step.4.title": "Testing and Refinement",
+    "working-process.step.4.description":
+      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+    "working-process.step.5.title": "Training and Handover",
+    "working-process.step.5.description":
+      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+    "working-process.step.6.title": "Ongoing Support and Optimization",
+    "working-process.step.6.description":
+      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+    "contact-us.title": "Contact Us",
+    "contact-us.description": "Let's Discuss Your Digital Automation Needs",
+    "contact-us.form.heading": "Have question? Drop us a message!",
+    "contact-us.form.name": "Name",
+    "contact-us.form.name.placeholder": "Your name",
+    "contact-us.form.email": "Email",
+    "contact-us.form.email.placeholder": "Your email",
+    "contact-us.form.message": "Message",
+    "contact-us.form.message.placeholder": "Your message",
+    "contact-us.form.send": "Send Message",
+    "blog.title": "Our Blog",
+    "blog.description":
+      "Explore expert insights, tips, and trends on business automation.",
+    "blog.read-more": "Read more",
+    "blog.previous": "Previous",
+    "blog.next": "Next",
   },
   uk: {
     "nav.about": "Про Нас",
@@ -51,5 +97,52 @@ export const translations = {
     "services.cta.title": "Втілюємо ідеї в реальність",
     "services.cta.description":
       "Готові вивести бізнес на новий рівень? Зв'яжіться з нами зараз, щоб отримати спеціалізовані рішення для автоматизації вашого бізнесу. Ми допоможемо вам працювати ефективніше та досягати більших результатів з меншими зусиллями.",
+    "case-studies.title": "Кейси",
+    "case-studies.description":
+      "Дізнайтеся, як бізнеси, подібні до вашого, трансформувалися завдяки нашим рішенням з автоматизації",
+    "case-studies.case.1":
+      "Для локального ресторану ми впровадили цільову PPC-кампанію, що призвела до зростання трафіку на 50% та збільшення продажів на 25%.",
+    "case-studies.case.2":
+      "Для B2B компанії-розробника ми розробили SEO-стратегію, яка забезпечила перші позиції за ключовими запитами та 200% зростання органічного трафіку.",
+    "case-studies.case.3":
+      "Для національної мережі магазинів ми створили кампанію в соціальних мережах, яка збільшила кількість підписників на 25% та забезпечила зростання онлайн-продажів на 20%.",
+    "working-process.title": "Робочий Процес",
+    "working-process.description":
+      "Покроковий шлях до досягнення ваших цілей з автоматизації",
+    "working-process.step.1.title": "Консультація",
+    "working-process.step.1.description":
+      "Ми обговоримо ваші бізнес-процеси, визначимо можливості для автоматизації та окреслимо цілі з підвищення ефективності. Це дозволить нам розробити рішення, ідеально адаптовані під ваші конкретні потреби.",
+    "working-process.step.2.title": "Аналіз та Розробка Рішення",
+    "working-process.step.2.description":
+      "Ми детально вивчаємо ваші процеси, щоб виявити кожну можливість для автоматизації. Наш ретельний аналіз розкриває всі способи перетворення рутинної ручної роботи на плавні, автоматизовані процеси.",
+    "working-process.step.3.title": "Впровадження",
+    "working-process.step.3.description":
+      "Перетворимо розрізнені інструменти на цілісну цифрову екосистему. Розумно поєднуючи ваші ключові бізнес-платформи, ми усуваємо ручні завдання, зменшуємо кількість помилок та значно прискорюємо робочий процес вашої команди.",
+    "working-process.step.4.title": "Тестування та Вдосконалення",
+    "working-process.step.4.description":
+      "Перед запуском ми ретельно тестуємо кожен автоматизований процес до досконалості. Ваша нова система працюватиме бездоганно з першого дня, забезпечуючи надійні результати, яким можна довіряти.",
+    "working-process.step.5.title": "Навчання та Передача",
+    "working-process.step.5.description":
+      "Ми навчимо вашу команду основам роботи з новими автоматизованими процесами та надамо чітку документацію для довідки.",
+    "working-process.step.6.title": "Постійна Підтримка та Оптимізація",
+    "working-process.step.6.description":
+      "Довірте нам технічні деталі. З нашим сервісом підтримки ми будемо обслуговувати ваші автоматизовані процеси, пропонувати розумні вдосконалення та забезпечувати розвиток вашої системи відповідно до потреб бізнесу.",
+    "contact-us.title": "Зв'яжіться з нами",
+    "contact-us.description":
+      "Поговорімо про цифрову автоматизацію вашого бізнесу",
+    "contact-us.form.heading": "Маєте запитання? Напишіть нам!",
+    "contact-us.form.name": "Ім'я",
+    "contact-us.form.name.placeholder": "Ваше ім'я",
+    "contact-us.form.email": "Email",
+    "contact-us.form.email.placeholder": "Ваша електронна пошта",
+    "contact-us.form.message": "Повідомлення",
+    "contact-us.form.message.placeholder": "Ваше повідомлення",
+    "contact-us.form.send": "Надіслати",
+    "blog.title": "Наш Блог",
+    "blog.description":
+      "Ділимось експертизою, порадами та трендами у сфері бізнес-автоматизації.",
+    "blog.read-more": "Читати далі",
+    "blog.previous": "Попередня",
+    "blog.next": "Наступна",
   },
 } as const;

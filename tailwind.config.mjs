@@ -1,5 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import tailwindAnimate from "tailwindcss-animate";
+import tailwindTypography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -19,14 +20,7 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      screens: {
-        xs: {
-          max: "374px",
-        },
-        sm: "375px",
-        md: "768px",
-        lg: "1024px",
-      },
+
       fontFamily: {
         serif: ["SpaceGrotesk", ...defaultTheme.fontFamily.serif],
       },
@@ -72,5 +66,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindAnimate],
+  plugins: [tailwindAnimate, tailwindTypography],
 };

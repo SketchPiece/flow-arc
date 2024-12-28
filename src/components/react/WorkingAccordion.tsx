@@ -20,9 +20,11 @@ export function WorkingAccordion({
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
         <AccordionTrigger>
-          <div className="flex items-center gap-6">
-            <span className="text-6xl font-medium">{questionNumber}</span>
-            <span className="group-hover:underline">{title}</span>
+          <div className="flex items-center gap-2 sm:gap-6">
+            <span className="text-3xl font-medium md:text-6xl">
+              {questionNumber}
+            </span>
+            <span className="text-left group-hover:underline">{title}</span>
           </div>
         </AccordionTrigger>
         <AccordionContent>{content}</AccordionContent>

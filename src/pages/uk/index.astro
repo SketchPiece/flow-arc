@@ -14,16 +14,20 @@ const t = useTranslations(lang);
 
 <Layout>
   <Hero />
-  <Services />
+  <Services>
+    <Fragment slot="web-dev-title">
+      <span class="block w-fit rounded-md bg-grey-light px-2">Створення</span>
+      <span class="block w-fit rounded-md bg-grey-light px-2">
+        Веб-Застосунків
+      </span>
+    </Fragment>
+  </Services>
   <CallToAction title={t("services.cta.title")}>
     <p slot="description" class="max-w-lg">
-      <!-- Ready to transform your business? <b>Contact us today</b> to discover how our
-      custom automation solutions can save you time, reduce costs, and accelerate
-      your growth.
-      <br />
-      <br />
-      Let us help you work smarter—not harder. -->
-      {t("services.cta.description")}
+      Готові вивести бізнес на новий рівень? Зв'яжіться з нами зараз, щоб
+      отримати спеціалізовані рішення для автоматизації вашого бізнесу. Ми
+      допоможемо вам працювати ефективніше та досягати більших результатів з
+      меншими зусиллями.
     </p>
   </CallToAction>
   <CaseStudies />
