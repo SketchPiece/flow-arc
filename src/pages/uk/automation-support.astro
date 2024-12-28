@@ -1,0 +1,111 @@
+---
+import ServiceHero from "@/components/common/ServiceHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import InfoBlock from "@/components/common/InfoBlock.astro";
+import CardsFlowList from "@/components/common/CardsFlowList.astro";
+import BenefitsCard from "@/components/common/BenefitsCard.astro";
+import ActionInfoBlock from "@/components/common/ActionInfoBlock.astro";
+import creatorsImage from "@/assets/images/serivces/creators.png";
+import cardMgGlassImage from "@/assets/images/serivces/cards-mg-glass.png";
+import cardHeartImage from "@/assets/images/serivces/cards-heart-pulse.png";
+import cardDiagramImage from "@/assets/images/serivces/cards-gypsy-diagram.png";
+import cardDialogsImage from "@/assets/images/serivces/cards-dialogs.png";
+import cubeImage from "@/assets/images/cube.png";
+import diamondImage from "@/assets/images/diamond.png";
+import littleChatbot from "@/assets/images/little-chatbot.png";
+import Section from "@/components/common/Section.astro";
+---
+
+<Layout>
+  <ServiceHero
+    title="Automation Support & Maintenance"
+    subTitle="Keep your automation running at peak performance"
+    image={creatorsImage}
+    items={[
+      "24/7 Expert Support",
+      "Proactive Monitoring",
+      "Continuous Optimization",
+    ]}
+  />
+  <InfoBlock
+    title="Keep Your Business Running Smoothly"
+    subTitle="We safeguard your business operations through continuous monitoring and maintenance, ensuring your automations remain efficient and reliable."
+    className="my-25"
+  />
+
+  <!-- <SectionTitleBlock
+      title="Our Support Process"
+      subTitle="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
+      className="mb-20"
+    /> -->
+
+  <Section title="Our Support Process" sectionId="support-process">
+    <p slot="description" class="md:max-w-2xl">
+      Let's explore how we can keep your systems running at peak performance
+      with expert maintenance, continuous monitoring, and performance updates.
+    </p>
+    <CardsFlowList
+      cards={[
+        {
+          title: "Monitor",
+          subTitle: "Real-time tracking and alerts",
+          image: cardMgGlassImage,
+        },
+        {
+          title: "Maintain",
+          subTitle: "Regular updates and security",
+          image: cardHeartImage,
+          focused: true,
+        },
+        {
+          title: "Optimize",
+          subTitle: "Performance enhancements",
+          image: cardDiagramImage,
+        },
+        {
+          title: "Support",
+          subTitle: "Rapid issue resolution",
+          image: cardDialogsImage,
+        },
+      ]}
+    />
+  </Section>
+
+  <Section title="Support Plans" sectionId="support-plans">
+    <p slot="description" class="md:max-w-2xl">
+      Choose the level of support that matches your business needs, from
+      essential maintenance to comprehensive coverage
+    </p>
+
+    <div
+      class="md-3/4 xs:flex-col mb-36 flex w-full items-center justify-between gap-6 pb-5 sm:flex-col md:flex-row lg:flex-row"
+    >
+      <BenefitsCard
+        title="Standard"
+        items={[
+          "24/7 availability",
+          "Business hours support",
+          "Monthly check-ups",
+        ]}
+        image={cubeImage}
+      />
+      <BenefitsCard
+        title="Premium"
+        isDark
+        items={["24/7 availability", "2h response time", "Weekly maintenance"]}
+        image={diamondImage}
+      />
+    </div>
+  </Section>
+  <!-- TODO: replace with call to action -->
+  <div class="container mx-auto">
+    <ActionInfoBlock
+      title="Need automation maintenance?"
+      description="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
+      image={littleChatbot}
+      buttonLabel="Get started"
+      onAction={() => {}}
+      className="mb-36"
+    />
+  </div>
+</Layout>

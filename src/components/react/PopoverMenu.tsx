@@ -1,30 +1,20 @@
 import { cn } from "@/lib/helpers";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
-type PopoverMenuProps = React.ComponentProps<typeof PopoverButton>;
+interface PopoverItem {
+  name: string;
+  href: string;
+  description?: string;
+}
+interface PopoverMenuProps extends React.ComponentProps<typeof PopoverButton> {
+  items: PopoverItem[];
+}
 
-const services = [
-  {
-    name: "About us",
-    href: "#",
-    description:
-      "Learn more about our company values and mission to empower others",
-  },
-  {
-    name: "Careers",
-    href: "#",
-    description:
-      "Looking for you next career opportunity? See all of our open positions",
-  },
-  {
-    name: "Blog",
-    href: "#",
-    description:
-      "Read our latest announcements and get perspectives from our team",
-  },
-];
-
-export default function PopoverMenu({ className, ...props }: PopoverMenuProps) {
+export default function PopoverMenu({
+  className,
+  items,
+  ...props
+}: PopoverMenuProps) {
   return (
     <Popover className="relative">
       <PopoverButton className={cn(className)} {...props} />
@@ -33,7 +23,7 @@ export default function PopoverMenu({ className, ...props }: PopoverMenuProps) {
         transition
         className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
       >
-        {services.map((item) => (
+        {items.map((item) => (
           <div
             key={item.name}
             className="relative rounded-lg p-4 hover:bg-gray-50"
