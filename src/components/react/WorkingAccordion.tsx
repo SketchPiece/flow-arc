@@ -21,9 +21,11 @@ export function WorkingAccordion({
       <AccordionItem value="item-1">
         <AccordionTrigger>
           <div className="flex items-center gap-2 sm:gap-6">
-            <span className="text-3xl font-medium md:text-6xl">
-              {questionNumber}
-            </span>
+            {questionNumber && (
+              <span className="text-3xl font-medium md:text-6xl">
+                {questionNumber}
+              </span>
+            )}
             <span className="text-left group-hover:underline">{title}</span>
           </div>
         </AccordionTrigger>

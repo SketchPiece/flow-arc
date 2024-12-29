@@ -9,19 +9,23 @@ import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"a"> {
   variant?: "light" | "dark";
   containerClass?: string;
+  href?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { variant, containerClass, ...attrs } = Astro.props;
+const { variant, containerClass, href, ...attrs } = Astro.props;
 const isDark = variant === "dark";
 ---
 
-<a href="#" class={cn("relative block w-full md:max-w-[630px]", attrs.class)}>
+<a
+  href={href}
+  class={cn("relative block w-full md:max-w-[630px]", attrs.class)}
+>
   <div
     class={cn(
-      "relative flex w-full flex-col-reverse items-center sm:flex-row justify-between gap-10 rounded-smooth-large border border-grey-darker p-12 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)]",
+      "relative flex w-full flex-col-reverse items-center sm:flex-row justify-between gap-10 rounded-smooth-large border border-grey-darker p-12 shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced",
       isDark ? "bg-grey-darker" : "bg-primary",
       containerClass
     )}

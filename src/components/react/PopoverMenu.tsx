@@ -21,21 +21,21 @@ export default function PopoverMenu({
 
       <PopoverPanel
         transition
-        className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+        className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-2xl ring-1 ring-grey-darkest transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
       >
         {items.map((item) => (
           <div
             key={item.name}
-            className="relative rounded-lg p-4 hover:bg-gray-50"
+            className="relative rounded-lg p-4 hover:bg-grey-lighter"
           >
             <a
               href={item.href}
-              className="block text-sm/6 font-semibold text-gray-900"
+              className="block text-lg font-semibold text-grey-darkest"
             >
               {item.name}
               <span className="absolute inset-0" />
             </a>
-            <p className="mt-1 text-sm/6 text-gray-600">{item.description}</p>
+            <p className="mt-1 text-sm text-grey-darker">{item.description}</p>
           </div>
         ))}
       </PopoverPanel>

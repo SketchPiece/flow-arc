@@ -1,0 +1,165 @@
+---
+import ServiceHero from "@/components/common/ServiceHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import InfoBlock from "@/components/common/InfoBlock.astro";
+import CardsFlowList from "@/components/common/CardsFlowList.astro";
+import gearsImage from "@/assets/images/services/gears.png";
+import documentsSearchImage from "@/assets/images/services/documents-search.png";
+import strategyActionsImage from "@/assets/images/services/strategy-actions.png";
+import winnersCupImage from "@/assets/images/services/winners-cup.png";
+import Section from "@/components/common/Section.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import FeatureCard from "@/components/implementation/FeatureCard.astro";
+import { WorkingAccordion } from "@/components/react/WorkingAccordion";
+import Bubble from "@/components/implementation/Bubble.astro";
+import CallToAction from "@/components/common/CallToAction.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <ServiceHero
+    title={t("implementation.headline")}
+    subtitle={t("implementation.description")}
+    image={gearsImage}
+    items={[
+      t("implementation.head-feature.1"),
+      t("implementation.head-feature.2"),
+      t("implementation.head-feature.3"),
+      t("implementation.head-feature.4"),
+    ]}
+  />
+  <InfoBlock
+    title={t("implementation.info.title")}
+    subtitle={t("implementation.info.description")}
+    className="my-10"
+  />
+
+  <Section title={t("implementation.choose-us.title")}>
+    <p slot="description" class="md:max-w-2xl">
+      {t("implementation.choose-us.description")}
+    </p>
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-3">
+      <FeatureCard
+        title={t("implementation.feature-card.1")}
+        features={[
+          t("implementation.feature-card.1.1"),
+          t("implementation.feature-card.1.2"),
+          t("implementation.feature-card.1.3"),
+        ]}
+      />
+      <FeatureCard
+        title={t("implementation.feature-card.2")}
+        features={[
+          t("implementation.feature-card.2.1"),
+          t("implementation.feature-card.2.2"),
+          t("implementation.feature-card.2.3"),
+        ]}
+        light
+      />
+      <FeatureCard
+        title={t("implementation.feature-card.3")}
+        features={[
+          t("implementation.feature-card.3.1"),
+          t("implementation.feature-card.3.2"),
+          t("implementation.feature-card.3.3"),
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section
+    title={t("implementation.process.title")}
+    sectionId="support-process"
+  >
+    <p slot="description" class="md:max-w-2xl">
+      {t("implementation.process.description")}
+    </p>
+    <CardsFlowList
+      cards={[
+        {
+          title: t("implementation.process.step.1.title"),
+          subtitle: t("implementation.process.step.1.description"),
+          image: documentsSearchImage,
+        },
+        {
+          title: t("implementation.process.step.2.title"),
+          subtitle: t("implementation.process.step.2.description"),
+          image: strategyActionsImage,
+        },
+        {
+          title: t("implementation.process.step.3.title"),
+          subtitle: t("implementation.process.step.3.description"),
+          image: winnersCupImage,
+        },
+      ]}
+    />
+  </Section>
+
+  <Section title={t("implementation.solutions.title")}>
+    <p slot="description" class="md:max-w-2xl">
+      {t("implementation.solutions.description")}
+    </p>
+    <div class="grid gap-7">
+      <WorkingAccordion
+        client:load
+        title={t("implementation.solutions.sales.title")}
+        content={t("implementation.solutions.sales.description")}
+      />
+      <WorkingAccordion
+        client:load
+        title={t("implementation.solutions.finance.title")}
+        content={t("implementation.solutions.finance.description")}
+      />
+      <WorkingAccordion
+        client:load
+        title={t("implementation.solutions.hr.title")}
+        content={t("implementation.solutions.hr.description")}
+      />
+      <WorkingAccordion
+        client:load
+        title={t("implementation.solutions.pm.title")}
+        content={t("implementation.solutions.pm.description")}
+      />
+      <WorkingAccordion
+        client:load
+        title={t("implementation.solutions.data.title")}
+        content={t("implementation.solutions.data.description")}
+      />
+    </div>
+  </Section>
+  <Section title={t("implementation.challenges.title")}>
+    <p slot="description" class="md:max-w-2xl">
+      {t("implementation.challenges.description")}
+    </p>
+
+    <div class="space-y-14">
+      <Bubble content={t("implementation.challenges.1.left")} variant="left" />
+      <Bubble
+        content={t("implementation.challenges.1.right")}
+        variant="right"
+      />
+      <Bubble content={t("implementation.challenges.2.left")} variant="left" />
+      <Bubble
+        content={t("implementation.challenges.2.right")}
+        variant="right"
+      />
+      <Bubble content={t("implementation.challenges.3.left")} variant="left" />
+      <Bubble
+        content={t("implementation.challenges.3.right")}
+        variant="right"
+      />
+    </div>
+  </Section>
+
+  <CallToAction
+    title="Готові до автоматизації?"
+    buttonLabel="Замовити консультацію"
+  >
+    <p slot="description" class="max-w-lg text-lg">
+      Замовте безкоштовну консультацію щодо ваших потреб в автоматизації
+    </p>
+  </CallToAction>
+</Layout>

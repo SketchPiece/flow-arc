@@ -3,11 +3,11 @@ import { cn } from "@/lib/helpers";
 
 interface Props {
   title: string;
-  subTitle: string;
+  subtitle: string;
   className?: string;
 }
 
-const { title, subTitle, className } = Astro.props;
+const { title, subtitle, className } = Astro.props;
 ---
 
 <div class={cn("flex items-center gap-10 sm:flex-col lg:flex-row", className)}>
@@ -16,5 +16,5 @@ const { title, subTitle, className } = Astro.props;
   >
     {title}
   </h2>
-  <p class="text-lg text-black">{subTitle}</p>
+  <p class="text-lg text-black">{subtitle}</p>
 </div>

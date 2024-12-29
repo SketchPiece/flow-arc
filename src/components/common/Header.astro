@@ -12,29 +12,25 @@ const t = useTranslations(lang);
 
 const navigationLinks = [
   { name: t("nav.about"), href: `/${lang}/about` },
-  // { name: t("nav.services"), href: `/${lang}/services` },
   { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
   { name: t("nav.blog"), href: `/${lang}/blog` },
 ];
 
 const services = [
   {
-    name: "Implementation & Optimization",
-    href: `/${lang}/automation-support`,
-    description:
-      "Learn how our automation solutions can help you optimize your business",
+    name: t("nav.services.implementation.title"),
+    href: `/${lang}/implementation`,
+    description: t("nav.services.implementation.description"),
   },
   {
-    name: "Automation Support",
+    name: t("nav.services.automation-support.title"),
     href: `/${lang}/automation-support`,
-    description:
-      "Support your automation solutions with our expert maintenance, continuous monitoring, and performance updates",
+    description: t("nav.services.automation-support.description"),
   },
   {
-    name: "Custom Web Development",
-    href: `/${lang}/automation-support`,
-    description:
-      "Get started with our custom web development services to help you build your business",
+    name: t("nav.services.web-development.title"),
+    href: `/${lang}/web-development`,
+    description: t("nav.services.web-development.description"),
   },
 ];
 ---

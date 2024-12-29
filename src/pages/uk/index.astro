@@ -22,7 +22,11 @@ const t = useTranslations(lang);
       </span>
     </Fragment>
   </Services>
-  <CallToAction title={t("services.cta.title")}>
+  <CallToAction
+    title={t("services.cta.title")}
+    buttonLabel={t("common.cta")}
+    type="chess"
+  >
     <p slot="description" class="max-w-lg">
       Готові вивести бізнес на новий рівень? Зв'яжіться з нами зараз, щоб
       отримати спеціалізовані рішення для автоматизації вашого бізнесу. Ми
