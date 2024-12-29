@@ -23,9 +23,9 @@
 }
 
 @layer utilities {
-  .shadow-straight {
+  /* .shadow-straight {
     @apply rounded-smooth-large shadow-[0_10px_0px_0px_rgba(0,0,0,1)];
-  }
+  } */
   .shadow-straight-small {
     @apply rounded-smooth-large shadow-[0_5px_0px_0px_rgba(0,0,0,1)];
   }

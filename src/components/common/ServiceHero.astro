@@ -1,39 +1,43 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import checkmark from "@/assets/icons/checkmark-blue-dark.svg";
 import { cn } from "@/lib/helpers";
+import Checkmark from "../icons/Checkmark.astro";
 
 interface Props {
   title: string;
-  subTitle: string;
+  subtitle: string;
   image: ImageMetadata;
   items: string[];
   className?: string;
 }
 
-const { title, subTitle, image, items, className } = Astro.props;
+const { title, subtitle, image, items, className } = Astro.props;
 ---
 
 <section
   class={cn(
-    "container mx-auto flex-col-reverse md:flex-row lg:flex-row mx-auto flex items-center justify-between py-12",
+    "container mx-auto flex-col-reverse md:flex-row lg:flex-row flex items-center justify-between py-12 lg:py-24",
     className
   )}
 >
   <div class="flex flex-col">
-    <h2 class="max-w-xl text-5xl font-medium text-black">{title}</h2>
-    <p class="mt-1 text-xl text-grey-dark">{subTitle}</p>
+    <h2
+      class="mt-5 max-w-2xl text-2xl font-medium text-black sm:mt-0 md:text-4xl/10 lg:text-5xl/10"
+    >
+      {title}
+    </h2>
+    <p class="mt-2 max-w-xl text-lg text-grey-dark md:text-xl">{subtitle}</p>
     <ul class="mt-8 flex flex-col gap-4">
       {
         items?.map?.((item) => (
-          <li class="flex items-center gap-4 text-xl font-medium text-black">
-            <img alt="Flow Arc Logo" src={checkmark.src} />
+          <li class="flex items-center gap-4 text-base font-medium text-black lg:text-xl">
+            <Checkmark variant="primary" />
             {item}
           </li>
         ))
       }
     </ul>
   </div>
-  <Image src={image} alt="heading image" />
+  <Image src={image} width={440} alt="heading image" />
 </section>

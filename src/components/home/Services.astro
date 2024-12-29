@@ -18,7 +18,11 @@ const t = useTranslations(lang);
     {t("services.description")}
   </p>
 
-  <ServiceCard class="md:ml-auto" containerClass="z-20">
+  <ServiceCard
+    href={`/${lang}/implementation`}
+    class="md:ml-auto"
+    containerClass="z-20"
+  >
     <Fragment slot="title">
       <span class="block">{t("services.automation.title.1")}</span>
       <span class="block">{t("services.automation.title.2")}</span>
@@ -39,7 +43,7 @@ const t = useTranslations(lang);
       />
     </Fragment>
   </ServiceCard>
-  <ServiceCard class="mt-[75px]">
+  <ServiceCard href={`/${lang}/automation-support`} class="mt-[75px]">
     <Fragment slot="title">
       <span class="block w-fit rounded-md bg-grey-light px-2"
         >{t("services.support.title.1")}</span
@@ -64,7 +68,11 @@ const t = useTranslations(lang);
       />
     </Fragment>
   </ServiceCard>
-  <ServiceCard variant="dark" class="ml-auto mt-[75px]">
+  <ServiceCard
+    href={`/${lang}/web-development`}
+    variant="dark"
+    class="ml-auto mt-[75px]"
+  >
     <Fragment slot="title">
       <slot name="web-dev-title">
         <span class="md:hidden">

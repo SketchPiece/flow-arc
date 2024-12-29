@@ -5,11 +5,11 @@ import InfoBlock from "@/components/common/InfoBlock.astro";
 import CardsFlowList from "@/components/common/CardsFlowList.astro";
 import BenefitsCard from "@/components/common/BenefitsCard.astro";
 import ActionInfoBlock from "@/components/common/ActionInfoBlock.astro";
-import creatorsImage from "@/assets/images/serivces/creators.png";
-import cardMgGlassImage from "@/assets/images/serivces/cards-mg-glass.png";
-import cardHeartImage from "@/assets/images/serivces/cards-heart-pulse.png";
-import cardDiagramImage from "@/assets/images/serivces/cards-gypsy-diagram.png";
-import cardDialogsImage from "@/assets/images/serivces/cards-dialogs.png";
+import creatorsImage from "@/assets/images/services/creators.png";
+import cardMgGlassImage from "@/assets/images/services/cards-mg-glass.png";
+import cardHeartImage from "@/assets/images/services/cards-heart-pulse.png";
+import cardDiagramImage from "@/assets/images/services/cards-gypsy-diagram.png";
+import cardDialogsImage from "@/assets/images/services/cards-dialogs.png";
 import cubeImage from "@/assets/images/cube.png";
 import diamondImage from "@/assets/images/diamond.png";
 import littleChatbot from "@/assets/images/little-chatbot.png";
@@ -19,7 +19,7 @@ import Section from "@/components/common/Section.astro";
 <Layout>
   <ServiceHero
     title="Automation Support & Maintenance"
-    subTitle="Keep your automation running at peak performance"
+    subtitle="Keep your automation running at peak performance"
     image={creatorsImage}
     items={[
       "24/7 Expert Support",
@@ -29,13 +29,13 @@ import Section from "@/components/common/Section.astro";
   />
   <InfoBlock
     title="Keep Your Business Running Smoothly"
-    subTitle="We safeguard your business operations through continuous monitoring and maintenance, ensuring your automations remain efficient and reliable."
+    subtitle="We safeguard your business operations through continuous monitoring and maintenance, ensuring your automations remain efficient and reliable."
     className="my-25"
   />
 
   <!-- <SectionTitleBlock
       title="Our Support Process"
-      subTitle="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
+      subtitle="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
       className="mb-20"
     /> -->
 
@@ -48,23 +48,23 @@ import Section from "@/components/common/Section.astro";
       cards={[
         {
           title: "Monitor",
-          subTitle: "Real-time tracking and alerts",
+          subtitle: "Real-time tracking and alerts",
           image: cardMgGlassImage,
         },
         {
           title: "Maintain",
-          subTitle: "Regular updates and security",
+          subtitle: "Regular updates and security",
           image: cardHeartImage,
           focused: true,
         },
         {
           title: "Optimize",
-          subTitle: "Performance enhancements",
+          subtitle: "Performance enhancements",
           image: cardDiagramImage,
         },
         {
           title: "Support",
-          subTitle: "Rapid issue resolution",
+          subtitle: "Rapid issue resolution",
           image: cardDialogsImage,
         },
       ]}

@@ -9,6 +9,10 @@ export default {
   theme: {
     extend: {
       // TODO: remove this
+      boxShadow: {
+        straight: "0px 6px 0px 0px rgba(0, 0, 0, 1)",
+        "straight-reduced": "0px 6px 10px 0px rgba(0, 0, 0, 1)",
+      },
       fontSize: {
         "5xl": "40px",
       },

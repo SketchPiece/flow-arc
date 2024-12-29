@@ -9,7 +9,7 @@ interface Props {
   // direction: "right" | "left";
   cards: {
     title: string;
-    subTitle: string;
+    subtitle: string;
     image: ImageMetadata;
     focused?: boolean;
   }[];
@@ -21,7 +21,7 @@ const { cards } = Astro.props;
 
 <div class="flex w-full flex-col">
   {
-    cards?.map(({ title, subTitle, image }, index) => {
+    cards?.map(({ title, subtitle, image }, index) => {
       const isLeftCard = index === 0 || index % 2 === 0;
       const isFirst = index === 0;
       const isLast = index === cards?.length - 1;
@@ -31,7 +31,7 @@ const { cards } = Astro.props;
         <div class="relative">
           <div
             class={cn(
-              "relative flex w-full flex-col-reverse justify-between overflow-y-hidden rounded-smooth-large border border-grey-darkest px-14 py-12 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)] md:flex-row lg:flex-row lg:overflow-y-visible xl:w-[768px] xl:overflow-x-visible",
+              "relative flex w-full flex-col-reverse justify-between overflow-y-hidden rounded-smooth-large border border-grey-darkest px-14 py-12 shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced md:flex-row lg:flex-row lg:overflow-y-visible xl:w-[768px] xl:overflow-x-visible",
               isLast
                 ? "bg-grey-darkest text-grey-light"
                 : "bg-primary text-grey-darkest",
@@ -44,19 +44,20 @@ const { cards } = Astro.props;
               <h2
                 class={cn(
                   "text-5xl font-medium text-grey-darkest",
-                  isLast && "w-fit rounded bg-grey-light px-2"
+                  (isLast || !isLeftCard) && "w-fit rounded bg-grey-light px-2"
                 )}
               >
                 {title}
               </h2>
               <p class="text-3xl font-medium text-inherit md:max-w-xs">
-                {subTitle}
+                {subtitle}
               </p>
             </div>
             <div class="grid place-items-center">
               <Image
                 src={image}
                 alt={`card ${title} image`}
+                height={220}
                 class="h-auto w-auto"
               />
             </div>
