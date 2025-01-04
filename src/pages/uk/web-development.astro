@@ -4,108 +4,179 @@ import Layout from "@/layouts/Layout.astro";
 import InfoBlock from "@/components/common/InfoBlock.astro";
 import CardsFlowList from "@/components/common/CardsFlowList.astro";
 import BenefitsCard from "@/components/common/BenefitsCard.astro";
-import ActionInfoBlock from "@/components/common/ActionInfoBlock.astro";
-import creatorsImage from "@/assets/images/services/creators.png";
-import cardMgGlassImage from "@/assets/images/services/cards-mg-glass.png";
-import cardHeartImage from "@/assets/images/services/cards-heart-pulse.png";
-import cardDiagramImage from "@/assets/images/services/cards-gypsy-diagram.png";
-import cardDialogsImage from "@/assets/images/services/cards-dialogs.png";
-import cubeImage from "@/assets/images/cube.png";
-import diamondImage from "@/assets/images/diamond.png";
-import littleChatbot from "@/assets/images/little-chatbot.png";
+import workplaceImage from "@/assets/images/services/workplace.png";
+import toolsImage from "@/assets/images/services/tools.png";
+import targetImage from "@/assets/images/services/target.png";
+import documentSearchImage from "@/assets/images/services/document-search.png";
+import teamPlanningImage from "@/assets/images/services/team-planning.png";
 import Section from "@/components/common/Section.astro";
+import wrenchIcon from "@/assets/icons/wrench.svg";
+import palleteIcon from "@/assets/icons/pallete.svg";
+import scienceIcon from "@/assets/icons/science.svg";
+import routeIcon from "@/assets/icons/route.svg";
+import gearIcon from "@/assets/icons/gear.svg";
+import starIcon from "@/assets/icons/star.svg";
+import routesIcon from "@/assets/icons/routes.svg";
+import businessCaseIcon from "@/assets/icons/business-case.svg";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import TextChip from "@/components/common/TextChip.astro";
+import CallToAction from "@/components/common/CallToAction.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout>
   <ServiceHero
-    title="Automation Support & Maintenance"
-    subtitle="Keep your automation running at peak performance"
-    image={creatorsImage}
+    title={t("web-dev.headline")}
+    subtitle={t("web-dev.description")}
+    image={workplaceImage}
     items={[
-      "24/7 Expert Support",
-      "Proactive Monitoring",
-      "Continuous Optimization",
+      t("web-dev.head-feature.1"),
+      t("web-dev.head-feature.2"),
+      t("web-dev.head-feature.3"),
     ]}
   />
   <InfoBlock
-    title="Keep Your Business Running Smoothly"
-    subtitle="We safeguard your business operations through continuous monitoring and maintenance, ensuring your automations remain efficient and reliable."
-    className="my-25"
+    title={t("web-dev.info.title")}
+    subtitle={t("web-dev.info.description")}
+    className="my-10"
   />
 
-  <!-- <SectionTitleBlock
-      title="Our Support Process"
-      subtitle="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
-      className="mb-20"
-    /> -->
-
-  <Section title="Our Support Process" sectionId="support-process">
+  <Section title={t("web-dev.proccess.title")} sectionId="support-process">
     <p slot="description" class="md:max-w-2xl">
-      Let's explore how we can keep your systems running at peak performance
-      with expert maintenance, continuous monitoring, and performance updates.
+      {t("web-dev.proccess.description")}
     </p>
     <CardsFlowList
       cards={[
         {
-          title: "Monitor",
-          subtitle: "Real-time tracking and alerts",
-          image: cardMgGlassImage,
+          title: t("web-dev.proccess.step.1.title"),
+          subtitle: t("web-dev.proccess.step.1.description"),
+          image: documentSearchImage,
         },
         {
-          title: "Maintain",
-          subtitle: "Regular updates and security",
-          image: cardHeartImage,
-          focused: true,
+          title: t("web-dev.proccess.step.2.title"),
+          subtitle: t("web-dev.proccess.step.2.description"),
+          image: teamPlanningImage,
         },
         {
-          title: "Optimize",
-          subtitle: "Performance enhancements",
-          image: cardDiagramImage,
+          title: t("web-dev.proccess.step.3.title"),
+          subtitle: t("web-dev.proccess.step.3.description"),
+          image: toolsImage,
         },
         {
-          title: "Support",
-          subtitle: "Rapid issue resolution",
-          image: cardDialogsImage,
+          title: t("web-dev.proccess.step.4.title"),
+          subtitle: t("web-dev.proccess.step.4.description"),
+          image: targetImage,
         },
       ]}
     />
   </Section>
 
-  <Section title="Support Plans" sectionId="support-plans">
+  <Section title={t("web-dev.we-build.title")} sectionId="we-build">
     <p slot="description" class="md:max-w-2xl">
-      Choose the level of support that matches your business needs, from
-      essential maintenance to comprehensive coverage
+      {t("web-dev.we-build.description")}
     </p>
 
     <div
-      class="md-3/4 xs:flex-col mb-36 flex w-full items-center justify-between gap-6 pb-5 sm:flex-col md:flex-row lg:flex-row"
+      class="flex w-full flex-col items-center justify-between gap-6 md:flex-col lg:flex-row"
     >
       <BenefitsCard
-        title="Standard"
+        title={t("web-dev.we-build.essentials.title")}
         items={[
-          "24/7 availability",
-          "Business hours support",
-          "Monthly check-ups",
+          t("web-dev.we-build.essentials.items.1"),
+          t("web-dev.we-build.essentials.items.2"),
+          t("web-dev.we-build.essentials.items.3"),
+          t("web-dev.we-build.essentials.items.4"),
+          t("web-dev.we-build.essentials.items.5"),
+          t("web-dev.we-build.essentials.items.6"),
         ]}
-        image={cubeImage}
+        isDark
+        lastPlus
       />
       <BenefitsCard
-        title="Premium"
-        isDark
-        items={["24/7 availability", "2h response time", "Weekly maintenance"]}
-        image={diamondImage}
+        title={t("web-dev.we-build.specialized.title")}
+        items={[
+          t("web-dev.we-build.specialized.items.1"),
+          t("web-dev.we-build.specialized.items.2"),
+          t("web-dev.we-build.specialized.items.3"),
+          t("web-dev.we-build.specialized.items.4"),
+          t("web-dev.we-build.specialized.items.5"),
+          t("web-dev.we-build.specialized.items.6"),
+        ]}
+        lastPlus
       />
     </div>
   </Section>
-  <!-- TODO: replace with call to action -->
-  <div class="container mx-auto">
-    <ActionInfoBlock
-      title="Need automation maintenance?"
-      description="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
-      image={littleChatbot}
-      buttonLabel="Get started"
-      onAction={() => {}}
-      className="mb-36"
-    />
-  </div>
+
+  <Section title={t("web-dev.team.title")} sectionId="team">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.team.description")}
+    </p>
+
+    <div class="grid grid-cols-1 justify-between gap-6 md:grid-cols-2">
+      <TextChip text={t("web-dev.team.roles.1")} icon={wrenchIcon} />
+      <TextChip text={t("web-dev.team.roles.2")} icon={palleteIcon} />
+      <TextChip text={t("web-dev.team.roles.3")} icon={routeIcon} />
+      <TextChip text={t("web-dev.team.roles.4")} icon={scienceIcon} />
+    </div>
+  </Section>
+
+  <Section title={t("web-dev.stack.title")} sectionId="stack">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.stack.description")}
+    </p>
+
+    <div
+      class="flex w-full flex-col items-center justify-between gap-6 md:flex-col lg:flex-row"
+    >
+      <BenefitsCard
+        title={t("web-dev.stack.frontend.title")}
+        items={[
+          t("web-dev.stack.frontend.items.1"),
+          t("web-dev.stack.frontend.items.2"),
+          t("web-dev.stack.frontend.items.3"),
+          t("web-dev.stack.frontend.items.4"),
+        ]}
+        isDark
+      />
+      <BenefitsCard
+        title={t("web-dev.stack.backend.title")}
+        items={[
+          t("web-dev.stack.backend.items.1"),
+          t("web-dev.stack.backend.items.2"),
+          t("web-dev.stack.backend.items.3"),
+          t("web-dev.stack.backend.items.4"),
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section title={t("web-dev.why.title")} sectionId="why-custom-development">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.team.description")}
+    </p>
+
+    <div class="grid grid-cols-1 justify-between gap-6 md:grid-cols-2">
+      <TextChip text={t("web-dev.why.features.1")} icon={gearIcon} isDark />
+      <TextChip text={t("web-dev.why.features.2")} icon={starIcon} isDark />
+      <TextChip
+        text={t("web-dev.why.features.3")}
+        icon={businessCaseIcon}
+        isDark
+      />
+      <TextChip text={t("web-dev.why.features.4")} icon={routesIcon} isDark />
+    </div>
+  </Section>
+
+  <CallToAction
+    title="Хочете створити щось унікальне?"
+    buttonLabel="Поговорімо"
+  >
+    <p slot="description" class="max-w-lg text-lg">
+      Замовте безкоштовну консультацію щодо ваших потреб в розробці
+      індивідуальних веб-рішень
+    </p>
+  </CallToAction>
 </Layout>

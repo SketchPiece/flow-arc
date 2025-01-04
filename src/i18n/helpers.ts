@@ -12,3 +12,8 @@ export function useTranslations(lang: keyof typeof translations) {
     return translations[lang][key] || translations[defaultLang][key];
   };
 }
+
+export interface Translations {
+  en: Record<string, string>;
+  uk: Record<string, string>;
+}

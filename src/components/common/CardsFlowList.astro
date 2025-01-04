@@ -31,25 +31,25 @@ const { cards } = Astro.props;
         <div class="relative">
           <div
             class={cn(
-              "relative flex w-full flex-col-reverse justify-between overflow-y-hidden rounded-smooth-large border border-grey-darkest px-14 py-12 shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced md:flex-row lg:flex-row lg:overflow-y-visible xl:w-[768px] xl:overflow-x-visible",
+              "relative flex w-full flex-col-reverse justify-between gap-4 overflow-y-hidden rounded-smooth-large border border-grey-darkest px-6 py-10 shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced md:flex-row md:gap-0 md:px-14 md:py-12 lg:flex-row lg:overflow-y-visible xl:w-[768px] xl:overflow-x-visible",
               isLast
-                ? "bg-grey-darkest text-grey-light"
-                : "bg-primary text-grey-darkest",
+                ? "bg-grey-darker text-grey-light"
+                : "bg-primary text-grey-darker",
               !isFirst && "mt-8 md:mt-12",
               isLeftCard ? "mr-auto" : "ml-auto"
             )}
             style={{ zIndex }}
           >
-            <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-5 md:gap-10">
               <h2
                 class={cn(
-                  "text-5xl font-medium text-grey-darkest",
+                  "text-3xl font-medium text-grey-darkest md:text-5xl",
                   (isLast || !isLeftCard) && "w-fit rounded bg-grey-light px-2"
                 )}
               >
                 {title}
               </h2>
-              <p class="text-3xl font-medium text-inherit md:max-w-xs">
+              <p class="text-2xl font-medium text-inherit md:max-w-xs md:text-3xl">
                 {subtitle}
               </p>
             </div>
@@ -58,7 +58,7 @@ const { cards } = Astro.props;
                 src={image}
                 alt={`card ${title} image`}
                 height={220}
-                class="h-auto w-auto"
+                class="h-auto max-h-36 w-auto"
               />
             </div>
           </div>

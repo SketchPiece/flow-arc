@@ -35,7 +35,11 @@ export default function PopoverMenu({
               {item.name}
               <span className="absolute inset-0" />
             </a>
-            <p className="mt-1 text-sm text-grey-darker">{item.description}</p>
+            {item.description && (
+              <p className="mt-1 text-sm text-grey-darker">
+                {item.description}
+              </p>
+            )}
           </div>
         ))}
       </PopoverPanel>

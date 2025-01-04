@@ -1,0 +1,182 @@
+---
+import ServiceHero from "@/components/common/ServiceHero.astro";
+import Layout from "@/layouts/Layout.astro";
+import InfoBlock from "@/components/common/InfoBlock.astro";
+import CardsFlowList from "@/components/common/CardsFlowList.astro";
+import BenefitsCard from "@/components/common/BenefitsCard.astro";
+import workplaceImage from "@/assets/images/services/workplace.png";
+import toolsImage from "@/assets/images/services/tools.png";
+import targetImage from "@/assets/images/services/target.png";
+import documentSearchImage from "@/assets/images/services/document-search.png";
+import teamPlanningImage from "@/assets/images/services/team-planning.png";
+import Section from "@/components/common/Section.astro";
+import wrenchIcon from "@/assets/icons/wrench.svg";
+import palleteIcon from "@/assets/icons/pallete.svg";
+import scienceIcon from "@/assets/icons/science.svg";
+import routeIcon from "@/assets/icons/route.svg";
+import gearIcon from "@/assets/icons/gear.svg";
+import starIcon from "@/assets/icons/star.svg";
+import routesIcon from "@/assets/icons/routes.svg";
+import businessCaseIcon from "@/assets/icons/business-case.svg";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import TextChip from "@/components/common/TextChip.astro";
+import CallToAction from "@/components/common/CallToAction.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <ServiceHero
+    title={t("web-dev.headline")}
+    subtitle={t("web-dev.description")}
+    image={workplaceImage}
+    items={[
+      t("web-dev.head-feature.1"),
+      t("web-dev.head-feature.2"),
+      t("web-dev.head-feature.3"),
+    ]}
+  />
+  <InfoBlock
+    title={t("web-dev.info.title")}
+    subtitle={t("web-dev.info.description")}
+    className="my-10"
+  />
+
+  <Section title={t("web-dev.proccess.title")} sectionId="support-process">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.proccess.description")}
+    </p>
+    <CardsFlowList
+      cards={[
+        {
+          title: t("web-dev.proccess.step.1.title"),
+          subtitle: t("web-dev.proccess.step.1.description"),
+          image: documentSearchImage,
+        },
+        {
+          title: t("web-dev.proccess.step.2.title"),
+          subtitle: t("web-dev.proccess.step.2.description"),
+          image: teamPlanningImage,
+        },
+        {
+          title: t("web-dev.proccess.step.3.title"),
+          subtitle: t("web-dev.proccess.step.3.description"),
+          image: toolsImage,
+        },
+        {
+          title: t("web-dev.proccess.step.4.title"),
+          subtitle: t("web-dev.proccess.step.4.description"),
+          image: targetImage,
+        },
+      ]}
+    />
+  </Section>
+
+  <Section title={t("web-dev.we-build.title")} sectionId="we-build">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.we-build.description")}
+    </p>
+
+    <div
+      class="flex w-full flex-col items-center justify-between gap-6 md:flex-col lg:flex-row"
+    >
+      <BenefitsCard
+        title={t("web-dev.we-build.essentials.title")}
+        items={[
+          t("web-dev.we-build.essentials.items.1"),
+          t("web-dev.we-build.essentials.items.2"),
+          t("web-dev.we-build.essentials.items.3"),
+          t("web-dev.we-build.essentials.items.4"),
+          t("web-dev.we-build.essentials.items.5"),
+          t("web-dev.we-build.essentials.items.6"),
+        ]}
+        isDark
+        lastPlus
+      />
+      <BenefitsCard
+        title={t("web-dev.we-build.specialized.title")}
+        items={[
+          t("web-dev.we-build.specialized.items.1"),
+          t("web-dev.we-build.specialized.items.2"),
+          t("web-dev.we-build.specialized.items.3"),
+          t("web-dev.we-build.specialized.items.4"),
+          t("web-dev.we-build.specialized.items.5"),
+          t("web-dev.we-build.specialized.items.6"),
+        ]}
+        lastPlus
+      />
+    </div>
+  </Section>
+
+  <Section title={t("web-dev.team.title")} sectionId="team">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.team.description")}
+    </p>
+
+    <div class="grid grid-cols-1 justify-between gap-6 md:grid-cols-2">
+      <TextChip text={t("web-dev.team.roles.1")} icon={wrenchIcon} />
+      <TextChip text={t("web-dev.team.roles.2")} icon={palleteIcon} />
+      <TextChip text={t("web-dev.team.roles.3")} icon={routeIcon} />
+      <TextChip text={t("web-dev.team.roles.4")} icon={scienceIcon} />
+    </div>
+  </Section>
+
+  <Section title={t("web-dev.stack.title")} sectionId="stack">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.stack.description")}
+    </p>
+
+    <div
+      class="flex w-full flex-col items-center justify-between gap-6 md:flex-col lg:flex-row"
+    >
+      <BenefitsCard
+        title={t("web-dev.stack.frontend.title")}
+        items={[
+          t("web-dev.stack.frontend.items.1"),
+          t("web-dev.stack.frontend.items.2"),
+          t("web-dev.stack.frontend.items.3"),
+          t("web-dev.stack.frontend.items.4"),
+        ]}
+        isDark
+      />
+      <BenefitsCard
+        title={t("web-dev.stack.backend.title")}
+        items={[
+          t("web-dev.stack.backend.items.1"),
+          t("web-dev.stack.backend.items.2"),
+          t("web-dev.stack.backend.items.3"),
+          t("web-dev.stack.backend.items.4"),
+        ]}
+      />
+    </div>
+  </Section>
+
+  <Section title={t("web-dev.why.title")} sectionId="why-custom-development">
+    <p slot="description" class="md:max-w-2xl">
+      {t("web-dev.team.description")}
+    </p>
+
+    <div class="grid grid-cols-1 justify-between gap-6 md:grid-cols-2">
+      <TextChip text={t("web-dev.why.features.1")} icon={gearIcon} isDark />
+      <TextChip text={t("web-dev.why.features.2")} icon={starIcon} isDark />
+      <TextChip
+        text={t("web-dev.why.features.3")}
+        icon={businessCaseIcon}
+        isDark
+      />
+      <TextChip text={t("web-dev.why.features.4")} icon={routesIcon} isDark />
+    </div>
+  </Section>
+
+  <CallToAction
+    title="Want to Build Something Unique?"
+    buttonLabel="Let's talk"
+  >
+    <p slot="description" class="max-w-lg text-lg">
+      Book a free consultation to discuss your vision and explore how we can
+      build the perfect custom solution for your business.
+    </p>
+  </CallToAction>
+</Layout>

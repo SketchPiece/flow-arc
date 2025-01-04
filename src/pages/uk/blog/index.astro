@@ -17,7 +17,6 @@ const blog = await getCollection("blog", ({ data }) => {
     data.properties.Lang.select.name === lang;
   return !isDraft && isCurrentLang;
 });
-console.log(blog[0]?.data.properties.Image?.files);
 ---
 
 <Layout>

@@ -33,6 +33,21 @@ const services = [
     description: t("nav.services.web-development.description"),
   },
 ];
+
+const caseStudies = [
+  {
+    name: "Автоматизація обліку",
+    href: "#",
+  },
+  {
+    name: "Автоматизація Іnstagram чи Twitter дописів",
+    href: "#",
+  },
+  {
+    name: "Автоматизована Система Ведення Блогу",
+    href: "#",
+  },
+];
 ---
 
 <header class="pt-10 font-serif">
@@ -59,12 +74,13 @@ const services = [
       >
         {t("nav.services")}
       </PopoverMenu>
-      <a
-        href={`/${lang}/case-studies`}
-        class="text-lg hover:text-primary-darker"
+      <PopoverMenu
+        client:load
+        className="text-lg hover:text-primary-darker"
+        items={caseStudies}
       >
         {t("nav.case-studies")}
-      </a>
+      </PopoverMenu>
       <a href={`/${lang}/blog`} class="text-lg hover:text-primary-darker">
         {t("nav.blog")}
       </a>

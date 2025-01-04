@@ -8,7 +8,15 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "110ch", // add required value here
+          },
+        },
+      },
       // TODO: remove this
+      // > why past me?
       boxShadow: {
         straight: "0px 6px 0px 0px rgba(0, 0, 0, 1)",
         "straight-reduced": "0px 6px 10px 0px rgba(0, 0, 0, 1)",
