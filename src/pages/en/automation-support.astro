@@ -4,7 +4,6 @@ import Layout from "@/layouts/Layout.astro";
 import InfoBlock from "@/components/common/InfoBlock.astro";
 import CardsFlowList from "@/components/common/CardsFlowList.astro";
 import BenefitsCard from "@/components/common/BenefitsCard.astro";
-import ActionInfoBlock from "@/components/common/ActionInfoBlock.astro";
 import creatorsImage from "@/assets/images/services/creators.png";
 import cardMgGlassImage from "@/assets/images/services/cards-mg-glass.png";
 import cardHeartImage from "@/assets/images/services/cards-heart-pulse.png";
@@ -12,100 +11,98 @@ import cardDiagramImage from "@/assets/images/services/cards-gypsy-diagram.png";
 import cardDialogsImage from "@/assets/images/services/cards-dialogs.png";
 import cubeImage from "@/assets/images/cube.png";
 import diamondImage from "@/assets/images/diamond.png";
-import littleChatbot from "@/assets/images/little-chatbot.png";
 import Section from "@/components/common/Section.astro";
+import CallToAction from "@/components/common/CallToAction.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout>
   <ServiceHero
-    title="Automation Support & Maintenance"
-    subtitle="Keep your automation running at peak performance"
+    title={t("auto-support.headline")}
+    subtitle={t("auto-support.description")}
     image={creatorsImage}
     items={[
-      "24/7 Expert Support",
-      "Proactive Monitoring",
-      "Continuous Optimization",
+      t("auto-support.head-feature.1"),
+      t("auto-support.head-feature.2"),
+      t("auto-support.head-feature.3"),
     ]}
   />
   <InfoBlock
-    title="Keep Your Business Running Smoothly"
-    subtitle="We safeguard your business operations through continuous monitoring and maintenance, ensuring your automations remain efficient and reliable."
-    className="my-25"
+    title={t("auto-support.info.title")}
+    subtitle={t("auto-support.info.description")}
+    className="my-10"
   />
 
-  <!-- <SectionTitleBlock
-      title="Our Support Process"
-      subtitle="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
-      className="mb-20"
-    /> -->
-
-  <Section title="Our Support Process" sectionId="support-process">
+  <Section title={t("auto-support.process.title")} sectionId="support-process">
     <p slot="description" class="md:max-w-2xl">
-      Let's explore how we can keep your systems running at peak performance
-      with expert maintenance, continuous monitoring, and performance updates.
+      {t("auto-support.process.description")}
     </p>
     <CardsFlowList
       cards={[
         {
-          title: "Monitor",
-          subtitle: "Real-time tracking and alerts",
+          title: t("auto-support.process.step.1.title"),
+          subtitle: t("auto-support.process.step.1.description"),
           image: cardMgGlassImage,
         },
         {
-          title: "Maintain",
-          subtitle: "Regular updates and security",
+          title: t("auto-support.process.step.2.title"),
+          subtitle: t("auto-support.process.step.2.description"),
           image: cardHeartImage,
-          focused: true,
         },
         {
-          title: "Optimize",
-          subtitle: "Performance enhancements",
+          title: t("auto-support.process.step.3.title"),
+          subtitle: t("auto-support.process.step.3.description"),
           image: cardDiagramImage,
         },
         {
-          title: "Support",
-          subtitle: "Rapid issue resolution",
+          title: t("auto-support.process.step.4.title"),
+          subtitle: t("auto-support.process.step.4.description"),
           image: cardDialogsImage,
         },
       ]}
     />
   </Section>
 
-  <Section title="Support Plans" sectionId="support-plans">
+  <Section title={t("auto-support.plans.title")} sectionId="support-plans">
     <p slot="description" class="md:max-w-2xl">
-      Choose the level of support that matches your business needs, from
-      essential maintenance to comprehensive coverage
+      {t("auto-support.plans.description")}
     </p>
 
     <div
-      class="md-3/4 xs:flex-col mb-36 flex w-full items-center justify-between gap-6 pb-5 sm:flex-col md:flex-row lg:flex-row"
+      class="flex w-full flex-col items-center justify-between gap-6 md:flex-col lg:flex-row"
     >
       <BenefitsCard
-        title="Standard"
+        title={t("auto-support.plans.standard.title")}
         items={[
-          "24/7 availability",
-          "Business hours support",
-          "Monthly check-ups",
+          t("auto-support.plans.standard.1"),
+          t("auto-support.plans.standard.2"),
+          t("auto-support.plans.standard.3"),
         ]}
         image={cubeImage}
       />
       <BenefitsCard
-        title="Premium"
+        title={t("auto-support.plans.premium.title")}
         isDark
-        items={["24/7 availability", "2h response time", "Weekly maintenance"]}
+        items={[
+          t("auto-support.plans.premium.1"),
+          t("auto-support.plans.premium.2"),
+          t("auto-support.plans.premium.3"),
+        ]}
         image={diamondImage}
       />
     </div>
   </Section>
-  <!-- TODO: replace with call to action -->
-  <div class="container mx-auto">
-    <ActionInfoBlock
-      title="Need automation maintenance?"
-      description="Let's explore how we can keep your systems running at peak performance with expert maintenance, continuous monitoring, and performance updates."
-      image={littleChatbot}
-      buttonLabel="Get started"
-      onAction={() => {}}
-      className="mb-36"
-    />
-  </div>
+
+  <CallToAction
+    title="Need automation maintenance?"
+    buttonLabel="Request Support"
+  >
+    <p slot="description" class="max-w-lg text-lg">
+      Let's explore how we can keep your systems running at peak performance
+      with expert maintenance, continuous monitoring, and performance updates.
+    </p>
+  </CallToAction>
 </Layout>

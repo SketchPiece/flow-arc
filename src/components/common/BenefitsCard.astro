@@ -1,9 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { cn } from "@/lib/helpers";
-
-import checkmarkLight from "@/assets/icons/checkmark-white-dark.svg";
-import checkmarkDark from "@/assets/icons/checkmark-blue-dark.svg";
+import Checkmark from "../icons/Checkmark.astro";
 
 interface Props {
   title: string;
@@ -11,14 +9,15 @@ interface Props {
   image?: ImageMetadata;
   isDark?: boolean;
   className?: string;
+  lastPlus?: boolean;
 }
 
-const { title, items, isDark, image, className } = Astro.props;
+const { title, items, isDark, image, lastPlus, className } = Astro.props;
 ---
 
 <div
   class={cn(
-    "flex flex-1 lg:flex-row flex-col xl:gap-14 lg:gap-3 gap-5 items-center justify-between lg:pl-10 lg:pr-5 px-3 xl:px-13 py-14 rounded-smooth-large w-full border border-black shadow-straight-small",
+    "flex flex-1 lg:flex-row flex-col-reverse xl:gap-14 lg:gap-3 gap-5 items-center justify-between lg:pl-10 lg:pr-5 px-3 xl:px-13 py-14 rounded-smooth-large w-full border border-black shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced",
     isDark ? "bg-grey-darker" : "bg-primary",
     className
   )}
@@ -32,24 +31,25 @@ const { title, items, isDark, image, className } = Astro.props;
     <ul
       class={cn(
         "grid justify-between gap-6",
-        !!image ? "grid-cols-1" : "xl:grid-cols-2"
+        !!image ? "grid-cols-1" : "md:grid-cols-2"
       )}
     >
       {
-        items.map((item) => (
-          <li
-            class={cn(
-              "flex items-center gap-4 text-lg font-medium",
-              isDark ? "text-grey-light" : "text-grey-darkest"
-            )}
-          >
-            <Image
-              src={isDark ? checkmarkDark : checkmarkLight}
-              alt="checkmark"
-            />
-            {item}
-          </li>
-        ))
+        items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          const type = lastPlus ? (isLast ? "plus" : "checkmark") : "checkmark";
+          return (
+            <li
+              class={cn(
+                "flex items-center gap-4 text-base font-medium",
+                isDark ? "text-grey-light" : "text-grey-darkest"
+              )}
+            >
+              <Checkmark variant={isDark ? "dark" : "light"} type={type} />
+              {item}
+            </li>
+          );
+        })
       }
     </ul>
   </div>

@@ -1,0 +1,24 @@
+---
+import { cn } from "@/lib/helpers";
+import { Image } from "astro:assets";
+
+interface Props {
+  text: string;
+  icon: ImageMetadata;
+  isDark?: boolean;
+}
+
+const { text, icon, isDark } = Astro.props;
+---
+
+<div
+  class={cn(
+    "flex gap-5 py-8 px-14 items-center rounded-smooth-large border border-grey-darkest shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced",
+    isDark ? "bg-grey-darker text-grey-light" : "bg-primary text-grey-darkest "
+  )}
+>
+  <Image src={icon} alt={`text icon`} />
+  <p class="text-xl font-medium md:text-2xl">
+    {text}
+  </p>
+</div>
