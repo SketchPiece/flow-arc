@@ -37,7 +37,12 @@ const cases = [
   >
     {
       cases.map((item, index) => (
-        <div class:list={[index !== 0 && "pt-8 md:pl-8 md:pt-0"]}>
+        <div
+          class:list={[
+            index !== 0 && "pt-8 md:pl-8 md:pt-0",
+            "flex flex-col justify-between",
+          ]}
+        >
           <p class="mb-6 text-grey-light">{item.title}</p>
           <a
             href={item.href}

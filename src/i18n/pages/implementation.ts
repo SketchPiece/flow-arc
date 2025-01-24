@@ -64,15 +64,16 @@ export const implementation = {
     "implementation.challenges.title": "Common Challenges We Solve",
     "implementation.challenges.description":
       "From manual tasks to complex integrations, we deliver solutions that transform your business operations",
-    "implementation.challenges.1.left": "We're drowning in manual work",
+    "implementation.challenges.1.left": "We're drowning in manual work 😫",
     "implementation.challenges.1.right":
-      "We transform manual tasks into automated flows",
+      "We transform manual tasks into automated workflows",
     "implementation.challenges.2.left": "My automations keep breaking",
     "implementation.challenges.2.right":
-      "We build reliable, error-proof workflows",
-    "implementation.challenges.3.left": "I need custom integrations",
+      "We build reliable, fail-safe systems ⚙️",
+    "implementation.challenges.3.left":
+      "Our software tools don't talk to each other 🤯",
     "implementation.challenges.3.right":
-      "We specialize in complex API connections",
+      "We establish secure data exchange between applications",
   },
   uk: {
     "implementation.headline": "Аналіз та Впровадження Автоматизації",

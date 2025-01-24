@@ -13,7 +13,7 @@ interface Props {
 const { title, buttonLabel, type } = Astro.props;
 ---
 
-<section class="container mx-auto sm:pb-20">
+<section class="container mx-auto pb-20">
   <div
     class="flex justify-between gap-8 rounded-smooth-large bg-primary px-9 py-11 sm:px-14"
   >
@@ -24,7 +24,7 @@ const { title, buttonLabel, type } = Astro.props;
         </h3>
         <slot name="description" />
       </div>
-      <Button className="mt-6 w-full sm:w-fit md:mt-0">{buttonLabel}</Button>
+      <Button className="mt-6 w-full sm:w-fit">{buttonLabel}</Button>
     </div>
 
     <Image

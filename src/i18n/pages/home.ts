@@ -31,22 +31,22 @@ export const home = {
       "Step-by-Step Guide to Achieving Your Automation Goals",
     "working-process.step.1.title": "Consultation",
     "working-process.step.1.description":
-      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+      "We'll dive deep into your business processes, identify automation opportunities, and establish clear efficiency goals. This collaborative approach ensures we develop solutions perfectly tailored to your specific needs.",
     "working-process.step.2.title": "Analysis and Solution Design",
     "working-process.step.2.description":
-      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+      "Our team conducts a comprehensive analysis of your workflows to uncover every automation opportunity. Through meticulous assessment, we map out how to transform manual, time-consuming tasks into streamlined, automated processes.",
     "working-process.step.3.title": "Implementation",
     "working-process.step.3.description":
-      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+      "We transform disconnected tools into a cohesive digital ecosystem. By intelligently integrating your key business platforms, we eliminate manual tasks, reduce errors, and significantly accelerate your team's workflow.",
     "working-process.step.4.title": "Testing and Refinement",
     "working-process.step.4.description":
-      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+      "Before launch, we rigorously test each automated process until it meets our exacting standards. Your new system will perform flawlessly from day one, delivering reliable results you can count on.",
     "working-process.step.5.title": "Training and Handover",
     "working-process.step.5.description":
-      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+      "We provide comprehensive training to ensure your team masters the new automated processes, supported by clear documentation for future reference.",
     "working-process.step.6.title": "Ongoing Support and Optimization",
     "working-process.step.6.description":
-      "We’ll discuss your business processes, identify automation opportunities, and define your efficiency goals. This allows us to craft solutions tailored to your specific needs.",
+      "Leave the technical details to us. Our dedicated support service maintains your automated processes, suggests smart improvements, and ensures your system evolves alongside your business needs.",
     "contact-us.title": "Contact Us",
     "contact-us.description": "Let's Discuss Your Digital Automation Needs",
     "contact-us.form.heading": "Have question? Drop us a message!",
@@ -64,7 +64,7 @@ export const home = {
       "Ми розробляємо спеціалізовані рішення для автоматизації, які економлять час, зменшують витрати та підвищують ефективність.",
     "services.title": "Послуги",
     "services.description":
-      "Комплексні рішення для масштабування бізнесу: від автоматизації процесів до розробки веб-застосунків. Дізнайтеся, як ми можемо посилити ваш бізнес:",
+      "Комплексні рішення для масштабування бізнесу: від автоматизації процесів до розробки веб-застосунків. Дізнайтеся, як ми можемо посилити ваш бізнес",
     "services.automation.title.1": "Аналіз та Впровадження",
     "services.automation.title.2": "Автоматизації",
     "services.support.title.1": "Технічна Підтримка",
