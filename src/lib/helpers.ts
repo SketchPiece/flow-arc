@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { contactSchema, type ContactForm } from "./schemas";
 
 export function truncate(str: string, maxLength: number) {
   if (str.length <= maxLength) {
@@ -36,4 +37,8 @@ export function mapNotionPost(post: any): Post {
     description: post.data.properties.PreviewText?.rich_text[0]?.plain_text,
     readingTime: post.data.properties.ReadTime?.number,
   };
+}
+
+export function validateContactForm(data: unknown): data is ContactForm {
+  return contactSchema.safeParse(data).success;
 }

@@ -2,8 +2,12 @@ import Button from "./ui/Button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
+import { useForm } from "react-hook-form";
+import { contactSchema, type ContactForm } from "@/lib/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "motion/react";
 
-interface ContactFormProps {
+export interface ContactFormProps {
   nameLabel?: string;
   emailLabel?: string;
   messageLabel?: string;
@@ -11,6 +15,14 @@ interface ContactFormProps {
   emailPlaceholder?: string;
   messagePlaceholder?: string;
   buttonLabel?: string;
+}
+
+function convertToFormData(data: ContactForm) {
+  const formData = new FormData();
+  formData.append("name", data.name);
+  formData.append("email", data.email);
+  formData.append("message", data.message);
+  return formData;
 }
 
 export default function ContactForm({
@@ -21,40 +33,77 @@ export default function ContactForm({
   emailPlaceholder,
   messagePlaceholder,
   buttonLabel,
-}: ContactFormProps) {
+  onSuccess,
+}: ContactFormProps & { onSuccess?: () => void }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const handleContactForm = (data: ContactForm) => {
+    fetch("/api/contact", {
+      method: "POST",
+      body: convertToFormData(data),
+    }).then(() => onSuccess?.());
+  };
+
   return (
-    <form className="flex-1">
+    <motion.form
+      className="flex-1"
+      onSubmit={handleSubmit(handleContactForm)}
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 2.3,
+        delay: 1,
+      }}
+    >
       <div className="flex flex-col gap-6">
         <div>
           <Label htmlFor="name">{nameLabel}</Label>
           <Input
-            type="text"
-            name="name"
             id="name"
+            type="text"
             placeholder={namePlaceholder}
+            required
+            minLength={4}
+            {...register("name")}
           />
+          {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
         <div>
           <Label htmlFor="email">{emailLabel}*</Label>
           <Input
             type="email"
-            name="email"
             id="email"
             placeholder={emailPlaceholder}
             required
+            {...register("email")}
           />
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message}</p>
+          )}
         </div>
         <div>
           <Label htmlFor="message">{messageLabel}*</Label>
           <Textarea
-            name="message"
             id="message"
             placeholder={messagePlaceholder}
             required
-          ></Textarea>
+            minLength={10}
+            {...register("message")}
+          />
+          {errors.message && (
+            <p className="text-red-500">{errors.message.message}</p>
+          )}
         </div>
       </div>
-      <Button className="mt-10 w-full">{buttonLabel}</Button>
-    </form>
+      <Button className="mt-10 w-full" type="submit">
+        {buttonLabel}
+      </Button>
+    </motion.form>
   );
 }
