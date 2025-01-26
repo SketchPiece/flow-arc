@@ -48,6 +48,8 @@ const caseStudies = [
     href: "#",
   },
 ];
+
+const pagePath = Astro.url.pathname.replace(`/${lang}`, "");
 ---
 
 <header class="pt-10 font-serif">
@@ -64,9 +66,6 @@ const caseStudies = [
       <a href={`/${lang}/about`} class="text-lg hover:text-primary-darker">
         {t("nav.about")}
       </a>
-      <!-- <a href={`/${lang}/services`} class="text-lg hover:text-primary-darker">
-        {t("nav.services")}
-      </a> -->
       <PopoverMenu
         client:load
         className="text-lg hover:text-primary-darker"
@@ -85,7 +84,7 @@ const caseStudies = [
         {t("nav.blog")}
       </a>
       <a
-        href={lang === "uk" ? "/en" : "/uk"}
+        href={lang === `uk` ? `/en${pagePath}` : `/uk${pagePath}`}
         class="text-lg hover:text-primary-darker"
       >
         <Image
