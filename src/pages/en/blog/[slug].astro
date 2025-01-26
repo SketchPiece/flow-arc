@@ -7,12 +7,14 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: {
-      slug: post.data.properties.Slug?.rich_text[0]?.plain_text || post.id,
-    },
-    props: { post },
-  }));
+  return posts
+    .filter((post) => post.data.properties.Lang?.select?.name === "en")
+    .map((post) => ({
+      params: {
+        slug: post.data.properties.Slug?.rich_text[0]?.plain_text || post.id,
+      },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;
@@ -31,9 +33,9 @@ const { Content } = await render(post);
     <Image
       src={postData.image ?? "https://placehold.co/600x400/png"}
       alt={`${post.id}-post-image`}
-      class="shadow-straight mb-16 h-[330px] w-full rounded-smooth-large object-cover"
-      width="120"
-      height="330"
+      class="mb-16 h-[330px] w-full rounded-smooth-large object-cover shadow-straight"
+      width="1150"
+      height="300"
     />
     <div class="flex flex-col gap-4 md:px-20 lg:px-60">
       {
