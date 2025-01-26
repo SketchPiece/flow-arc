@@ -15,6 +15,8 @@ export default defineConfig({
     }),
     react(),
   ],
-
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   adapter: vercel(),
 });
