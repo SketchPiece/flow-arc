@@ -56,9 +56,18 @@ const navigationLinks = [
 
       <p>Telegram: @flowarc</p>
     </div>
-    <div class="border-t pt-12 font-serif text-lg font-thin">
+    <div
+      class="flex flex-col justify-between gap-4 border-t pt-12 font-serif text-lg font-thin md:flex md:flex-row"
+    >
       <span class="mr-10">© 2025 FlowArc. All Rights Reserved.</span>
-      <a href="/" class="p-0 underline">Privacy Policy</a>
+      <div>
+        <a href={`/${lang}/terms-of-service`} class="ml-auto p-0 underline">
+          {t("footer.terms-of-service")}
+        </a>
+        <a href={`/${lang}/privacy-policy`} class="p-0 pl-8 underline">
+          {t("footer.privacy-policy")}
+        </a>
+      </div>
     </div>
   </footer>
 </div>

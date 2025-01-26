@@ -3,17 +3,19 @@ import { Image } from "astro:assets";
 import Button from "../react/ui/Button";
 import chatBot from "@/assets/images/little-chatbot.png";
 import chess from "@/assets/images/chess.png";
+import { cn } from "@/lib/helpers";
 
 interface Props {
   title: string;
   buttonLabel: string;
   type?: "chess" | "bot";
+  className?: string;
 }
 
-const { title, buttonLabel, type } = Astro.props;
+const { title, buttonLabel, type, className } = Astro.props;
 ---
 
-<section class="container mx-auto pb-20">
+<section class={cn("container mx-auto pb-20", className)}>
   <div
     class="flex justify-between gap-8 rounded-smooth-large bg-primary px-9 py-11 sm:px-14"
   >
