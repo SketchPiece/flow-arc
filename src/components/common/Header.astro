@@ -10,12 +10,6 @@ import PopoverMenu from "../react/PopoverMenu";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const navigationLinks = [
-  { name: t("nav.about"), href: `/${lang}/about` },
-  { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
-  { name: t("nav.blog"), href: `/${lang}/blog` },
-];
-
 const services = [
   {
     name: t("nav.services.implementation.title"),
@@ -49,7 +43,15 @@ const caseStudies = [
   },
 ];
 
+const navigationLinks = [
+  { name: t("nav.about"), href: `/${lang}/about` },
+  { name: t("nav.services"), items: services },
+  { name: t("nav.case-studies"), items: caseStudies },
+  { name: t("nav.blog"), href: `/${lang}/blog` },
+];
+
 const pagePath = Astro.url.pathname.replace(`/${lang}`, "");
+const changeLanguagePath = lang === `uk` ? `/en${pagePath}` : `/uk${pagePath}`;
 ---
 
 <header class="pt-10 font-serif">
@@ -61,7 +63,12 @@ const pagePath = Astro.url.pathname.replace(`/${lang}`, "");
       <span class="sr-only">Flow Arc</span>
       <img alt="Flow Arc Logo" src={logoIcon.src} class="h-12" />
     </a>
-    <MobileMenu navigation={navigationLinks} client:load />
+    <MobileMenu
+      navigation={navigationLinks}
+      language={lang}
+      languagePath={changeLanguagePath}
+      client:load
+    />
     <div class="hidden lg:flex lg:gap-x-12">
       <a href={`/${lang}/about`} class="text-lg hover:text-primary-darker">
         {t("nav.about")}
@@ -83,10 +90,7 @@ const pagePath = Astro.url.pathname.replace(`/${lang}`, "");
       <a href={`/${lang}/blog`} class="text-lg hover:text-primary-darker">
         {t("nav.blog")}
       </a>
-      <a
-        href={lang === `uk` ? `/en${pagePath}` : `/uk${pagePath}`}
-        class="text-lg hover:text-primary-darker"
-      >
+      <a href={changeLanguagePath} class="text-lg hover:text-primary-darker">
         <Image
           src={lang === "uk" ? ukFlag : gbFlag}
           alt="Language Flag"
