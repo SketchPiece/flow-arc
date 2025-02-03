@@ -5,6 +5,7 @@ import RiveAnimation from "../react/RiveAnimation";
 import heroRobotPreview from "@/assets/images/hero-robot.png";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import { cn } from "@/lib/helpers";
+import { ServicesCarousel } from "../react/ServicesCarousel";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -21,7 +22,7 @@ const t = useTranslations(lang);
     <h1
       class={cn(
         "text-5xl font-medium xl:text-6xl",
-        lang === "uk" ? "max-w-xl xl:max-w-2xl" : "max-w-xl"
+        lang === "uk" ? "max-w-xl xl:max-w-2xl" : "max-w-xl",
       )}
     >
       {t("hero.headline")}
@@ -65,3 +66,4 @@ const t = useTranslations(lang);
     <Button className="mt-9 w-full">{t("common.cta")}</Button>
   </div>
 </section>
+<ServicesCarousel client:load />
