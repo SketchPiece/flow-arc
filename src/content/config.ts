@@ -5,7 +5,6 @@ import {
   propertySchema,
 } from "@notwoods/notion-astro-loader/schemas";
 import { z } from "astro/zod";
-import { Description } from "@headlessui/react";
 
 const blog = defineCollection({
   // @ts-ignore
