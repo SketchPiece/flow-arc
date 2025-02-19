@@ -7,17 +7,28 @@ import Services from "@/components/home/Services.astro";
 import WorkingProcess from "@/components/home/WorkingProcess.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { getCasesCollection } from "@/lib/content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const featuredStudies = await getCasesCollection({ lang, featured: true });
+
+const featuredStudyLinks = featuredStudies.map((study) => {
+  return {
+    title: study.title,
+    description: study.description,
+    href: `/${lang}/case-studies/${study.slug}`,
+  };
+});
 ---
 
 <Layout>
   <Hero />
   <Services>
     <Fragment slot="web-dev-title">
-      <span class="block w-fit rounded-md bg-grey-light px-2">Створення</span>
-      <span class="block w-fit rounded-md bg-grey-light px-2">
+      <span class="bg-gray-light block w-fit rounded-md px-2">Створення</span>
+      <span class="bg-gray-light block w-fit rounded-md px-2">
         Веб-Застосунків
       </span>
     </Fragment>
@@ -37,7 +48,7 @@ const t = useTranslations(lang);
       </p>
     </div>
   </CallToAction>
-  <CaseStudies />
+  <CaseStudies cases={featuredStudyLinks} />
   <WorkingProcess />
   <ContactUs />
 </Layout>

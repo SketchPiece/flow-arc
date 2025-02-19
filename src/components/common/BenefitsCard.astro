@@ -18,13 +18,13 @@ const { title, items, isDark, image, lastPlus, className } = Astro.props;
 <div
   class={cn(
     "flex flex-1 md:flex-row flex-col-reverse lg:gap-14 md:gap-3 gap-5 items-center justify-between md:pl-10 md:pr-16 lg:pr-5 px-3 lg:px-13 py-14 rounded-smooth-large w-full border border-black shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced",
-    isDark ? "bg-grey-darker" : "bg-primary",
+    isDark ? "bg-gray-darker" : "bg-primary",
     className,
   )}
 >
   <div class="flex flex-col gap-9">
     <h3
-      class="w-fit rounded bg-grey-light px-2 text-2xl font-medium text-grey-darkest"
+      class="bg-gray-light text-gray-darkest w-fit rounded px-2 text-2xl font-medium"
     >
       {title}
     </h3>
@@ -42,7 +42,7 @@ const { title, items, isDark, image, lastPlus, className } = Astro.props;
             <li
               class={cn(
                 "flex items-center gap-4 text-base font-medium",
-                isDark ? "text-grey-light" : "text-grey-darkest",
+                isDark ? "text-gray-light" : "text-gray-darkest",
               )}
             >
               <Checkmark variant={isDark ? "dark" : "light"} type={type} />

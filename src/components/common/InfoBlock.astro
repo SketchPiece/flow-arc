@@ -14,17 +14,17 @@ const { title, subtitle, className } = Astro.props;
   <div
     id="default-heading"
     class={cn(
-      "flex flex-col items-center justify-center rounded-smooth-large bg-grey-darkest px-6 md:px-12 py-10 border border-grey-darkest shadow-straight",
-      className
+      "flex flex-col items-center justify-center rounded-smooth-large bg-gray-darkest px-6 md:px-12 py-10 border border-gray-darkest shadow-straight",
+      className,
     )}
   >
     <h3
-      class="rounded bg-grey-light p-1 px-2 text-center text-lg font-medium text-grey-darkest md:py-0 lg:text-3xl"
+      class="bg-gray-light text-gray-darkest rounded p-1 px-2 text-center text-lg font-medium md:py-0 lg:text-3xl"
     >
       {title}
     </h3>
     <p
-      class="mt-5 text-center text-base text-grey-light md:max-w-4xl lg:text-xl"
+      class="text-gray-light mt-5 text-center text-base md:max-w-4xl lg:text-xl"
     >
       {subtitle}
     </p>

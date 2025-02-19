@@ -1,0 +1,42 @@
+---
+import ContentContainer from "@/components/common/ContentContainer.astro";
+import Layout from "@/layouts/Layout.astro";
+import { mapNotionCase } from "@/lib/helpers";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const cases = await getCollection("cases");
+  return cases
+    .filter(
+      (caseStudy) => caseStudy.data.properties.Lang?.select?.name === "en",
+    )
+    .map((caseStudy) => ({
+      params: {
+        slug:
+          caseStudy.data.properties.Slug?.rich_text[0]?.plain_text ||
+          caseStudy.id,
+      },
+      props: { caseStudy },
+    }));
+}
+
+const { caseStudy } = Astro.props;
+const postData = mapNotionCase(caseStudy);
+
+const title = postData.title;
+const { Content } = await render(caseStudy);
+---
+
+<Layout>
+  <section id="post-title" class="container mx-auto pb-36 pt-20">
+    <h1 class="mb-8 text-4xl font-medium md:px-20 md:text-6xl lg:px-60">
+      {title}
+    </h1>
+    <div class="flex flex-col gap-4 md:px-20 lg:px-60">
+      <ContentContainer>
+        <Content />
+      </ContentContainer>
+    </div>
+  </section>
+</Layout>

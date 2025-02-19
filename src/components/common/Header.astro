@@ -6,6 +6,7 @@ import MobileMenu from "../react/MobileMenu";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import { Image } from "astro:assets";
 import PopoverMenu from "../react/PopoverMenu";
+import { getCasesCollection } from "@/lib/content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -28,20 +29,13 @@ const services = [
   },
 ];
 
-const caseStudies = [
-  {
-    name: "Автоматизація обліку",
-    href: "#",
-  },
-  {
-    name: "Автоматизація Іnstagram чи Twitter дописів",
-    href: "#",
-  },
-  {
-    name: "Автоматизована Система Ведення Блогу",
-    href: "#",
-  },
-];
+const cases = await getCasesCollection({ lang });
+const caseStudies = cases.map((caseStudy) => {
+  return {
+    name: caseStudy.title,
+    href: `/${lang}/case-studies/${caseStudy.slug}`,
+  };
+});
 
 const navigationLinks = [
   { name: t("nav.about"), href: `/${lang}/about` },

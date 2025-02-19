@@ -24,9 +24,18 @@ export function cn(...inputs: ClassValue[]) {
 interface Post {
   slug: string;
   title: string;
+  lang: "en" | "uk";
   image?: string;
   description?: string;
   readingTime?: number;
+}
+
+interface Case {
+  title: string;
+  description?: string;
+  slug: string;
+  lang: "en" | "uk";
+  featured: boolean;
 }
 
 export function mapNotionPost(post: any): Post {
@@ -36,6 +45,19 @@ export function mapNotionPost(post: any): Post {
     image: post.data.properties.Image?.files[0]?.external?.url,
     description: post.data.properties.PreviewText?.rich_text[0]?.plain_text,
     readingTime: post.data.properties.ReadTime?.number,
+    lang: post.data.properties.Lang?.select?.name || "en",
+  };
+}
+
+export function mapNotionCase(caseStudy: any): Case {
+  return {
+    title: caseStudy.data.properties.Name.title[0]?.plain_text || "Undefined",
+    description:
+      caseStudy.data.properties.Description?.rich_text[0]?.plain_text,
+    slug:
+      caseStudy.data.properties.Slug?.rich_text[0]?.plain_text || caseStudy.id,
+    lang: caseStudy.data.properties.Lang?.select?.name || "en",
+    featured: caseStudy.data.properties.Featured?.checkbox ?? false,
   };
 }
 

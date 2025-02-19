@@ -11,10 +11,10 @@ const { content, variant } = Astro.props;
 
 <div
   class={cn(
-    "py-8 px-14 rounded-smooth-large border border-grey-darkest w-fit shadow-straight",
+    "py-8 px-14 rounded-smooth-large border border-gray-darkest w-fit shadow-straight",
     variant === "left"
-      ? "bg-grey-darkest text-grey-light rounded-bl-md"
-      : "bg-primary ml-auto rounded-br-md"
+      ? "bg-gray-darkest text-gray-light rounded-bl-md"
+      : "bg-primary ml-auto rounded-br-md",
   )}
 >
   <p class="font-medium md:text-2xl">{content}</p>

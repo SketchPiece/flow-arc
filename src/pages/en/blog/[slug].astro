@@ -40,11 +40,11 @@ const { Content } = await render(post);
     <div class="flex flex-col gap-4 md:px-20 lg:px-60">
       {
         readingTime && (
-          <p class="font-medium text-grey-dark">{readingTime} min read</p>
+          <p class="font-medium text-gray-dark">{readingTime} min read</p>
         )
       }
       <!-- {post?.paragraphs?.map((p) => <p class="text-lg">{p}</p>)} -->
-      <div class="prose text-grey-darkest">
+      <div class="text-gray-darkest prose">
         <Content />
       </div>
     </div>

@@ -24,15 +24,15 @@ const {
 
 <section
   class={cn(
-    "flex items-center xs:flex-col-reverse sm:flex-col-reverse md:flex-col-reverse lg:flex-row justify-between rounded-smooth-large bg-primary px-16 py-5 border border-grey-darkest shadow-straight",
-    className
+    "flex items-center xs:flex-col-reverse sm:flex-col-reverse md:flex-col-reverse lg:flex-row justify-between rounded-smooth-large bg-primary px-16 py-5 border border-gray-darkest shadow-straight",
+    className,
   )}
 >
   <div class="flex w-full flex-col gap-7 py-8 lg:max-w-[500px]">
-    <h3 class="rounded text-3xl font-medium text-grey-darkest">
+    <h3 class="text-gray-darkest rounded text-3xl font-medium">
       {title}
     </h3>
-    <p class="text-xl text-grey-darkest">{description}</p>
+    <p class="text-gray-darkest text-xl">{description}</p>
     <Button className="w-44">{buttonLabel}</Button>
   </div>
   <Image src={image} alt={`${title} block image`} />
