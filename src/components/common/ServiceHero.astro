@@ -18,7 +18,7 @@ const { title, subtitle, image, items, className } = Astro.props;
 <section
   class={cn(
     "container mx-auto flex-col-reverse md:flex-row lg:flex-row flex items-center justify-between py-12 lg:py-24",
-    className
+    className,
   )}
 >
   <div class="flex flex-col">
@@ -27,7 +27,7 @@ const { title, subtitle, image, items, className } = Astro.props;
     >
       {title}
     </h2>
-    <p class="mt-2 max-w-xl text-lg text-grey-dark md:text-xl">{subtitle}</p>
+    <p class="mt-2 max-w-xl text-lg text-gray-dark md:text-xl">{subtitle}</p>
     <ul class="mt-8 flex flex-col gap-4">
       {
         items?.map?.((item) => (

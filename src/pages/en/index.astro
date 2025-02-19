@@ -6,26 +6,43 @@ import Hero from "@/components/home/Hero.astro";
 import Services from "@/components/home/Services.astro";
 import WorkingProcess from "@/components/home/WorkingProcess.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { getCasesCollection } from "@/lib/content";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const featuredStudies = await getCasesCollection({ lang, featured: true });
+
+const featuredStudyLinks = featuredStudies.map((study) => {
+  return {
+    title: study.title,
+    description: study.description,
+    href: `/${lang}/case-studies/${study.slug}`,
+  };
+});
 ---
 
 <Layout>
   <Hero />
   <Services />
   <CallToAction
-    title="Let’s make things happen"
-    buttonLabel="Book a consultation"
+    title={t("services.cta.title")}
+    buttonLabel={t("common.cta")}
     type="chess"
   >
-    <p slot="description" class="max-w-lg">
-      Ready to transform your business? <b>Contact us today</b> to discover how our
-      custom automation solutions can save you time, reduce costs, and accelerate
-      your growth.
-      <br />
-      <br />
-      Let us help you work smarter—not harder.
-    </p>
+    <div slot="description" class="max-w-lg">
+      <p slot="description" class="max-w-lg">
+        Ready to transform your business? <b>Contact us today</b> to discover how
+        our custom automation solutions can save you time, reduce costs, and accelerate
+        your growth.
+        <br />
+        <br />
+        Let us help you work smarter—not harder.
+      </p>
+    </div>
   </CallToAction>
-  <CaseStudies />
+  <CaseStudies cases={featuredStudyLinks} />
   <WorkingProcess />
   <ContactUs />
 </Layout>

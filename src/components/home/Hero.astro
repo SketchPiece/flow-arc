@@ -16,7 +16,7 @@ const t = useTranslations(lang);
   class="container mx-auto flex flex-col-reverse items-center justify-between py-10 md:py-20 lg:flex-row"
 >
   <div class="sr-only sm:not-sr-only">
-    <p class="text-3xl font-medium text-grey-dark">
+    <p class="text-3xl font-medium text-gray-dark">
       {t("hero.subheadline")}
     </p>
     <h1
@@ -48,7 +48,7 @@ const t = useTranslations(lang);
     </RiveAnimation>
   </div>
   <div class="sm:hidden">
-    <p class="text-xl font-medium text-grey-dark xl:text-4xl">
+    <p class="text-xl font-medium text-gray-dark xl:text-4xl">
       {t("hero.subheadline")}
     </p>
     <h1 class="text-4xl font-medium xl:text-6xl">
@@ -66,4 +66,5 @@ const t = useTranslations(lang);
     <Button className="mt-9 w-full">{t("common.cta")}</Button>
   </div>
 </section>
+
 <ServicesCarousel client:load />

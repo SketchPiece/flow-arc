@@ -55,7 +55,7 @@ export default {
           dark: "#333333",
           obsidian: "#191A23",
         },
-        grey: {
+        gray: {
           DEFAULT: "#898989",
           darkest: "#000000",
           darker: "#191A23",

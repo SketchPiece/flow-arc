@@ -91,7 +91,7 @@ export function ServicesCarousel() {
   }, []);
 
   return (
-    <div className="container mx-auto p-0 pt-5 md:pt-0">
+    <div className="container mx-auto mb-5 mt-16 p-0 pt-5 md:pt-0">
       <div className="relative h-12 w-full overflow-hidden">
         <motion.div
           ref={carouselRef}

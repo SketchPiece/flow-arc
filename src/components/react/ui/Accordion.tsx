@@ -11,7 +11,7 @@ const AccordionItem = React.forwardRef<
   <AccordionPrimitive.Item
     ref={ref}
     className={cn(
-      "rounded-[50px] border border-grey-darker bg-primary p-6 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)] md:rounded-smooth-large md:p-12",
+      "border-gray-darker rounded-[50px] border bg-primary p-6 shadow-[0_6px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1 hover:shadow-[0_6px_10px_0px_rgba(0,0,0,1)] md:rounded-smooth-large md:p-12",
       className,
     )}
     {...props}
@@ -31,7 +31,7 @@ const AccordionStateIndicator = ({
     <div
       {...props}
       className={cn(
-        "grid min-h-10 min-w-10 place-items-center rounded-full border border-grey-darker bg-grey-lighter md:h-14 md:w-14",
+        "border-gray-darker bg-gray-lighter grid min-h-10 min-w-10 place-items-center rounded-full border md:h-14 md:w-14",
         props.className,
       )}
     >
@@ -102,7 +102,7 @@ const AccordionContent = React.forwardRef<
     {...props}
   >
     <div
-      className={cn("mt-7 border-t border-grey-darkest pb-4 pt-7", className)}
+      className={cn("border-gray-darkest mt-7 border-t pb-4 pt-7", className)}
     >
       {children}
     </div>

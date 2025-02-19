@@ -8,20 +8,17 @@ import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const cases = [
-  {
-    title: t("case-studies.case.1"),
-    href: "#restaurant-case",
-  },
-  {
-    title: t("case-studies.case.2"),
-    href: "#b2b-case",
-  },
-  {
-    title: t("case-studies.case.3"),
-    href: "#retail-case",
-  },
-];
+interface CaseStudy {
+  title: string;
+  description: string | undefined;
+  href: string;
+}
+
+interface Props {
+  cases: CaseStudy[];
+}
+
+const { cases } = Astro.props;
 ---
 
 <Section title={t("case-studies.title")} sectionId="case-studies">
@@ -33,7 +30,7 @@ const cases = [
   </p>
 
   <div
-    class="grid grid-cols-1 gap-8 divide-y divide-grey-light rounded-smooth-large bg-grey-darker px-9 py-16 text-grey-light sm:px-14 md:grid-cols-3 md:divide-x md:divide-y-0"
+    class="divide-gray-light bg-gray-darker text-gray-light grid grid-cols-1 gap-8 divide-y rounded-smooth-large px-9 py-16 sm:px-14 md:grid-cols-3 md:divide-x md:divide-y-0"
   >
     {
       cases.map((item, index) => (
@@ -43,7 +40,10 @@ const cases = [
             "flex flex-col justify-between",
           ]}
         >
-          <p class="mb-6 text-grey-light">{item.title}</p>
+          <div>
+            <h3 class="mb-4 text-2xl font-medium">{item.title}</h3>
+            <p class="text-gray-light mb-6">{item.description}</p>
+          </div>
           <a
             href={item.href}
             class="inline-flex items-center text-primary transition-colors hover:text-primary-darker"
