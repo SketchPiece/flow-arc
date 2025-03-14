@@ -35,12 +35,6 @@ const caseStudies = cases.map((caseStudy) => {
   };
 });
 
-const navigationLinks = [
-  { name: t("nav.about"), href: `/${lang}/about` },
-  { name: t("nav.services"), items: services },
-  { name: t("nav.case-studies"), items: caseStudies },
-  { name: t("nav.blog"), href: `/${lang}/blog` },
-];
 ---
 
 <div class="mx-auto md:container">
@@ -76,16 +70,6 @@ const navigationLinks = [
       <a href={`/${lang}/blog`} class="text-lg font-thin underline hover:text-primary">
         {t("nav.blog")}
       </a>
-        <!-- {
-          navigationLinks.map((item) => (
-            <a
-              href={item.href}
-              class="font-serif text-lg font-thin underline hover:text-primary"
-            >
-              {item.name}
-            </a>
-          ))
-        } -->
       </div>
       <div class="flex justify-end gap-5">
         <a href="/">
