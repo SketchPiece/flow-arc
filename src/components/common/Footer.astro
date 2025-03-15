@@ -1,18 +1,40 @@
 ---
-import logoIcon from "@/assets/icons/logo_light.svg";
-import linkedinIcon from "@/assets/icons/social_linkedin.svg";
-import xtwitterIcon from "@/assets/icons/social_xtwitter.svg";
+import logoIcon from "@/assets/icons/logo-dark.svg";
+import linkedinIcon from "@/assets/icons/linkedin.svg";
+import xtwitterIcon from "@/assets/icons/xtwitter.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { getCasesCollection } from "@/lib/content";
+import PopoverMenu from "../react/PopoverMenu";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const navigationLinks = [
-  { name: t("nav.about"), href: `/${lang}/about` },
-  { name: t("nav.services"), href: `/${lang}/services` },
-  { name: t("nav.case-studies"), href: `/${lang}/case-studies` },
-  { name: t("nav.blog"), href: `/${lang}/blog` },
+const services = [
+  {
+    name: t("nav.services.implementation.title"),
+    href: `/${lang}/implementation`,
+    description: t("nav.services.implementation.description"),
+  },
+  {
+    name: t("nav.services.automation-support.title"),
+    href: `/${lang}/automation-support`,
+    description: t("nav.services.automation-support.description"),
+  },
+  {
+    name: t("nav.services.web-development.title"),
+    href: `/${lang}/web-development`,
+    description: t("nav.services.web-development.description"),
+  },
 ];
+
+const cases = await getCasesCollection({ lang });
+const caseStudies = cases.map((caseStudy) => {
+  return {
+    name: caseStudy.title,
+    href: `/${lang}/case-studies/${caseStudy.slug}`,
+  };
+});
+
 ---
 
 <div class="mx-auto md:container">
@@ -26,16 +48,28 @@ const navigationLinks = [
       </a>
 
       <div class="hidden lg:flex lg:gap-x-10">
-        {
-          navigationLinks.map((item) => (
-            <a
-              href={item.href}
-              class="font-serif text-lg font-thin underline hover:text-primary"
-            >
-              {item.name}
-            </a>
-          ))
-        }
+        <a href={`/${lang}/about`} class="text-lg font-thin underline hover:text-primary">
+        {t("nav.about")}
+      </a>
+      <PopoverMenu
+        client:load
+        className="text-lg font-thin underline hover:text-primary"
+        items={services}
+        align="top"
+      >
+        {t("nav.services")}
+      </PopoverMenu>
+      <PopoverMenu
+        client:load
+        className="text-lg font-thin underline hover:text-primary"
+        items={caseStudies}
+        align="top"
+      >
+        {t("nav.case-studies")}
+      </PopoverMenu>
+      <a href={`/${lang}/blog`} class="text-lg font-thin underline hover:text-primary">
+        {t("nav.blog")}
+      </a>
       </div>
       <div class="flex justify-end gap-5">
         <a href="/">
