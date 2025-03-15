@@ -19,7 +19,7 @@ export function AnimatedContactUs({
 
   return (
     <>
-      <div className="rounded-smooth-large bg-primary px-9 py-14 md:px-24">
+      <div className="mobile:px-8 mobile:py-14 rounded-smooth-large bg-primary px-4 py-8 md:px-14">
         <AnimatePresence>
           {!formSubmitted && (
             <motion.div
@@ -31,7 +31,7 @@ export function AnimatedContactUs({
                 delay: 1,
               }}
             >
-              <div className="mb-8 flex gap-10">
+              <div className="mb-8 flex justify-center gap-10 md:justify-start">
                 <a href="#" className="flex items-center gap-2 font-semibold">
                   <img src={whatsappImage.src} alt="Telegram" className="w-8" />
                   WhatsApp
@@ -56,7 +56,7 @@ export function AnimatedContactUs({
             ) : (
               <motion.div
                 key="success-message"
-                className="grid w-full place-items-center gap-10 py-28"
+                className="mobile:py-28 grid w-full place-items-center gap-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
@@ -111,7 +111,8 @@ const PlaneSvg = ({ animate, ...props }: PlaneSvgProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={529}
-    height={625}
+    viewBox={`0 0 ${529} ${625}`}
+    height={625 / 1.5}
     fill="none"
     {...props}
   >

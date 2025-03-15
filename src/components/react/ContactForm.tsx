@@ -61,9 +61,11 @@ export default function ContactForm({
         delay: 1,
       }}
     >
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         <div>
-          <Label htmlFor="name">{nameLabel}</Label>
+          <Label htmlFor="name" className="mb-2 block">
+            {nameLabel}
+          </Label>
           <Input
             id="name"
             type="text"
@@ -75,7 +77,9 @@ export default function ContactForm({
           {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         </div>
         <div>
-          <Label htmlFor="email">{emailLabel}*</Label>
+          <Label htmlFor="email" className="mb-2 block">
+            {emailLabel}*
+          </Label>
           <Input
             type="email"
             id="email"
@@ -88,7 +92,9 @@ export default function ContactForm({
           )}
         </div>
         <div>
-          <Label htmlFor="message">{messageLabel}*</Label>
+          <Label htmlFor="message" className="mb-2 block">
+            {messageLabel}*
+          </Label>
           <Textarea
             id="message"
             placeholder={messagePlaceholder}

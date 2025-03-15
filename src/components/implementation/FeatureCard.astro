@@ -13,12 +13,12 @@ const { title, features, light } = Astro.props;
 
 <div
   class={cn(
-    "bg-gray-darkest rounded-smooth-large shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced py-12 px-9 border border-gray-darkest",
+    "bg-gray-darkest rounded-smooth-large shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced py-8 px-8 border border-gray-darkest",
     light && "bg-primary",
   )}
 >
   <h3
-    class="bg-gray-light text-gray-darkest inline-block rounded px-1 text-xl font-medium md:py-0 lg:text-xl"
+    class="inline-block rounded bg-gray-light px-1 text-xl font-medium text-gray-darkest md:py-0 lg:text-xl"
   >
     {title}
   </h3>

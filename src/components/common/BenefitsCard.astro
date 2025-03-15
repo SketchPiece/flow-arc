@@ -17,14 +17,14 @@ const { title, items, isDark, image, lastPlus, className } = Astro.props;
 
 <div
   class={cn(
-    "flex flex-1 md:flex-row flex-col-reverse lg:gap-14 md:gap-3 gap-5 items-center justify-between md:pl-10 md:pr-16 lg:pr-5 px-3 lg:px-13 py-14 rounded-smooth-large w-full border border-black shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced",
+    "flex flex-1 md:flex-row flex-col-reverse lg:gap-12 md:gap-3 gap-5 items-center justify-between md:pl-8 md:pr-16 lg:pr-4 px-2 lg:px-12 py-12 rounded-smooth-large w-full border border-black shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced",
     isDark ? "bg-gray-darker" : "bg-primary",
     className,
   )}
 >
-  <div class="flex flex-col gap-9">
+  <div class="flex flex-col gap-8">
     <h3
-      class="bg-gray-light text-gray-darkest w-fit rounded px-2 text-2xl font-medium"
+      class="w-fit rounded bg-gray-light px-2 text-2xl font-medium text-gray-darkest"
     >
       {title}
     </h3>

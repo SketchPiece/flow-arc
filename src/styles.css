@@ -21,7 +21,7 @@
     --radius: 0.5rem;
   }
   html {
-    zoom: 0.85;
+    /* zoom: 0.85; */
   }
 }
 
@@ -33,7 +33,7 @@
 
 /* notion styles */
 .notion-callout {
-  @apply bg-gray-lighter flex items-start rounded-smooth-large border p-4 py-8;
+  @apply flex items-start rounded-smooth-large border bg-gray-lighter p-4 py-8;
 }
 
 .notion-callout-icon {

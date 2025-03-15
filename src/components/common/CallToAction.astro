@@ -17,7 +17,7 @@ const { title, buttonLabel, type, className } = Astro.props;
 
 <section class={cn("container mx-auto pb-20", className)}>
   <div
-    class="flex justify-between gap-8 rounded-smooth-large bg-primary px-9 py-11 sm:px-14"
+    class="flex justify-between gap-8 rounded-smooth-large bg-primary px-8 py-10 sm:px-12"
   >
     <div class="flex flex-col justify-between">
       <div class="space-y-6">
@@ -32,7 +32,7 @@ const { title, buttonLabel, type, className } = Astro.props;
     <Image
       src={type === "chess" ? chess : chatBot}
       alt="Chess Illustration"
-      height={250}
+      height={240}
       class="hidden lg:block"
     />
   </div>
