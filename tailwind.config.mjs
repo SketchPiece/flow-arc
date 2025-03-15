@@ -22,19 +22,19 @@ export default {
         "straight-reduced": "0px 6px 10px 0px rgba(0, 0, 0, 1)",
       },
       fontSize: {
-        "5xl": "40px",
+        "5xl": "44px",
       },
       margin: {
-        25: "100px",
+        25: "80px",
       },
       padding: {
-        13: "52px",
+        13: "44px",
       },
       container: {
         screens: {
-          "2xl": "1360px",
+          "2xl": "1200px",
         },
-        padding: "2.5rem",
+        padding: "2rem",
       },
       borderRadius: {
         "smooth-large": "45px",

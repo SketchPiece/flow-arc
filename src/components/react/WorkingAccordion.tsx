@@ -22,7 +22,7 @@ export function WorkingAccordion({
         <AccordionTrigger>
           <div className="flex items-center gap-2 sm:gap-6">
             {questionNumber && (
-              <span className="text-3xl font-medium md:text-6xl">
+              <span className="text-3xl font-medium md:text-5xl">
                 {questionNumber}
               </span>
             )}

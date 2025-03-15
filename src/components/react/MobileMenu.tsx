@@ -76,7 +76,7 @@ export default function MobileMenu({
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <DialogPanel className="bg-gray-light fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 font-serif sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-light px-6 py-6 font-serif sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <a href={languagePath}>
                   <img
