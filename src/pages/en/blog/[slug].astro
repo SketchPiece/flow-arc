@@ -1,4 +1,5 @@
 ---
+import ContentContainer from "@/components/common/ContentContainer.astro";
 import Layout from "@/layouts/Layout.astro";
 import { mapNotionPost } from "@/lib/helpers";
 import { Image } from "astro:assets";
@@ -37,16 +38,15 @@ const { Content } = await render(post);
       width="1150"
       height="300"
     />
-    <div class="flex flex-col gap-4 md:px-20 lg:px-60">
+    <div class="flex flex-col gap-4 md:px-20 lg:px-40">
       {
         readingTime && (
           <p class="font-medium text-gray-dark">{readingTime} min read</p>
         )
       }
-      <!-- {post?.paragraphs?.map((p) => <p class="text-lg">{p}</p>)} -->
-      <div class="prose text-gray-darkest">
+      <ContentContainer>
         <Content />
-      </div>
+      </ContentContainer>
     </div>
   </section>
 </Layout>
