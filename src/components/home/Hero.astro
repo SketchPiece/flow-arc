@@ -16,18 +16,18 @@ const t = useTranslations(lang);
   class="container mx-auto flex flex-col-reverse items-center justify-between py-8 md:py-20 lg:flex-row"
 >
   <div class="sr-only sm:not-sr-only">
-    <p class="text-3xl font-medium text-gray-dark">
+    <p class={cn("font-medium text-gray-dark", lang === "uk" ? "text-[1.75rem]" : "text-4xl")}>
       {t("hero.subheadline")}
     </p>
     <h1
       class={cn(
-        "text-4xl font-medium xl:text-5xl mt-2",
-        lang === "uk" ? "max-w-xl xl:max-w-2xl" : "max-w-xl",
+        "text-4xl font-medium",
+        lang === "uk" ? "max-w-xl leading-none lg:text-[3.25rem]" : "max-w-xl lg:text-6xl",
       )}
     >
       {t("hero.headline")}
     </h1>
-    <p class="mt-6 max-w-lg text-lg">
+    <p class="mt-6 max-w-md text-lg">
       {t("hero.description")}
     </p>
     <Button className="mt-9">{t("common.cta")}</Button>
@@ -48,10 +48,10 @@ const t = useTranslations(lang);
     </RiveAnimation>
   </div>
   <div class="sm:hidden">
-    <p class="text-xl font-medium text-gray-dark xl:text-4xl">
+    <p class="font-medium text-gray-dark xl:text-4xl">
       {t("hero.subheadline")}
     </p>
-    <p class="text-4xl font-medium xl:text-6xl">
+    <p class="text-3xl font-medium xl:text-6xl">
       {t("hero.headline")}
     </p>
     <Image
@@ -60,7 +60,7 @@ const t = useTranslations(lang);
       width={500}
       height={500}
     />
-    <p class="mt-6 max-w-lg text-lg">
+    <p class="mt-6 max-w-lg">
       {t("hero.description")}
     </p>
     <Button className="mt-9 w-full">{t("common.cta")}</Button>

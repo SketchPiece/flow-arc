@@ -86,7 +86,6 @@ export function ServicesCarousel() {
   useEffect(() => {
     const carouselElement = carouselRef.current;
     if (!carouselElement) return;
-    console.log(carouselElement.scrollWidth);
     setCarouselWidth(carouselElement.scrollWidth);
   }, []);
 

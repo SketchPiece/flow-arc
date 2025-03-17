@@ -2,7 +2,7 @@ import type { Translations } from "../helpers";
 
 export const home = {
   en: {
-    "hero.subheadline": "Simplify, Automate, and Grow:",
+    "hero.subheadline": "Simplify, Automate, and Grow",
     "hero.headline": "Custom Solutions for Your Business",
     "hero.description":
       "We design tailored automation solutions that save you time, reduce costs, and drive efficiency.",
