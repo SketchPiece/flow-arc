@@ -20,9 +20,9 @@ export default function PopoverMenu({
 
   return (
     <Popover className="relative">
-      {({ close }) => (
+      {({ close, open }) => (
         <>
-          <PopoverButton className={cn(className)} onBlur={close} {...props} />
+          <PopoverButton className={cn(className)} onBlur={() => open && close()} {...props} />
           <PopoverPanel
             transition
             className={cn(
