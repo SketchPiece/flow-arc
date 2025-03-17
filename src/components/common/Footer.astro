@@ -34,7 +34,6 @@ const caseStudies = cases.map((caseStudy) => {
     href: `/${lang}/case-studies/${caseStudy.slug}`,
   };
 });
-
 ---
 
 <div class="mx-auto md:container">
@@ -48,28 +47,34 @@ const caseStudies = cases.map((caseStudy) => {
       </a>
 
       <div class="hidden lg:flex lg:gap-x-10">
-        <a href={`/${lang}/about`} class="font-thin underline hover:text-primary">
-        {t("nav.about")}
-      </a>
-      <PopoverMenu
-        client:load
-        className="font-thin underline hover:text-primary"
-        items={services}
-        align="top"
-      >
-        {t("nav.services")}
-      </PopoverMenu>
-      <PopoverMenu
-        client:load
-        className="font-thin underline hover:text-primary"
-        items={caseStudies}
-        align="top"
-      >
-        {t("nav.case-studies")}
-      </PopoverMenu>
-      <a href={`/${lang}/blog`} class="font-thin underline hover:text-primary">
-        {t("nav.blog")}
-      </a>
+        <a
+          href={`/${lang}/about`}
+          class="font-thin underline hover:text-primary"
+        >
+          {t("nav.about")}
+        </a>
+        <PopoverMenu
+          client:load
+          className="font-thin underline hover:text-primary"
+          items={services}
+          align="top"
+        >
+          {t("nav.services")}
+        </PopoverMenu>
+        <PopoverMenu
+          client:load
+          className="font-thin underline hover:text-primary"
+          items={caseStudies}
+          align="top"
+        >
+          {t("nav.case-studies")}
+        </PopoverMenu>
+        <a
+          href={`/${lang}/blog`}
+          class="font-thin underline hover:text-primary"
+        >
+          {t("nav.blog")}
+        </a>
       </div>
       <div class="flex justify-end gap-5">
         <a href="/">
@@ -82,13 +87,13 @@ const caseStudies = cases.map((caseStudy) => {
     </nav>
     <div class="mb-12 mt-16 flex flex-col gap-5 font-serif font-thin">
       <h4
-        class="mt-1.5 w-fit rounded-lg text-lg bg-primary px-1.5 font-medium text-gray-darkest"
+        class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 text-lg font-medium text-gray-darkest"
       >
         {t("contact-us.title")}
       </h4>
       <div class="grid gap-2">
-      <p>Email: info@flowarc.dev</p>
-      <p>Telegram: @flowarc</p>
+        <p>Email: info@flowarc.dev</p>
+        <p>Telegram: @flowarc</p>
       </div>
     </div>
     <div
