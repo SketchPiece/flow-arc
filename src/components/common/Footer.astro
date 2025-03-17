@@ -34,42 +34,47 @@ const caseStudies = cases.map((caseStudy) => {
     href: `/${lang}/case-studies/${caseStudy.slug}`,
   };
 });
-
 ---
 
 <div class="mx-auto md:container">
   <footer
-    class="rounded-t-smooth-large bg-gray-darker px-14 py-16 text-gray-lighter"
+    class="rounded-t-smooth-large bg-gray-darker px-14 py-12 text-gray-lighter"
   >
     <nav aria-label="Global" class="flex items-center justify-between">
       <a href="/">
-        <span class="sr-only">FlowArc</span>
-        <img alt="flow-arc-logo-footer" src={logoIcon.src} class="h-12" />
+        <span class="sr-only">Flow Arc</span>
+        <img alt="flow-arc-logo-footer" src={logoIcon.src} class="h-10" />
       </a>
 
       <div class="hidden lg:flex lg:gap-x-10">
-        <a href={`/${lang}/about`} class="text-lg font-thin underline hover:text-primary">
-        {t("nav.about")}
-      </a>
-      <PopoverMenu
-        client:load
-        className="text-lg font-thin underline hover:text-primary"
-        items={services}
-        align="top"
-      >
-        {t("nav.services")}
-      </PopoverMenu>
-      <PopoverMenu
-        client:load
-        className="text-lg font-thin underline hover:text-primary"
-        items={caseStudies}
-        align="top"
-      >
-        {t("nav.case-studies")}
-      </PopoverMenu>
-      <a href={`/${lang}/blog`} class="text-lg font-thin underline hover:text-primary">
-        {t("nav.blog")}
-      </a>
+        <a
+          href={`/${lang}/about`}
+          class="font-thin underline hover:text-primary"
+        >
+          {t("nav.about")}
+        </a>
+        <PopoverMenu
+          client:load
+          className="font-thin underline hover:text-primary"
+          items={services}
+          align="top"
+        >
+          {t("nav.services")}
+        </PopoverMenu>
+        <PopoverMenu
+          client:load
+          className="font-thin underline hover:text-primary"
+          items={caseStudies}
+          align="top"
+        >
+          {t("nav.case-studies")}
+        </PopoverMenu>
+        <a
+          href={`/${lang}/blog`}
+          class="font-thin underline hover:text-primary"
+        >
+          {t("nav.blog")}
+        </a>
       </div>
       <div class="flex justify-end gap-5">
         <a href="/">
@@ -80,18 +85,19 @@ const caseStudies = cases.map((caseStudy) => {
         </a>
       </div>
     </nav>
-    <div class="mb-12 mt-16 flex flex-col gap-5 font-serif text-lg font-thin">
+    <div class="mb-12 mt-16 flex flex-col gap-5 font-serif font-thin">
       <h4
-        class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 font-medium text-gray-darkest"
+        class="mt-1.5 w-fit rounded-lg bg-primary px-1.5 text-lg font-medium text-gray-darkest"
       >
         {t("contact-us.title")}
       </h4>
-      <p>Email: info@flowarc.dev</p>
-
-      <p>Telegram: @flowarc</p>
+      <div class="grid gap-2">
+        <p>Email: info@flowarc.dev</p>
+        <p>Telegram: @flowarc</p>
+      </div>
     </div>
     <div
-      class="flex flex-col justify-between gap-4 border-t pt-12 font-serif text-lg font-thin md:flex md:flex-row"
+      class="flex flex-col justify-between gap-4 border-t pt-12 font-serif font-thin md:flex md:flex-row"
     >
       <span class="mr-10">© 2025 FlowArc. All Rights Reserved.</span>
       <div>

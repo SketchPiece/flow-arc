@@ -1,5 +1,5 @@
 import { cn } from "@/lib/helpers";
-import { Popover, PopoverButton, PopoverPanel} from "@headlessui/react";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
 interface PopoverItem {
   name: string;
@@ -17,19 +17,21 @@ export default function PopoverMenu({
   align = "bottom",
   ...props
 }: PopoverMenuProps) {
-
   return (
     <Popover className="relative">
-      {({ close }) => (
+      {({ close, open }) => (
         <>
-          <PopoverButton className={cn(className)} onBlur={close} {...props} />
-
+          <PopoverButton
+            className={cn(className)}
+            onBlur={() => open && close()}
+            {...props}
+          />
           <PopoverPanel
             transition
             className={cn(
               "absolute -left-8 z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-2xl ring-1 ring-gray-darkest transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in",
-              align === "top" && "bottom-10" 
-            )} 
+              align === "top" && "bottom-10",
+            )}
           >
             {items.map((item) => (
               <div

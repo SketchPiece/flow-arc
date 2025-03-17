@@ -45,10 +45,10 @@ const t = useTranslations(lang);
   </ServiceCard>
   <ServiceCard href={`/${lang}/automation-support`} class="mt-[75px]">
     <Fragment slot="title">
-      <span class="bg-gray-light block w-fit rounded-md px-2"
+      <span class="block w-fit rounded-md bg-gray-light px-2"
         >{t("services.support.title.1")}</span
       >
-      <span class="bg-gray-light inline-block rounded-md px-2"
+      <span class="inline-block rounded-md bg-gray-light px-2"
         >{t("services.support.title.2")}</span
       >
     </Fragment>
@@ -76,13 +76,13 @@ const t = useTranslations(lang);
     <Fragment slot="title">
       <slot name="web-dev-title">
         <span class="md:hidden">
-          <span class="bg-gray-light block w-fit rounded-md px-2">Custom</span>
-          <span class="bg-gray-light block w-fit rounded-md px-2"
+          <span class="block w-fit rounded-md bg-gray-light px-2">Custom</span>
+          <span class="block w-fit rounded-md bg-gray-light px-2"
             >Web Development</span
           >
         </span>
         <span
-          class="bg-gray-light hidden w-fit whitespace-nowrap rounded-md px-2 md:block"
+          class="hidden w-fit whitespace-nowrap rounded-md bg-gray-light px-2 md:block"
           >Custom Web Development</span
         >
       </slot>

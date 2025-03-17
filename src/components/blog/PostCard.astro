@@ -19,19 +19,19 @@ const t = useTranslations(lang);
 <a href={`/${lang}/blog/${slug}`}>
   <article class="h-full">
     <div
-      class="border-gray-darkest flex h-full flex-col-reverse overflow-hidden rounded-smooth-large border bg-primary shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced sm:flex-col-reverse md:flex-row"
+      class="flex h-full flex-col-reverse overflow-hidden rounded-smooth-large border border-gray-darkest bg-primary shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced sm:flex-col-reverse md:flex-row"
     >
       <div
-        class="flex w-full flex-col justify-between px-10 py-8 font-serif md:min-h-72"
+        class="flex w-full flex-col justify-between px-8 py-8 font-serif md:min-h-72"
       >
         <div>
-          <h3 class="text-xl font-medium md:text-2xl">{title}</h3>
+          <h3 class="text-xl font-medium md:text-xl">{title}</h3>
           <p class="mt-2.5 text-sm">
             {description}
           </p>
         </div>
         <div
-          class="text-gray-darkest mt-5 flex items-center bg-transparent p-0"
+          class="mt-5 flex items-center bg-transparent p-0 text-gray-darkest"
         >
           <img
             alt="Link icon"
@@ -41,7 +41,7 @@ const t = useTranslations(lang);
           {t("blog.read-more")}
         </div>
       </div>
-      <div class="bg-gray-darkest w-full sm:w-full">
+      <div class="max-h-52 w-full bg-gray-darkest md:max-h-full lg:w-auto">
         <Image
           src={image}
           alt="image-blog-card"
