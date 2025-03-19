@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import notFound from "@/assets/icons/not-found.svg";
+import Button from "@/components/react/ui/Button";
+---
+
+<Layout>
+  <div class="container mx-auto py-12 md:py-40 grid place-items-center">
+      <Image
+        src={notFound}
+        alt="Hero Robot Preview"
+        width={400}
+        height={320}
+      />
+    <h1 class="text-center text-3xl font-semibold">
+      Oopsie, there's nothing here!
+    </h1>
+    <Button className="mt-9">Return Home</Button>
+  </div>
+</Layout>
