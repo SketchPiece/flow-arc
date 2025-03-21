@@ -3,10 +3,13 @@ import "../styles.css";
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
 import GoogleAnalytics from "@/components/common/GoogleAnalytics.astro";
+import { getLangFromUrl } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang || "en"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

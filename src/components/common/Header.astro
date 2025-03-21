@@ -84,7 +84,7 @@ const changeLanguagePath = lang === `uk` ? `/en${pagePath}` : `/uk${pagePath}`;
       <a href={`/${lang}/blog`} class="text-lg hover:text-primary-darker">
         {t("nav.blog")}
       </a>
-      <a href={changeLanguagePath} class="text-lg hover:text-primary-darker">
+      <a href={changeLanguagePath} class="text-lg hover:text-primary-darker grid place-items-center">
         <Image
           src={lang === "uk" ? ukFlag : gbFlag}
           alt="Language Flag"
