@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import Button from "../react/ui/Button";
+import BookConsultation from "../react/BookConsultation";
 import RiveAnimation from "../react/RiveAnimation";
 import heroRobotPreview from "@/assets/images/hero-robot.png";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import { cn } from "@/lib/helpers";
-import { ServicesCarousel } from "../react/ServicesCarousel";
+import ServicesCarousel from "../react/ServicesCarousel";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -30,7 +30,7 @@ const t = useTranslations(lang);
     <p class="mt-6 max-w-md text-lg">
       {t("hero.description")}
     </p>
-    <Button className="mt-9">{t("common.cta")}</Button>
+    <BookConsultation client:load lang={lang} className="mt-9">{t("common.cta")}</BookConsultation>
   </div>
   <div>
     <RiveAnimation
@@ -63,7 +63,7 @@ const t = useTranslations(lang);
     <p class="mt-6 max-w-lg">
       {t("hero.description")}
     </p>
-    <Button className="mt-9 w-full">{t("common.cta")}</Button>
+    <BookConsultation client:load lang={lang} className="mt-9 w-full">{t("common.cta")}</BookConsultation>
   </div>
 </section>
 

@@ -79,7 +79,7 @@ const services = [
   },
 ];
 
-export function ServicesCarousel() {
+export default function ServicesCarousel() {
   const [carouselWidth, setCarouselWidth] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 

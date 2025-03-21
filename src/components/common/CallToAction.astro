@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import Button from "../react/ui/Button";
 import chatBot from "@/assets/images/little-chatbot.png";
 import chess from "@/assets/images/chess.png";
 import { cn } from "@/lib/helpers";
+import BookConsultation from "../react/BookConsultation";
+import { getLangFromUrl } from "@/i18n/helpers";
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   className?: string;
 }
 
+const lang = getLangFromUrl(Astro.url);
 const { title, buttonLabel, type, className } = Astro.props;
 ---
 
@@ -26,7 +28,7 @@ const { title, buttonLabel, type, className } = Astro.props;
         </h3>
         <slot name="description" />
       </div>
-      <Button className="mt-6 w-full sm:w-fit">{buttonLabel}</Button>
+      <BookConsultation client:load lang={lang} className="mt-6 w-full sm:w-fit">{buttonLabel}</BookConsultation>
     </div>
 
     <Image
