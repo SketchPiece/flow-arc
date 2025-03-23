@@ -1,7 +1,7 @@
 ---
 import logoIcon from "@/assets/icons/logo-dark.svg";
 import linkedinIcon from "@/assets/icons/linkedin.svg";
-import xtwitterIcon from "@/assets/icons/xtwitter.svg";
+// import xtwitterIcon from "@/assets/icons/xtwitter.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import { getCasesCollection } from "@/lib/content";
 import PopoverMenu from "../react/PopoverMenu";
@@ -77,12 +77,12 @@ const caseStudies = cases.map((caseStudy) => {
         </a>
       </div>
       <div class="flex justify-end gap-5">
-        <a href="/">
+        <a href="https://www.linkedin.com/" target="_blank" class="pl-10">
           <img alt="flow-arc-logo-footer" src={linkedinIcon.src} />
         </a>
-        <a href="/">
+        <!-- <a href="/">
           <img alt="flow-arc-logo-footer" src={xtwitterIcon.src} />
-        </a>
+        </a> -->
       </div>
     </nav>
     <div class="mb-12 mt-16 flex flex-col gap-5 font-serif font-thin">
@@ -92,8 +92,8 @@ const caseStudies = cases.map((caseStudy) => {
         {t("contact-us.title")}
       </h4>
       <div class="grid gap-2">
-        <p><span class="font-semibold">{t("footer.email")}</span> <br> contact@flowarc.dev</p>
-        <p><span class="font-semibold">{t("footer.phone")}</span> <br> +380XXXXXXXXX (WhatsApp)</p>
+        <p><span class="font-semibold">{t("footer.email")}</span><br>contact@flowarc.dev</p>
+        <p><span class="font-semibold">{t("footer.phone")}</span><br>+380XXXXXXXXX (WhatsApp)</p>
       </div>
     </div>
     <div

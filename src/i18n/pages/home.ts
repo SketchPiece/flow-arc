@@ -2,6 +2,9 @@ import type { Translations } from "../helpers";
 
 export const home = {
   en: {
+    "home.seo.title": "FlowArc – Automation & Web Solutions for Your Business",
+    "home.seo.description":
+      "Streamline operations and scale your business with FlowArc: Tailored automation, web development, and support solutions that save time and resources!",
     "hero.subheadline": "Simplify, Automate, and Grow",
     "hero.headline": "Custom Solutions for Your Business",
     "hero.description":
@@ -57,8 +60,16 @@ export const home = {
     "contact-us.form.message": "Message",
     "contact-us.form.message.placeholder": "Your message",
     "contact-us.form.send": "Send Message",
+    "contact-us.confirmation.title": "Thank you for contacting us!",
+    "contact-us.confirmation.message":
+      "We've received your request and will call you back within 24 hours.",
+    "contact-us.confirmation.follow-up":
+      "If you're unable to pick up or you've changed your mind, please email us at contact@flowarc.dev",
   },
   uk: {
+    "home.seo.title": "FlowArc – Автоматизація та Веб-Рішення для Вашого Бізнесу",
+    "home.seo.description":
+      "Спрощуйте роботу й масштабуйте бізнес із FlowArc: індивідуальні рішення з автоматизації, розробки веб-застосунків та підтримки. Заощаджуйте час і ресурси!",
     "hero.headline": "Індивідуальні Рішення для Вашого Бізнесу",
     "hero.description":
       "Ми розробляємо спеціалізовані рішення для автоматизації, які економлять час, зменшують витрати та підвищують ефективність.",
@@ -114,5 +125,10 @@ export const home = {
     "contact-us.form.message": "Повідомлення",
     "contact-us.form.message.placeholder": "Ваше повідомлення",
     "contact-us.form.send": "Надіслати",
+    "contact-us.confirmation.title": "Дякуємо за звернення!",
+    "contact-us.confirmation.message":
+      "Ми отримали ваш запит і передзвонимо вам протягом 24 годин.",
+    "contact-us.confirmation.follow-up":
+      "Якщо ви не зможете відповісти або передумали, будь ласка, напишіть нам на адресу contact@flowarc.dev",
   },
 } satisfies Translations;

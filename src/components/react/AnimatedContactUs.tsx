@@ -4,16 +4,24 @@ import ContactForm from "./ContactForm";
 import { AnimatePresence, motion } from "motion/react";
 import { ContactCheckmark } from "./ContactCheckmark";
 import whatsappImage from "@/assets/images/whatsapp.png";
-import telegramImage from "@/assets/images/telegram.png";
+// import telegramImage from "@/assets/images/telegram.png";
+
+interface ConfirmationTranslations {
+  title: string;
+  message: string;
+  followUp: string;
+}
 
 interface AnimatedContactUsProps {
   heading: string;
   formTranslations: ContactFormProps;
+  confirmationTranslations: ConfirmationTranslations;
 }
 
 export function AnimatedContactUs({
   heading,
   formTranslations,
+  confirmationTranslations,
 }: AnimatedContactUsProps) {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -32,14 +40,18 @@ export function AnimatedContactUs({
               }}
             >
               <div className="mb-8 flex justify-center gap-10 md:justify-start">
-                <a href="#" className="flex items-center gap-2 font-semibold">
+                <a
+                  href="https://wa.me/380XXXXXXXXX"
+                  target="_blank"
+                  className="flex items-center gap-2 font-semibold"
+                >
                   <img src={whatsappImage.src} alt="Telegram" className="w-8" />
                   WhatsApp
                 </a>
-                <a href="#" className="flex items-center gap-2 font-semibold">
+                {/* <a href="#" className="flex items-center gap-2 font-semibold">
                   <img src={telegramImage.src} alt="Telegram" className="w-8" />
                   Telegram
-                </a>
+                </a> */}
               </div>
               <p className="text-lg">{heading}</p>
             </motion.div>
@@ -56,7 +68,7 @@ export function AnimatedContactUs({
             ) : (
               <motion.div
                 key="success-message"
-                className="mobile:py-28 grid w-full place-items-center gap-10"
+                className="py-16 grid w-full place-items-center gap-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
@@ -66,15 +78,13 @@ export function AnimatedContactUs({
                 <ContactCheckmark />
                 <div className="grid max-w-xl gap-4 text-center">
                   <h3 className="text-3xl font-semibold">
-                    Thank you for contacting us!
+                    {confirmationTranslations.title}
                   </h3>
                   <p>
-                    We've received your request and will call you back within 48
-                    hours.
+                    {confirmationTranslations.message}
                   </p>
                   <p>
-                    If you're unable to pick up or you've changed your mind,
-                    please email us at callback@website.com
+                    {confirmationTranslations.followUp}
                   </p>
                 </div>
               </motion.div>
