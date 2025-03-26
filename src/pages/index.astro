@@ -1,1 +1,26 @@
-<meta http-equiv="refresh" content="0;url=/uk/" />
+---
+import GoogleAnalytics from "@/components/common/GoogleAnalytics.astro";
+
+const title = "FlowArc Studio";
+const description = "Спрощуйте роботу й масштабуйте бізнес із FlowArc: індивідуальні рішення з автоматизації, розробки веб-застосунків та підтримки. Заощаджуйте час і ресурси!";
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://www.flowarc.dev/og.png" />
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
+    <meta name="twitter:site" content="https://www.flowarc.dev/uk" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.flowarc.dev/og.png" />
+    <GoogleAnalytics />
+    <meta http-equiv="refresh" content="0;url=/uk/" />
+  </head>
+</html>
