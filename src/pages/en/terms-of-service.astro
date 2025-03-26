@@ -1,9 +1,16 @@
 ---
 import CallToAction from "@/components/common/CallToAction.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import Layout from "@/layouts/Layout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout
+  title={t("seo.terms-of-service.title")}
+  description={t("seo.terms-of-service.description")}
+>
   <article
     class="container prose-lg mx-auto my-20 w-screen prose-headings:font-medium"
   >

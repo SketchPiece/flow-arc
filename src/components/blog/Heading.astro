@@ -1,11 +1,13 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+const { title, description } = Astro.props;
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+export interface Props {
+  title: string;
+  description: string;
+}
 ---
 
 <section id="blog-heading" class="container mx-auto pt-20">
-  <h1 class="text-6xl font-medium">{t("blog.title")}</h1>
-  <p class="mt-6 max-w-lg text-lg">{t("blog.description")}</p>
+  <h1 class="text-6xl font-medium">{title}</h1>
+  <p class="mt-6 max-w-lg text-lg">{description}</p>
 </section>

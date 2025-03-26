@@ -1,5 +1,7 @@
 ---
 import ContentContainer from "@/components/common/ContentContainer.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { defaultLang } from "@/i18n/translations";
 import Layout from "@/layouts/Layout.astro";
 import { mapNotionPost } from "@/lib/helpers";
 import { Image } from "astro:assets";
@@ -9,14 +11,17 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts
-    .filter((post) => post.data.properties.Lang?.select?.name === "en")
     .map((post) => ({
       params: {
         slug: post.data.properties.Slug?.rich_text[0]?.plain_text || post.id,
+        lang: post.data.properties.Lang?.select?.name || defaultLang
       },
       props: { post },
     }));
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { post } = Astro.props;
 const postData = mapNotionPost(post);
@@ -26,7 +31,10 @@ const readingTime = postData.readingTime;
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout
+  title={title}
+  description={postData.description || t("seo.blog.description")}
+>
   <section id="post-title" class="container mx-auto pb-36 pt-20">
     <h1 class="mb-8 text-4xl font-medium md:text-6xl">
       {title}

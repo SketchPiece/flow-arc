@@ -23,7 +23,10 @@ const featuredStudyLinks = featuredStudies.map((study) => {
 });
 ---
 
-<Layout>
+<Layout
+  title={t("seo.home.title")}
+  description={t("seo.home.description")}
+>
   <Hero />
   <Services />
   <CallToAction

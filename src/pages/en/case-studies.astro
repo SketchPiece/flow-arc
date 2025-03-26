@@ -1,0 +1,42 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Heading from "@/components/blog/Heading.astro";
+import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import CasesContainer from "@/components/cases/CasesContainer.astro";
+import CaseCard from "@/components/cases/CaseCard.astro";
+import { truncate, mapNotionCase } from "@/lib/helpers";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const cases = await getCollection("cases", ({ data }) => {
+  const isCurrentLang =
+    !data.properties.Lang?.select?.name ||
+    data.properties.Lang.select.name === lang;
+  return isCurrentLang;
+});
+---
+
+<Layout
+  title={t("seo.case-studies.title")}
+  description={t("seo.case-studies.description")}
+>
+  <Heading
+    title={t("page.case-studies.title")}
+    description={t("page.case-studies.description")}
+  />
+  <CasesContainer>
+     {
+      cases
+        .map(mapNotionCase)
+        .map((post) => (
+          <CaseCard
+            slug={post.slug}
+            title={post.title}
+            description={truncate(post.description || "", 100)}
+          />
+        ))
+    }
+  </CasesContainer>
+</Layout>

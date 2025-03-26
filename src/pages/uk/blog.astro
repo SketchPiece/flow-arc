@@ -1,14 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Heading from "@/components/blog/Heading.astro";
-// import { getBlogPosts } from "@/api/posts";
 import { getCollection } from "astro:content";
 import PostCard from "@/components/blog/PostCard.astro";
 import PostsContainer from "@/components/blog/PostsContainer.astro";
-import { getLangFromUrl } from "@/i18n/helpers";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import { truncate, mapNotionPost } from "@/lib/helpers";
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const blog = await getCollection("blog", ({ data }) => {
   const isDraft = data.properties.Draft?.checkbox === true;
@@ -19,8 +19,14 @@ const blog = await getCollection("blog", ({ data }) => {
 });
 ---
 
-<Layout>
-  <Heading />
+<Layout
+  title={t("seo.blog.title")}
+  description={t("seo.blog.description")}
+>
+  <Heading
+    title={t("blog.title")}
+    description={t("blog.description")}
+  />
   <PostsContainer>
     {
       blog

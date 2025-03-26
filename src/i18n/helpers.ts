@@ -13,6 +13,11 @@ export function useTranslations(lang: keyof typeof translations) {
   };
 }
 
+export const langStaticPaths = [
+  { params: { lang: "uk" } },
+  { params: { lang: "en" } },
+] as const;
+
 export interface Translations {
   en: Record<string, string>;
   uk: Record<string, string>;

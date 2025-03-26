@@ -19,7 +19,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout
+  title={t("seo.automation-support.title")}
+  description={t("seo.automation-support.description")}
+>
   <ServiceHero
     title={t("auto-support.headline")}
     subtitle={t("auto-support.description")}
@@ -98,12 +101,13 @@ const t = useTranslations(lang);
   </Section>
 
   <CallToAction
-    title="Need automation maintenance?"
-    buttonLabel="Request Support"
+    title="Потрібна підтримка автоматизації?"
+    buttonLabel="Запросити підтримку"
   >
     <p slot="description" class="max-w-lg text-lg">
-      Let's explore how we can keep your systems running at peak performance
-      with expert maintenance, continuous monitoring, and performance updates.
+      Давайте обговоримо, як ми можемо підтримувати ваші системи на максимальній
+      продуктивності за допомогою експертного обслуговування, постійного
+      моніторингу та оновлень продуктивності.
     </p>
   </CallToAction>
 </Layout>

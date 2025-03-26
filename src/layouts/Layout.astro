@@ -5,16 +5,31 @@ import Footer from "../components/common/Footer.astro";
 import GoogleAnalytics from "@/components/common/GoogleAnalytics.astro";
 import { getLangFromUrl } from "@/i18n/helpers";
 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
 const lang = getLangFromUrl(Astro.url);
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang || "en"}>
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <title>FlowArc Studio</title>
+    <title>{title || "FlowArc"}</title>
+    <meta name="description" content={description || "Streamline operations and scale your business with FlowArc: Tailored automation, web development, and support solutions that save time and resources!"} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og.png" />
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
+    <!-- <meta name="twitter:site" content="@flowarcstudio" /> -->
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/og.png" />
     <GoogleAnalytics />
   </head>
   <body>

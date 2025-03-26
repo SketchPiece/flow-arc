@@ -2,6 +2,7 @@ import { automationSupport } from "./pages/automation-support";
 import { home } from "./pages/home";
 import { implementation } from "./pages/implementation";
 import { webDevelopment } from "./pages/web-development";
+import { seo } from "./seo";
 
 export const languages = {
   en: "English",
@@ -33,6 +34,9 @@ export const translations = {
     "blog.read-more": "Read more",
     "blog.previous": "Previous",
     "blog.next": "Next",
+    "page.case-studies.title": "Case Studies",
+    "page.case-studies.description":
+      "We showcase successful implementations, solutions, and real-world results in business automation.",
     "footer.terms-of-service": "Terms of Service",
     "footer.privacy-policy": "Privacy Policy",
     "footer.email": "Email",
@@ -41,6 +45,7 @@ export const translations = {
     ...implementation.en,
     ...automationSupport.en,
     ...webDevelopment.en,
+    ...seo.en
   },
   uk: {
     "nav.about": "Про Нас",
@@ -65,6 +70,9 @@ export const translations = {
     "blog.read-more": "Читати далі",
     "blog.previous": "Попередня",
     "blog.next": "Наступна",
+    "page.case-studies.title": "Наши Кейси",
+    "page.case-studies.description":
+      "Ми демонструємо успішні впровадження, рішення та реальні результати в автоматизації бізнесу.",
     "footer.terms-of-service": "Правила користування",
     "footer.privacy-policy": "Політика конфідеційності",
     "footer.email": "Электронна пошта",
@@ -73,5 +81,6 @@ export const translations = {
     ...implementation.uk,
     ...automationSupport.uk,
     ...webDevelopment.uk,
+    ...seo.uk
   },
 } as const;

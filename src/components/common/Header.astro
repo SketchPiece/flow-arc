@@ -74,13 +74,16 @@ const changeLanguagePath = lang === `uk` ? `/en${pagePath}` : `/uk${pagePath}`;
       >
         {t("nav.services")}
       </PopoverMenu>
-      <PopoverMenu
+      <!-- <PopoverMenu
         client:load
         className="text-lg hover:text-primary-darker"
         items={caseStudies}
       >
         {t("nav.case-studies")}
-      </PopoverMenu>
+      </PopoverMenu> -->
+      <a href={`/${lang}/case-studies`} class="text-lg hover:text-primary-darker">
+        {t("nav.case-studies")}
+      </a>
       <a href={`/${lang}/blog`} class="text-lg hover:text-primary-darker">
         {t("nav.blog")}
       </a>

@@ -27,7 +27,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout
+  title={t("seo.web-development.title")}
+  description={t("seo.web-development.description")}
+>
   <ServiceHero
     title={t("web-dev.headline")}
     subtitle={t("web-dev.description")}

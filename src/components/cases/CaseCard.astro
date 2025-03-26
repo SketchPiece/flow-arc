@@ -1,0 +1,57 @@
+---
+import linkArrowFill from "@/assets/icons/link-arrow-fill.svg";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import questionHead from "@/assets/images/question-head.png";
+import { Image } from "astro:assets";
+// import { Image } from "astro:assets";
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string | undefined;
+  // image: string;
+}
+
+const { slug, title, description } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<a href={`/${lang}/case-studies/${slug}`}>
+  <article class="h-full">
+    <div
+      class="flex h-full flex-col-reverse overflow-hidden rounded-smooth-large border border-gray-darkest bg-primary shadow-straight transition-all hover:-translate-y-1 hover:shadow-straight-reduced sm:flex-col-reverse md:flex-row"
+    >
+      <div
+        class="flex w-full flex-col justify-between px-8 py-8 font-serif md:min-h-72"
+      >
+        <div>
+          <h3 class="text-xl font-medium md:text-xl">{title}</h3>
+          <p class="mt-2.5 text-sm">
+            {description}
+          </p>
+        </div>
+        <div
+          class="mt-5 flex items-center bg-transparent p-0 text-gray-darkest"
+        >
+          <img
+            alt="Link icon"
+            src={linkArrowFill.src}
+            class="mr-3.5 h-10 w-10"
+          />
+          {t("blog.read-more")}
+        </div>
+      </div>
+      <div class="max-h-52 w-full md:max-h-full lg:w-auto">
+        <Image
+          src={questionHead}
+          alt="image-case-card"
+          class="h-full w-full object-contain"
+          width="300"
+          height="300"
+        />
+      </div>
+    </div>
+  </article>
+</a>

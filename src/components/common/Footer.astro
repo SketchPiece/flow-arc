@@ -3,7 +3,6 @@ import logoIcon from "@/assets/icons/logo-dark.svg";
 import linkedinIcon from "@/assets/icons/linkedin.svg";
 // import xtwitterIcon from "@/assets/icons/xtwitter.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
-import { getCasesCollection } from "@/lib/content";
 import PopoverMenu from "../react/PopoverMenu";
 
 const lang = getLangFromUrl(Astro.url);
@@ -26,14 +25,6 @@ const services = [
     description: t("nav.services.web-development.description"),
   },
 ];
-
-const cases = await getCasesCollection({ lang });
-const caseStudies = cases.map((caseStudy) => {
-  return {
-    name: caseStudy.title,
-    href: `/${lang}/case-studies/${caseStudy.slug}`,
-  };
-});
 ---
 
 <div class="mx-auto md:container">
@@ -61,14 +52,12 @@ const caseStudies = cases.map((caseStudy) => {
         >
           {t("nav.services")}
         </PopoverMenu>
-        <PopoverMenu
-          client:load
-          className="font-thin underline hover:text-primary"
-          items={caseStudies}
-          align="top"
+        <a
+          href={`/${lang}/case-studies`}
+          class="font-thin underline hover:text-primary"
         >
           {t("nav.case-studies")}
-        </PopoverMenu>
+        </a>
         <a
           href={`/${lang}/blog`}
           class="font-thin underline hover:text-primary"

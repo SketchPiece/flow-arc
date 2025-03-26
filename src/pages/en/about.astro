@@ -1,9 +1,16 @@
 ---
 import CallToAction from "@/components/common/CallToAction.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import Layout from "@/layouts/Layout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout
+  title={t("seo.about.title")}
+  description={t("seo.about.description")}
+>
   <article
     class="container prose-lg mx-auto my-20 w-screen text-gray-darkest prose-headings:font-medium prose-h4:font-semibold prose-ul:list-disc prose-table:block prose-table:overflow-x-auto prose-table:rounded-3xl prose-table:border prose-table:border-gray-lighter prose-th:border prose-th:px-4 prose-th:py-2 prose-td:border prose-td:border-gray-lighter prose-td:px-4 prose-td:py-2 prose-img:rounded-xl"
   >
@@ -122,10 +129,9 @@ import Layout from "@/layouts/Layout.astro";
         your operations through automation, FlowArc has the expertise to help
         you succeed while optimizing costs.
       </p>
-      <ul>
-        <li>📞 Contact Us: [Insert contact link or email]</li>
-        <li>💬 Book Your Free Consultation: [Insert link to booking page]</li>
-        <li>🌐 Discover Our Solutions: [Insert link to services page]</li>
+      <ul class="!list-none">
+        <li><span class="pr-2">📞</span> Contact: <a href="https://wa.me/380XXXXXXXXX" class="underline">+380XXXXXXXXX</a></li>
+        <li><span class="pr-2">✉️</span> Email: <a href="mailto:contact@flowarc.dev" class="underline">contact@flowarc.dev</a></li>
       </ul>
     </section>
   </article>
