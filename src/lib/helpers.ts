@@ -33,6 +33,7 @@ interface Post {
 interface Case {
   title: string;
   description?: string;
+  image?: string;
   slug: string;
   lang: "en" | "uk";
   featured: boolean;
@@ -58,6 +59,7 @@ export function mapNotionCase(caseStudy: any): Case {
       caseStudy.data.properties.Slug?.rich_text[0]?.plain_text || caseStudy.id,
     lang: caseStudy.data.properties.Lang?.select?.name || "en",
     featured: caseStudy.data.properties.Featured?.checkbox ?? false,
+    image: caseStudy.data.properties.Image?.rich_text[0]?.plain_text,
   };
 }
 

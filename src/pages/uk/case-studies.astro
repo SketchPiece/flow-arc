@@ -35,6 +35,7 @@ const cases = await getCollection("cases", ({ data }) => {
             slug={post.slug}
             title={post.title}
             description={truncate(post.description || "", 100)}
+            image={post.image}
           />
         ))
     }

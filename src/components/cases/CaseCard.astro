@@ -1,18 +1,16 @@
 ---
 import linkArrowFill from "@/assets/icons/link-arrow-fill.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
-import questionHead from "@/assets/images/question-head.png";
 import { Image } from "astro:assets";
-// import { Image } from "astro:assets";
 
 interface Props {
   slug: string;
   title: string;
   description: string | undefined;
-  // image: string;
+  image: string | undefined;
 }
 
-const { slug, title, description } = Astro.props;
+const { slug, title, description, image } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -43,9 +41,9 @@ const t = useTranslations(lang);
           {t("blog.read-more")}
         </div>
       </div>
-      <div class="max-h-52 w-full md:max-h-full lg:w-auto">
+      <div class="max-h-52 w-full md:max-h-full lg:w-auto px-4">
         <Image
-          src={questionHead}
+          src={`/images/${image ?? "question-head"}.png`}
           alt="image-case-card"
           class="h-full w-full object-contain"
           width="300"

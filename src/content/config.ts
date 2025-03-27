@@ -38,6 +38,7 @@ const cases = defineCollection({
       Lang: propertySchema.select.optional(),
       Description: propertySchema.rich_text.optional(),
       Featured: propertySchema.checkbox.optional(),
+      Image: propertySchema.rich_text.optional(),
     }),
   }),
 });
