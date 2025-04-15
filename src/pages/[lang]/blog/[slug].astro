@@ -1,6 +1,6 @@
 ---
 import ContentContainer from "@/components/common/ContentContainer.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
+import { useTranslations } from "@/i18n/helpers";
 import Layout from "@/layouts/Layout.astro";
 import { mapSanityPost } from "@/lib/helpers";
 import Type from "@/sanity/portabletext/Type.astro";
@@ -10,21 +10,15 @@ import { PortableText } from "astro-portabletext";
 import { Image } from "astro:assets";
 import { sanityClient } from "sanity:client";
 
-export async function getStaticPaths(): Promise<({ params: { slug: string; lang: string } })[]> {
-  return await sanityClient.fetch(BLOG_SLUGS_QUERY, Astro.params);
+export async function getStaticPaths(): Promise<({ params: { slug: string; lang: "en" | "uk" } })[]> {
+  return await sanityClient.fetch(BLOG_SLUGS_QUERY);
 }
 
-const lang = getLangFromUrl(Astro.url);
+const { lang } = Astro.params
 const t = useTranslations(lang);
 
-// const { post } = Astro.props;
-// const postData = mapNotionPost(post);
-
-// const title = postData.title;
-// const readingTime = postData.readingTime;
-// const { Content } = await render(post);
-
 const post = await sanityClient.fetch<SanityDocument>(BLOG_POST_QUERY(lang), Astro.params);
+
 const postData = mapSanityPost(post);
 const title = postData.title;
 const readingTime = postData.readingTime;

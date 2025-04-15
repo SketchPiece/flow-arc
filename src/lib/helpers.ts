@@ -88,6 +88,7 @@ export function mapSanityCase(caseStudy: any): Case {
 }
 
 export function mapSanityPost(post: any): Post {
+  console.log(post)
   return {
     slug: post.slug.current,
     title: post.title,

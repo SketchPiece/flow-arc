@@ -1,5 +1,4 @@
-import { getCollection } from "astro:content";
-import { mapNotionCase, mapSanityCase } from "./helpers";
+import { mapSanityCase } from "./helpers";
 import { sanityClient } from "sanity:client";
 import type { SanityDocument } from "@sanity/client";
 import { CASES_QUERY } from "@/sanity/queries";
