@@ -5,6 +5,7 @@ import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
+import sanity from "@sanity/astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +17,12 @@ export default defineConfig({
     react(),
     sitemap(),
     robotsTxt(),
+    sanity({
+      projectId: "vd2f4osv",
+      dataset: "production",
+      useCdn: false,
+      studioBasePath: "/admin",
+    }),
   ],
   image: {
     remotePatterns: [{ protocol: "https" }],

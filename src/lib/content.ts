@@ -1,8 +1,11 @@
 import { getCollection } from "astro:content";
-import { mapNotionCase } from "./helpers";
+import { mapNotionCase, mapSanityCase } from "./helpers";
+import { sanityClient } from "sanity:client";
+import type { SanityDocument } from "@sanity/client";
+import { CASES_QUERY } from "@/sanity/queries";
 
 interface CasesCollectionOptions {
-  lang: string;
+  lang: "uk" | "en";
   featured?: boolean;
 }
 
@@ -10,13 +13,6 @@ export async function getCasesCollection({
   lang,
   featured,
 }: CasesCollectionOptions) {
-  const cases = await getCollection("cases", ({ data }) => {
-    const isCurrentLang =
-      !data.properties.Lang?.select?.name ||
-      data.properties.Lang.select.name === lang;
-    const isFeatured = data.properties.Featured?.checkbox === true;
-    if (featured) return isCurrentLang && isFeatured;
-    return isCurrentLang;
-  });
-  return cases.map(mapNotionCase);
+  const cases = await sanityClient.fetch<SanityDocument[]>(CASES_QUERY(lang));
+  return cases.map(mapSanityCase).filter((casePost) => featured ? casePost.featured : true);
 }

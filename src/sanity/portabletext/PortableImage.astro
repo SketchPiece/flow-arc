@@ -1,0 +1,16 @@
+---
+import { urlFor } from '@/lib/helpers';
+import type { TypedObject, Props as $ } from 'astro-portabletext/types';
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { Image } from 'astro:assets';
+
+type Props = $<TypedObject>;
+
+const props = Astro.props;
+const imageSource = props.node as unknown as SanityImageSource & { alt: string };
+---
+<Image
+  src={urlFor(imageSource)?.url() ?? ""}
+  alt={imageSource.alt}
+  inferSize
+>

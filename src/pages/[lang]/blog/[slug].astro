@@ -1,34 +1,33 @@
 ---
 import ContentContainer from "@/components/common/ContentContainer.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
-import { defaultLang } from "@/i18n/translations";
 import Layout from "@/layouts/Layout.astro";
-import { mapNotionPost } from "@/lib/helpers";
+import { mapSanityPost } from "@/lib/helpers";
+import Type from "@/sanity/portabletext/Type.astro";
+import { BLOG_POST_QUERY, BLOG_SLUGS_QUERY } from "@/sanity/queries";
+import type { SanityDocument } from "@sanity/client";
+import { PortableText } from "astro-portabletext";
 import { Image } from "astro:assets";
-import { render } from "astro:content";
-import { getCollection } from "astro:content";
+import { sanityClient } from "sanity:client";
 
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts
-    .map((post) => ({
-      params: {
-        slug: post.data.properties.Slug?.rich_text[0]?.plain_text || post.id,
-        lang: post.data.properties.Lang?.select?.name || defaultLang
-      },
-      props: { post },
-    }));
+export async function getStaticPaths(): Promise<({ params: { slug: string; lang: string } })[]> {
+  return await sanityClient.fetch(BLOG_SLUGS_QUERY, Astro.params);
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { post } = Astro.props;
-const postData = mapNotionPost(post);
+// const { post } = Astro.props;
+// const postData = mapNotionPost(post);
 
+// const title = postData.title;
+// const readingTime = postData.readingTime;
+// const { Content } = await render(post);
+
+const post = await sanityClient.fetch<SanityDocument>(BLOG_POST_QUERY(lang), Astro.params);
+const postData = mapSanityPost(post);
 const title = postData.title;
 const readingTime = postData.readingTime;
-const { Content } = await render(post);
 ---
 
 <Layout
@@ -53,7 +52,7 @@ const { Content } = await render(post);
         )
       }
       <ContentContainer>
-        <Content />
+         {Array.isArray(postData.content) && <PortableText value={postData.content} components={{ type: Type }} />}
       </ContentContainer>
     </div>
   </section>

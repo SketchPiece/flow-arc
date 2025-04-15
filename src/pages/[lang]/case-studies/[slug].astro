@@ -1,39 +1,30 @@
 ---
 import ContentContainer from "@/components/common/ContentContainer.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
-import { defaultLang } from "@/i18n/translations";
 import Layout from "@/layouts/Layout.astro";
-import { mapNotionCase } from "@/lib/helpers";
-import { render } from "astro:content";
-import { getCollection } from "astro:content";
+import { mapSanityCase } from "@/lib/helpers";
+import { PortableText } from "astro-portabletext";
+import { sanityClient } from "sanity:client";
+import type { SanityDocument } from "@sanity/client";
+import { CASE_SLUGS_QUERY, CASE_QUERY } from "@/sanity/queries";
+import Type from "@/sanity/portabletext/Type.astro";
 
-export async function getStaticPaths() {
-  const cases = await getCollection("cases");
-  return cases
-    .map((caseStudy) => ({
-      params: {
-        slug:
-          caseStudy.data.properties.Slug?.rich_text[0]?.plain_text ||
-          caseStudy.id,
-        lang: caseStudy.data.properties.Lang?.select?.name || defaultLang,
-      },
-      props: { caseStudy },
-    }));
+export async function getStaticPaths(): Promise<({ params: { slug: string; lang: string } })[]> {
+  return await sanityClient.fetch(CASE_SLUGS_QUERY, Astro.params);
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { caseStudy } = Astro.props;
-const postData = mapNotionCase(caseStudy);
+const casePost = await sanityClient.fetch<SanityDocument>(CASE_QUERY(lang), Astro.params);
+const caseData = mapSanityCase(casePost);
 
-const title = postData.title;
-const { Content } = await render(caseStudy);
+const title = caseData.title;
 ---
 
 <Layout
   title={title}
-  description={postData.description || t("seo.case-studies.description")}
+  description={caseData.description || t("seo.case-studies.description")}
 >
   <section id="post-title" class="container mx-auto pb-36 pt-20">
     <h1 class="mb-8 text-3xl font-medium md:text-5xl">
@@ -41,7 +32,7 @@ const { Content } = await render(caseStudy);
     </h1>
     <div class="flex flex-col gap-4">
       <ContentContainer>
-        <Content />
+         {Array.isArray(caseData.content) && <PortableText value={caseData.content} components={{ type: Type }} />}
       </ContentContainer>
     </div>
   </section>

@@ -1,0 +1,28 @@
+---
+import type { TypedObject, Props as $ } from 'astro-portabletext/types';
+
+interface TableRow {
+  cells: string[]
+}
+
+interface TableProps {
+  rows: TableRow[]
+}
+
+type Props = $<TypedObject>;
+
+const props = Astro.props;
+const rows = (props.node as unknown as TableProps).rows;
+
+---
+<table>
+  <tbody>
+    {rows.map((row) => (
+      <tr>
+        {row.cells.map((cell) => (
+          <td>{cell}</td>
+        ))}
+      </tr>
+    ))}
+  </tbody>
+</table>

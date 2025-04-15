@@ -1,21 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Heading from "@/components/blog/Heading.astro";
-import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
 import CasesContainer from "@/components/cases/CasesContainer.astro";
 import CaseCard from "@/components/cases/CaseCard.astro";
-import { truncate, mapNotionCase } from "@/lib/helpers";
+import { truncate, mapSanityCase, urlFor } from "@/lib/helpers";
+import type { SanityDocument } from "@sanity/client";
+import { sanityClient } from "sanity:client";
+import { CASES_QUERY } from "@/sanity/queries";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const cases = await getCollection("cases", ({ data }) => {
-  const isCurrentLang =
-    !data.properties.Lang?.select?.name ||
-    data.properties.Lang.select.name === lang;
-  return isCurrentLang;
-});
+const cases = await sanityClient.fetch<SanityDocument[]>(CASES_QUERY(lang));
 ---
 
 <Layout
@@ -27,15 +24,15 @@ const cases = await getCollection("cases", ({ data }) => {
     description={t("page.case-studies.description")}
   />
   <CasesContainer>
-     {
+    {
       cases
-        .map(mapNotionCase)
-        .map((post) => (
+        .map(mapSanityCase)
+        .map((casePost) => (
           <CaseCard
-            slug={post.slug}
-            title={post.title}
-            description={truncate(post.description || "", 100)}
-            image={post.image}
+            slug={casePost.slug}
+            title={casePost.title}
+            description={truncate(casePost.description || "", 100)}
+            image={urlFor(casePost.image)?.width(600).height(600).url()}
           />
         ))
     }

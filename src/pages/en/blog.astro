@@ -1,22 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Heading from "@/components/blog/Heading.astro";
-import { getCollection } from "astro:content";
 import PostCard from "@/components/blog/PostCard.astro";
 import PostsContainer from "@/components/blog/PostsContainer.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
-import { truncate, mapNotionPost } from "@/lib/helpers";
+import { truncate, mapSanityPost } from "@/lib/helpers";
+import { sanityClient } from "sanity:client";
+import type { SanityDocument } from "@sanity/client";
+import { BLOG_POSTS_QUERY } from "@/sanity/queries";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const blog = await getCollection("blog", ({ data }) => {
-  const isDraft = data.properties.Draft?.checkbox === true;
-  const isCurrentLang =
-    !data.properties.Lang?.select?.name ||
-    data.properties.Lang.select.name === lang;
-  return !isDraft && isCurrentLang;
-});
+const posts = await sanityClient.fetch<SanityDocument[]>(BLOG_POSTS_QUERY(lang));
 ---
 
 <Layout
@@ -29,8 +25,8 @@ const blog = await getCollection("blog", ({ data }) => {
   />
   <PostsContainer>
     {
-      blog
-        .map(mapNotionPost)
+      posts
+        .map(mapSanityPost)
         .map((post) => (
           <PostCard
             slug={post.slug}

@@ -1,6 +1,9 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { contactSchema, type ContactForm } from "./schemas";
+import { sanityClient } from "sanity:client";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export function truncate(str: string, maxLength: number) {
   if (str.length <= maxLength) {
@@ -28,15 +31,17 @@ interface Post {
   image?: string;
   description?: string;
   readingTime?: number;
+  content?: any;
 }
 
 interface Case {
   title: string;
   description?: string;
-  image?: string;
+  image?: SanityImageSource;
   slug: string;
   lang: "en" | "uk";
   featured: boolean;
+  content?: any;
 }
 
 export function mapNotionPost(post: any): Post {
@@ -60,6 +65,37 @@ export function mapNotionCase(caseStudy: any): Case {
     lang: caseStudy.data.properties.Lang?.select?.name || "en",
     featured: caseStudy.data.properties.Featured?.checkbox ?? false,
     image: caseStudy.data.properties.Image?.rich_text[0]?.plain_text,
+  };
+}
+
+export function urlFor(source?: SanityImageSource) {
+  if (!source) return undefined;
+  const { projectId, dataset } = sanityClient.config();
+  if (!projectId || !dataset) return undefined;
+  return imageUrlBuilder({ projectId, dataset }).image(source);
+}
+
+export function mapSanityCase(caseStudy: any): Case {
+  return {
+    title: caseStudy.title,
+    description: caseStudy.description,
+    slug: caseStudy.slug.current,
+    lang: caseStudy.lang,
+    featured: caseStudy.featured,
+    image: caseStudy.image,
+    content: caseStudy.content,
+  };
+}
+
+export function mapSanityPost(post: any): Post {
+  return {
+    slug: post.slug.current,
+    title: post.title,
+    image: post.image,
+    description: post.description,
+    readingTime: post.readTime,
+    lang: post.lang,
+    content: post.content,
   };
 }
 
