@@ -6,8 +6,8 @@ import { mapSanityCase } from "@/lib/helpers";
 import { PortableText } from "astro-portabletext";
 import { sanityClient } from "sanity:client";
 import type { SanityDocument } from "@sanity/client";
-import { CASE_SLUGS_QUERY, CASE_QUERY } from "@/sanity/queries";
-import Type from "@/sanity/portabletext/Type.astro";
+import { CASE_SLUGS_QUERY, CASE_QUERY } from "@/sanity/lib/queries";
+import Type from "@/sanity/lib/portabletext/Type.astro";
 
 export async function getStaticPaths(): Promise<({ params: { slug: string; lang: string } })[]> {
   return await sanityClient.fetch(CASE_SLUGS_QUERY, Astro.params);

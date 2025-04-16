@@ -2,7 +2,10 @@
 import Layout from "@/layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 import notFound from "@/assets/icons/not-found.svg";
-import Button from "@/components/react/ui/Button";
+import { NotFoundSection } from "@/components/react/NotFoundSection";
+import { getLangFromUrl } from "@/i18n/helpers";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout>
@@ -13,9 +16,6 @@ import Button from "@/components/react/ui/Button";
         width={400}
         height={320}
       />
-    <h1 class="text-center text-3xl font-semibold">
-      Oopsie, there's nothing here!
-    </h1>
-    <Button className="mt-9">Return home</Button>
+      <NotFoundSection client:load lang={lang} />
   </div>
 </Layout>

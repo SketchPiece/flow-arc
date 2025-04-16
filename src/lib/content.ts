@@ -1,7 +1,7 @@
 import { mapSanityCase } from "./helpers";
 import { sanityClient } from "sanity:client";
 import type { SanityDocument } from "@sanity/client";
-import { CASES_QUERY } from "@/sanity/queries";
+import { CASES_QUERY } from "@/sanity/lib/queries";
 
 interface CasesCollectionOptions {
   lang: "uk" | "en";
