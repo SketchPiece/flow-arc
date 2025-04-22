@@ -7,7 +7,7 @@ interface Props {
   slug: string;
   title: string;
   description: string | undefined;
-  image: string;
+  image: string | undefined;
 }
 
 const { slug, title, description, image } = Astro.props;
@@ -43,7 +43,7 @@ const t = useTranslations(lang);
       </div>
       <div class="max-h-52 w-full bg-gray-darkest md:max-h-full lg:w-auto">
         <Image
-          src={image}
+          src={image ?? "https://placehold.co/600x400/png"}
           alt="image-blog-card"
           class="h-full w-full object-cover"
           width="600"

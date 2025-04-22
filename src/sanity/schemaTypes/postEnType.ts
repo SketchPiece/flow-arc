@@ -12,6 +12,12 @@ export const postEnType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title", maxLength: 96 },
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "image",
@@ -21,12 +27,6 @@ export const postEnType = defineType({
       name: "previewText",
       title: "Preview Text",
       type: "text",
-    }),
-    defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: { source: "title", maxLength: 96 },
     }),
     defineField({
       name: "readTime",

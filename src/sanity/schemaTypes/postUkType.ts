@@ -12,6 +12,12 @@ export const postUkType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "slug",
+      title: "Посилання",
+      type: "slug",
+      options: { source: "title", maxLength: 96 },
+    }),
+    defineField({
       name: "image",
       title: "Зображення",
       type: "image",
@@ -21,12 +27,6 @@ export const postUkType = defineType({
       name: "previewText",
       title: "Текст прев’ю",
       type: "text",
-    }),
-    defineField({
-      name: "slug",
-      title: "Посилання",
-      type: "slug",
-      options: { source: "title", maxLength: 96 },
     }),
     defineField({
       name: "readTime",

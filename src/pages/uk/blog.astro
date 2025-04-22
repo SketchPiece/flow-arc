@@ -4,7 +4,7 @@ import Heading from "@/components/blog/Heading.astro";
 import PostCard from "@/components/blog/PostCard.astro";
 import PostsContainer from "@/components/blog/PostsContainer.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/helpers";
-import { truncate, mapSanityPost } from "@/lib/helpers";
+import { truncate, mapSanityPost, urlFor } from "@/lib/helpers";
 import { sanityClient } from "sanity:client";
 import type { SanityDocument } from "@sanity/client";
 import { BLOG_POSTS_QUERY } from "@/sanity/lib/queries";
@@ -31,7 +31,7 @@ const posts = await sanityClient.fetch<SanityDocument[]>(BLOG_POSTS_QUERY(lang))
           <PostCard
             slug={post.slug}
             title={post.title}
-            image={post.image ?? "https://placehold.co/600x400/png"}
+            image={urlFor(post.image)?.width(600).height(400).url()}
             description={truncate(post.description || "", 100)}
           />
         ))
