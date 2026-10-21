@@ -17,7 +17,9 @@
 
 In November 2022 my partner Ilya and I started an outsourcing studio. For a long time it was called CodeStorm. We tried a few other names after that, and FlowArc was the one we ended up with.
 
-Ilya took care of operations, hiring and clients. I was the technical lead. We were around five people, and most of the developers came to us with little or no experience. I interviewed candidates, taught the ones we took on, and then we found them projects, mostly freelance work through Upwork. I helped them along the way and stepped in when something got hard.
+Ilya took care of operations, hiring and clients, and I was the technical lead. We were around five people.
+
+Most of our developers came to us with little or no experience. I interviewed candidates and taught the ones we took on, and then we found them projects, mostly freelance work through Upwork. I helped them along the way and stepped in when something got hard.
 
 ### Why a website
 
@@ -29,7 +31,7 @@ I designed the site myself in Figma. I started from Positivus, a free landing pa
 
 | The template I started from | Where it ended up |
 | --- | --- |
-| ![Positivus template](docs/story/figma-early-shell-hero.png) | ![FlowArc home in Figma](docs/story/figma-home-final-hero-services.png) |
+| ![Positivus template](docs/story/compare-positivus.png) | ![FlowArc home in Figma](docs/story/compare-flowarc.png) |
 
 I didn't draw the illustrations from scratch. I found and bought SVGs, then edited them and drew in missing parts so that all of them matched the same loose black outline and the same blue.
 
@@ -47,7 +49,7 @@ The same style goes down to the small things, like the 404 page and the paper pl
 
 ### Building it
 
-I built the site with Astro, React and Tailwind, in English and Ukrainian. Pavlo and Vasyl, two of our developers, built parts of it as part of their training. Pavlo did the blog and the first version of the services page, and Vasyl worked on the styles. Ilya wrote the texts.
+I built the site with Astro, React and Tailwind, in English and Ukrainian. Pavlo and Vasyl, two of our developers, built parts of it while they were learning. Pavlo did the blog and the first version of the services page, and Vasyl worked on the styles. Ilya wrote the texts.
 
 The blog and case studies first came from Notion. Notion turned out to be too limited, so in April 2025 I moved them to Sanity, where we planned to write the blog ourselves. The contact form sent messages through Web3Forms, and "Book a consultation" opened Ilya's Calendly.
 
@@ -57,9 +59,9 @@ All of this was written by hand, before I used AI tools for code.
 
 The site was finished but never really used, and no client came through it. My last commit is from April 22, 2025.
 
-Part of it was the market, and part of it was that I had found a full-time job. We helped Pavlo and Vasyl find their own clients, they kept working with them, and in August 2025 we closed the studio.
+We stopped because the market got harder and I had found a full-time job. We helped Pavlo and Vasyl find their own clients, they kept working with them, and in August 2025 we closed the studio.
 
-The site is still online, but not all of its copy is true. The About page says the studio was founded in 2020 and has ten people, and the three case studies on the home page are text left over from the template.
+The site is still online, but some of its copy was written as marketing and isn't accurate. The About page says the studio was founded in 2020 and has ten people, and the three case studies on the home page are text left over from the template.
 
 ## Looking back
 
