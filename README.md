@@ -45,12 +45,6 @@ The same style goes down to the small things, like the 404 page and the paper pl
 
 ![404 page](docs/story/site-404-crop.png)
 
-The Figma file also has a board called "Chaos" with leftovers and experiments. One of them is "Билибоба (младший)", a doodle I drew out of boredom during a call with Ilya.
-
-<p align="center">
-  <img src="docs/story/figma-chaos-sketches.png" width="400" alt="The Chaos board in Figma" />
-</p>
-
 ### Building it
 
 I built the site with Astro, React and Tailwind, in English and Ukrainian. Pavlo and Vasyl, two of our developers, built parts of it as part of their training. Pavlo did the blog and the first version of the services page, and Vasyl worked on the styles. Ilya wrote the texts.
